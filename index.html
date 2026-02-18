@@ -9,172 +9,47 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            min-height: 100vh;
-            background: #0c0c1d;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        .bg-orbs {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        .bg-orbs .orb {
-            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3;
-            animation: drift 20s ease-in-out infinite;
-        }
+        body { font-family: 'DM Sans', sans-serif; min-height: 100vh; background: #0c0c1d; color: #fff; overflow-x: hidden; }
+        .bg-orbs { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+        .bg-orbs .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: drift 20s ease-in-out infinite; }
         .bg-orbs .orb:nth-child(1) { width: 500px; height: 500px; background: #667eea; top: -10%; left: -5%; }
         .bg-orbs .orb:nth-child(2) { width: 400px; height: 400px; background: #f093fb; top: 40%; right: -10%; animation-delay: -7s; }
         .bg-orbs .orb:nth-child(3) { width: 350px; height: 350px; background: #43e97b; bottom: -5%; left: 30%; animation-delay: -14s; }
-        @keyframes drift {
-            0%, 100% { transform: translate(0,0) scale(1); }
-            33% { transform: translate(30px,-20px) scale(1.05); }
-            66% { transform: translate(-20px,15px) scale(0.95); }
-        }
-
-        .container {
-            position: relative; z-index: 1;
-            max-width: 1100px; margin: 0 auto;
-            padding: 40px 24px 60px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-        .header-logo {
-            margin: 0 auto 16px;
-            display: block;
-        }
-        .header p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        .tabs {
-            display: flex; justify-content: center; gap: 6px;
-            margin: 0 auto 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 6px;
-            max-width: 480px;
-        }
-        .tab {
-            flex: 1; padding: 14px 8px;
-            border-radius: 12px; border: none;
-            background: transparent;
-            color: rgba(255,255,255,0.45);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 15px; font-weight: 600;
-            cursor: pointer; transition: all 0.3s;
-            display: flex; flex-direction: column;
-            align-items: center; gap: 2px;
-        }
+        @keyframes drift { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-20px) scale(1.05); } 66% { transform: translate(-20px,15px) scale(0.95); } }
+        .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 40px 24px 60px; }
+        .header { text-align: center; margin-bottom: 48px; }
+        .header-logo { margin: 0 auto 16px; display: block; }
+        .header p { font-size: 1.1rem; color: rgba(255,255,255,0.5); }
+        .tabs { display: flex; justify-content: center; gap: 6px; margin: 0 auto 40px; background: rgba(255,255,255,0.05); border-radius: 16px; padding: 6px; max-width: 560px; }
+        .tab { flex: 1; padding: 14px 8px; border-radius: 12px; border: none; background: transparent; color: rgba(255,255,255,0.45); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; gap: 2px; }
         .tab .tab-emoji { font-size: 22px; line-height: 1; margin-bottom: 2px; }
         .tab:hover { color: rgba(255,255,255,0.7); }
-        .tab.active {
-            background: rgba(255,255,255,0.12);
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
+        .tab.active { background: rgba(255,255,255,0.12); color: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
         .tab[data-tab="roxi"].active { color: #f093fb; }
         .tab[data-tab="via"].active { color: #667eea; }
         .tab[data-tab="david"].active { color: #43e97b; }
-
+        .tab[data-tab="aydrian"].active { color: #c8956c; }
         .tab-content { display: none; animation: fadeUp 0.4s ease; }
         .tab-content.active { display: block; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
         .section-header { text-align: center; margin-bottom: 32px; }
-        .section-header h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem; font-weight: 800; margin-bottom: 6px;
-        }
+        .section-header h2 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; margin-bottom: 6px; }
         .section-header p { color: rgba(255,255,255,0.4); font-size: 0.95rem; }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 24px;
-        }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
         .cards-grid.single { max-width: 480px; margin: 0 auto; }
-
-        .game-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 32px 28px;
-            text-decoration: none; color: inherit; display: block;
-            transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-            position: relative; overflow: hidden;
-        }
-        .game-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: var(--card-accent);
-            opacity: 0; transition: opacity 0.3s;
-        }
-        .game-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255,255,255,0.15);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            background: rgba(255,255,255,0.07);
-        }
+        .game-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 32px 28px; text-decoration: none; color: inherit; display: block; transition: all 0.35s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; }
+        .game-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--card-accent); opacity: 0; transition: opacity 0.3s; }
+        .game-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.4); background: rgba(255,255,255,0.07); }
         .game-card:hover::before { opacity: 1; }
-
-        .card-icon {
-            width: 64px; height: 64px; border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 32px; margin-bottom: 20px;
-            background: var(--card-accent-bg);
-        }
-        .game-card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem; font-weight: 800; margin-bottom: 10px;
-        }
-        .game-card .desc {
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6; font-size: 0.9rem; margin-bottom: 20px;
-        }
+        .card-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 20px; background: var(--card-accent-bg); }
+        .game-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+        .game-card .desc { color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.9rem; margin-bottom: 20px; }
         .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-        .tag {
-            padding: 5px 12px; border-radius: 8px;
-            font-size: 0.78rem; font-weight: 600;
-            background: rgba(255,255,255,0.06);
-            color: rgba(255,255,255,0.55);
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-        .play-btn {
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            width: 100%; padding: 14px 20px;
-            border-radius: 14px; border: none;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem; font-weight: 700;
-            cursor: pointer; transition: all 0.25s;
-            color: #fff;
-        }
-        .play-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        .footer {
-            text-align: center; margin-top: 64px;
-            color: rgba(255,255,255,0.2); font-size: 0.8rem;
-        }
-
-        @media (max-width: 768px) {
-            .cards-grid { grid-template-columns: 1fr; }
-            .container { padding: 28px 16px 48px; }
-            .tab { padding: 12px 6px; font-size: 13px; }
-            .tab .tab-emoji { font-size: 18px; }
-            .header-logo { width: 72px; height: 72px; }
-        }
+        .tag { padding: 5px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.06); }
+        .play-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px 20px; border-radius: 14px; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.25s; color: #fff; }
+        .play-btn:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .footer { text-align: center; margin-top: 64px; color: rgba(255,255,255,0.2); font-size: 0.8rem; }
+        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } .container { padding: 28px 16px 48px; } .tab { padding: 12px 6px; font-size: 13px; } .tab .tab-emoji { font-size: 18px; } .header-logo { width: 72px; height: 72px; } }
     </style>
 </head>
 <body>
@@ -186,14 +61,8 @@
     <div class="header">
         <svg class="header-logo" width="88" height="88" viewBox="0 0 512 512">
             <defs>
-                <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#667eea"/>
-                    <stop offset="100%" stop-color="#f093fb"/>
-                </linearGradient>
-                <filter id="glow">
-                    <feGaussianBlur stdDeviation="8" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
+                <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#f093fb"/></linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             </defs>
             <rect width="512" height="512" rx="102" fill="#0e0e1e"/>
             <line x1="165" y1="114" x2="165" y2="398" stroke="url(#purple)" stroke-width="14" stroke-linecap="round" filter="url(#glow)"/>
@@ -221,8 +90,12 @@
         <button class="tab" data-tab="david" onclick="switchTab('david')">
             <span class="tab-emoji">🧬</span> David
         </button>
+        <button class="tab" data-tab="aydrian" onclick="switchTab('aydrian')">
+            <span class="tab-emoji">🧠</span> Aydrian
+        </button>
     </div>
 
+    <!-- ROXI -->
     <div class="tab-content active" id="tab-roxi">
         <div class="section-header">
             <h2>Roxi's Corner</h2>
@@ -243,6 +116,7 @@
         </div>
     </div>
 
+    <!-- VIA -->
     <div class="tab-content" id="tab-via">
         <div class="section-header">
             <h2>Via's Corner</h2>
@@ -274,6 +148,7 @@
         </div>
     </div>
 
+    <!-- DAVID -->
     <div class="tab-content" id="tab-david">
         <div class="section-header">
             <h2>David's Corner</h2>
@@ -290,6 +165,27 @@
                     <span class="tag">📄 Self-Paced</span>
                 </div>
                 <button class="play-btn" style="background: linear-gradient(135deg, #00e5d0, #0e7490);">Start Learning →</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- AYDRIAN -->
+    <div class="tab-content" id="tab-aydrian">
+        <div class="section-header">
+            <h2>Aydrian's Corner</h2>
+            <p>Daily brain training & word games</p>
+        </div>
+        <div class="cards-grid single">
+            <a href="brainyoga/" class="game-card" style="--card-accent:#c8956c; --card-accent-bg:rgba(200,149,108,0.12);">
+                <div class="card-icon">🧠</div>
+                <h3>BrainForge</h3>
+                <p class="desc">Daily mind training with 6 game modes: memory match, speed math, pattern recognition, spatial reasoning, word scramble, and a daily Classify word puzzle. Track XP, streaks, and earn badges.</p>
+                <div class="tags">
+                    <span class="tag">🧠 6 Game Modes</span>
+                    <span class="tag">📅 Daily Puzzle</span>
+                    <span class="tag">🔥 Streaks & Badges</span>
+                </div>
+                <button class="play-btn" style="background: linear-gradient(135deg, #c8956c, #7a9e7e);">Launch BrainForge →</button>
             </a>
         </div>
     </div>
