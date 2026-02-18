@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kochimi.io</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='102' fill='%230e0e1e'/%3E%3Cline x1='165' y1='114' x2='165' y2='398' stroke='%23667eea' stroke-width='14' stroke-linecap='round'/%3E%3Cline x1='165' y1='256' x2='364' y2='114' stroke='%23FFD700' stroke-width='14' stroke-linecap='round'/%3E%3Cline x1='165' y1='256' x2='364' y2='398' stroke='%2343e97b' stroke-width='14' stroke-linecap='round'/%3E%3Ccircle cx='165' cy='114' r='37' fill='%23667eea'/%3E%3Ccircle cx='165' cy='256' r='46' fill='%23FFD700'/%3E%3Ccircle cx='165' cy='398' r='37' fill='%23667eea'/%3E%3Ccircle cx='364' cy='114' r='31' fill='%2343e97b'/%3E%3Ccircle cx='364' cy='398' r='31' fill='%23FF6348'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -17,7 +18,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated background */
         .bg-orbs {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             pointer-events: none; z-index: 0; overflow: hidden;
@@ -41,24 +41,19 @@
             padding: 40px 24px 60px;
         }
 
-        /* Header */
         .header {
             text-align: center;
             margin-bottom: 48px;
         }
-        .header h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
+        .header-logo {
+            margin: 0 auto 16px;
+            display: block;
         }
         .header p {
             font-size: 1.1rem;
             color: rgba(255,255,255,0.5);
         }
 
-        /* Tabs */
         .tabs {
             display: flex; justify-content: center; gap: 6px;
             margin: 0 auto 40px;
@@ -89,7 +84,6 @@
         .tab[data-tab="via"].active { color: #667eea; }
         .tab[data-tab="david"].active { color: #43e97b; }
 
-        /* Tab content */
         .tab-content { display: none; animation: fadeUp 0.4s ease; }
         .tab-content.active { display: block; }
         @keyframes fadeUp {
@@ -97,7 +91,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Section header */
         .section-header { text-align: center; margin-bottom: 32px; }
         .section-header h2 {
             font-family: 'Outfit', sans-serif;
@@ -105,16 +98,12 @@
         }
         .section-header p { color: rgba(255,255,255,0.4); font-size: 0.95rem; }
 
-        /* Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 24px;
         }
-        .cards-grid.single {
-            max-width: 480px;
-            margin: 0 auto;
-        }
+        .cards-grid.single { max-width: 480px; margin: 0 auto; }
 
         .game-card {
             background: rgba(255,255,255,0.05);
@@ -145,7 +134,6 @@
             font-size: 32px; margin-bottom: 20px;
             background: var(--card-accent-bg);
         }
-
         .game-card h3 {
             font-family: 'Outfit', sans-serif;
             font-size: 1.5rem; font-weight: 800; margin-bottom: 10px;
@@ -154,7 +142,6 @@
             color: rgba(255,255,255,0.5);
             line-height: 1.6; font-size: 0.9rem; margin-bottom: 20px;
         }
-
         .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
         .tag {
             padding: 5px 12px; border-radius: 8px;
@@ -163,7 +150,6 @@
             color: rgba(255,255,255,0.55);
             border: 1px solid rgba(255,255,255,0.06);
         }
-
         .play-btn {
             display: flex; align-items: center; justify-content: center; gap: 8px;
             width: 100%; padding: 14px 20px;
@@ -171,13 +157,12 @@
             font-family: 'DM Sans', sans-serif;
             font-size: 0.95rem; font-weight: 700;
             cursor: pointer; transition: all 0.25s;
-            color: #fff; background: var(--card-accent);
+            color: #fff;
         }
         .play-btn:hover {
             transform: scale(1.02);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-
         .footer {
             text-align: center; margin-top: 64px;
             color: rgba(255,255,255,0.2); font-size: 0.8rem;
@@ -188,6 +173,7 @@
             .container { padding: 28px 16px 48px; }
             .tab { padding: 12px 6px; font-size: 13px; }
             .tab .tab-emoji { font-size: 18px; }
+            .header-logo { width: 72px; height: 72px; }
         }
     </style>
 </head>
@@ -198,11 +184,33 @@
 <div class="container">
 
     <div class="header">
-        <h1>Kochimi.io</h1>
+        <svg class="header-logo" width="88" height="88" viewBox="0 0 512 512">
+            <defs>
+                <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#667eea"/>
+                    <stop offset="100%" stop-color="#f093fb"/>
+                </linearGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="8" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <rect width="512" height="512" rx="102" fill="#0e0e1e"/>
+            <line x1="165" y1="114" x2="165" y2="398" stroke="url(#purple)" stroke-width="14" stroke-linecap="round" filter="url(#glow)"/>
+            <line x1="165" y1="256" x2="364" y2="114" stroke="#FFD700" stroke-width="14" stroke-linecap="round" filter="url(#glow)"/>
+            <line x1="165" y1="256" x2="364" y2="398" stroke="#43e97b" stroke-width="14" stroke-linecap="round" filter="url(#glow)"/>
+            <circle cx="165" cy="114" r="37" fill="url(#purple)" filter="url(#glow)"/>
+            <circle cx="165" cy="256" r="46" fill="#FFD700" filter="url(#glow)"/>
+            <circle cx="165" cy="398" r="37" fill="url(#purple)" filter="url(#glow)"/>
+            <circle cx="364" cy="114" r="31" fill="#43e97b" filter="url(#glow)"/>
+            <circle cx="364" cy="398" r="31" fill="#FF6348" filter="url(#glow)"/>
+            <circle cx="264" cy="185" r="10" fill="rgba(255,255,255,0.2)"/>
+            <circle cx="264" cy="327" r="10" fill="rgba(255,255,255,0.2)"/>
+            <circle cx="159" cy="248" r="16" fill="#fff" opacity="0.3"/>
+        </svg>
         <p>Learn something awesome today</p>
     </div>
 
-    <!-- Tabs -->
     <div class="tabs">
         <button class="tab active" data-tab="roxi" onclick="switchTab('roxi')">
             <span class="tab-emoji">💼</span> Roxi
@@ -215,7 +223,6 @@
         </button>
     </div>
 
-    <!-- ROXI -->
     <div class="tab-content active" id="tab-roxi">
         <div class="section-header">
             <h2>Roxi's Corner</h2>
@@ -225,23 +232,17 @@
             <a href="allocation-game.html" class="game-card" style="--card-accent:#f093fb; --card-accent-bg:rgba(240,147,251,0.12);">
                 <div class="card-icon">💼</div>
                 <h3>The Allocation Game</h3>
-                <p class="desc">
-                    Make strategic investment decisions across 12 real-world SaaS private equity scenarios. 
-                    Allocate capital wisely and compete with other CFOs to achieve the best returns.
-                </p>
+                <p class="desc">Make strategic investment decisions across 12 real-world SaaS private equity scenarios. Allocate capital wisely and compete with other CFOs to achieve the best returns.</p>
                 <div class="tags">
                     <span class="tag">🎯 Strategic Thinking</span>
                     <span class="tag">💰 Investment Decisions</span>
                     <span class="tag">📊 Real PE Scenarios</span>
                 </div>
-                <button class="play-btn" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
-                    Play Allocation Game →
-                </button>
+                <button class="play-btn" style="background: linear-gradient(135deg, #f093fb, #f5576c);">Play Allocation Game →</button>
             </a>
         </div>
     </div>
 
-    <!-- VIA -->
     <div class="tab-content" id="tab-via">
         <div class="section-header">
             <h2>Via's Corner</h2>
@@ -251,39 +252,28 @@
             <a href="math-challenge.html" class="game-card" style="--card-accent:#667eea; --card-accent-bg:rgba(102,126,234,0.12);">
                 <div class="card-icon">🧮</div>
                 <h3>Math Challenge</h3>
-                <p class="desc">
-                    Test your math skills with adaptive questions! Level up, earn badges, and build streaks 
-                    as you master arithmetic, algebra, geometry, exponents, and fractions.
-                </p>
+                <p class="desc">Test your math skills with adaptive questions! Level up, earn badges, and build streaks as you master arithmetic, algebra, geometry, exponents, and fractions.</p>
                 <div class="tags">
                     <span class="tag">🧮 Multiple Topics</span>
                     <span class="tag">📈 Adaptive Difficulty</span>
                     <span class="tag">🏆 Achievements</span>
                 </div>
-                <button class="play-btn" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    Play Math Challenge →
-                </button>
+                <button class="play-btn" style="background: linear-gradient(135deg, #667eea, #764ba2);">Play Math Challenge →</button>
             </a>
             <a href="reading-quest.html" class="game-card" style="--card-accent:#43e97b; --card-accent-bg:rgba(67,233,123,0.12);">
                 <div class="card-icon">📚</div>
                 <h3>Reading Quest</h3>
-                <p class="desc">
-                    Journey through 20 engaging stories with increasing difficulty! Answer comprehension questions, 
-                    unlock levels, and become a reading champion with stories from easy to advanced.
-                </p>
+                <p class="desc">Journey through 20 engaging stories with increasing difficulty! Answer comprehension questions, unlock levels, and become a reading champion.</p>
                 <div class="tags">
                     <span class="tag">📖 20 Levels</span>
                     <span class="tag">🎯 Comprehension</span>
                     <span class="tag">⭐ Easy to Hard</span>
                 </div>
-                <button class="play-btn" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
-                    Play Reading Quest →
-                </button>
+                <button class="play-btn" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">Play Reading Quest →</button>
             </a>
         </div>
     </div>
 
-    <!-- DAVID -->
     <div class="tab-content" id="tab-david">
         <div class="section-header">
             <h2>David's Corner</h2>
@@ -293,18 +283,13 @@
             <a href="bio5/" class="game-card" style="--card-accent:#00e5d0; --card-accent-bg:rgba(0,229,208,0.12);">
                 <div class="card-icon">🧬</div>
                 <h3>Bio in 5</h3>
-                <p class="desc">
-                    Learn biochemistry at your own pace! 5 episodes with slides and voice narration covering 
-                    elements, biomolecules, proteins, DNA, and energy. ~15 minutes total.
-                </p>
+                <p class="desc">Learn biochemistry at your own pace! 5 episodes with slides and voice narration covering elements, biomolecules, proteins, DNA, and energy. ~15 minutes total.</p>
                 <div class="tags">
                     <span class="tag">🧬 Biochemistry</span>
                     <span class="tag">🎧 Voice Narration</span>
                     <span class="tag">📄 Self-Paced</span>
                 </div>
-                <button class="play-btn" style="background: linear-gradient(135deg, #00e5d0, #0e7490);">
-                    Start Learning →
-                </button>
+                <button class="play-btn" style="background: linear-gradient(135deg, #00e5d0, #0e7490);">Start Learning →</button>
             </a>
         </div>
     </div>
@@ -322,7 +307,6 @@ function switchTab(name) {
     document.getElementById('tab-' + name).classList.add('active');
     localStorage.setItem('kochimi_tab', name);
 }
-// Restore last tab
 var saved = localStorage.getItem('kochimi_tab');
 if (saved) switchTab(saved);
 </script>
