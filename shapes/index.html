@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Shapes — BrainForge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1a1916; --surface: #23221e; --surface2: #2c2b26;
+  --border: #3a3832; --border2: #4a483f;
+  --text: #d4cfc3; --dim: #8a8578; --muted: #6b665a;
+  --warm: #c8956c; --gold: #d4a962; --sage: #7a9e7e;
+  --clay: #b87a5e; --sand: #c4b99a;
+  --wrong: #b8645e;
+  --radius: 12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 800px 600px at 20% 10%,rgba(200,149,108,0.04),transparent),radial-gradient(ellipse 600px 600px at 80% 80%,rgba(122,158,126,0.03),transparent);pointer-events:none;z-index:0}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;border:none;outline:none}
+
+/* ─── Layout ─── */
+.app{max-width:520px;margin:0 auto;padding:20px 16px 100px;position:relative;z-index:1}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.back-btn{background:none;color:var(--muted);font-size:13px;font-weight:500;padding:0;transition:color 0.2s}
+.back-btn:hover{color:var(--text)}
+.top-title{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;color:#f0ece4}
+.top-score{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15px;color:var(--gold)}
+
+/* ─── Level Header ─── */
+.level-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.level-tag{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.level-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--warm);font-weight:600}
+.diff-label{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.diff-easy{background:rgba(122,158,126,0.12);color:var(--sage)}
+.diff-medium{background:rgba(200,149,108,0.12);color:var(--warm)}
+.diff-hard{background:rgba(212,169,98,0.12);color:var(--gold)}
+.diff-expert{background:rgba(184,100,94,0.12);color:var(--wrong)}
+
+/* ─── Progress Dots ─── */
+.progress-row{display:flex;gap:6px;align-items:center;justify-content:center;margin-bottom:24px}
+.prog-dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:all 0.4s}
+.prog-dot.done{background:var(--sage)}
+.prog-dot.skip{background:var(--wrong);opacity:0.5}
+.prog-dot.current{background:var(--warm);box-shadow:0 0 8px rgba(200,149,108,0.4)}
+
+/* ─── Target Grid ─── */
+.board-section{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 20px 24px;margin-bottom:20px;display:flex;flex-direction:column;align-items:center}
+.board-label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.grid-wrap{display:flex;justify-content:center}
+.grid{display:inline-grid;gap:3px}
+.cell{border-radius:6px;transition:all 0.2s;position:relative}
+.cell.empty{background:transparent;border:none}
+.cell.target{background:var(--surface2);border:2px dashed var(--border2);cursor:pointer}
+.cell.target:hover{border-color:var(--warm);background:rgba(200,149,108,0.06);transform:scale(1.04)}
+.cell.target.highlight{border-color:var(--warm);background:rgba(200,149,108,0.1);border-style:solid}
+.cell.target.invalid{border-color:var(--wrong);background:rgba(184,100,94,0.08)}
+.cell.filled{border:1px solid rgba(0,0,0,0.1);cursor:pointer;box-shadow:inset 0 1px 2px rgba(255,255,255,0.12),0 1px 3px rgba(0,0,0,0.2)}
+.cell.filled:hover{opacity:0.82;transform:scale(1.04)}
+@keyframes cellPop{0%{transform:scale(0.7);opacity:0}100%{transform:scale(1);opacity:1}}
+.cell.just-placed{animation:cellPop 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+@keyframes solveGlow{0%{box-shadow:0 0 0 rgba(122,158,126,0)}50%{box-shadow:0 0 16px rgba(122,158,126,0.5),inset 0 0 8px rgba(122,158,126,0.2)}100%{box-shadow:0 0 0 rgba(122,158,126,0)}}
+.cell.solved{animation:solveGlow 1s ease-in-out 2;border-color:var(--sage)!important}
+
+/* ─── Pieces Tray ─── */
+.tray-section{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
+.tray-label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;text-align:center}
+.tray{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.piece{padding:10px;border-radius:10px;border:2px solid transparent;cursor:pointer;transition:all 0.25s;display:inline-flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.piece:hover{background:rgba(200,149,108,0.04)}
+.piece.selected{border-color:var(--warm);background:rgba(200,149,108,0.08);box-shadow:0 0 16px rgba(200,149,108,0.15);transform:translateY(-2px)}
+.piece.placed{opacity:0.15;pointer-events:none;transform:scale(0.9)}
+.piece-grid{display:inline-grid;gap:1px}
+.piece-cell{border-radius:3px;box-shadow:inset 0 1px 1px rgba(255,255,255,0.1),0 1px 2px rgba(0,0,0,0.15)}
+
+/* ─── Controls ─── */
+.controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.ctrl{padding:9px 20px;border-radius:24px;background:transparent;border:1px solid var(--border);color:var(--muted);font-size:13px;font-weight:500;transition:all 0.2s}
+.ctrl:hover{border-color:var(--warm);color:var(--warm)}
+.ctrl:disabled{opacity:0.25;pointer-events:none}
+.ctrl.primary{background:var(--warm);border-color:var(--warm);color:var(--bg);font-weight:600}
+.ctrl.primary:hover{opacity:0.85}
+
+/* ─── Messages ─── */
+.msg{font-size:13px;color:var(--dim);text-align:center;min-height:22px;font-weight:500;transition:all 0.3s}
+.msg.error{color:var(--wrong)}
+.msg.success{color:var(--sage)}
+
+/* ─── Menu Screen ─── */
+.menu{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;max-width:520px;margin:0 auto;position:relative;z-index:1}
+.menu h1{font-family:'Instrument Serif',serif;font-size:clamp(2.8rem,8vw,3.6rem);font-weight:400;color:#f0ece4;letter-spacing:-1px;margin-bottom:8px;text-align:center}
+.menu .sub{color:var(--muted);font-size:14px;font-style:italic;margin-bottom:48px;text-align:center}
+.menu-stats{display:flex;gap:1px;margin-bottom:40px;background:var(--border);border-radius:var(--radius);overflow:hidden;width:100%;max-width:380px}
+.menu-stat{flex:1;padding:18px 12px;text-align:center;background:var(--surface)}
+.menu-stat .v{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:600;color:#f0ece4}
+.menu-stat .l{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:2px;text-transform:uppercase}
+.level-select{width:100%;max-width:380px;margin-bottom:32px}
+.level-select-label{font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.lv-btn{padding:14px 0;border-radius:10px;background:var(--surface);border:1px solid var(--border);color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s;text-align:center}
+.lv-btn:hover{border-color:var(--warm);color:var(--warm);transform:translateY(-1px)}
+.lv-btn.done{background:rgba(122,158,126,0.06);border-color:rgba(122,158,126,0.3);color:var(--sage)}
+.lv-btn.done::after{content:'✓';display:block;font-size:9px;margin-top:2px}
+.lv-btn.current{border-color:var(--warm);color:var(--warm);background:rgba(200,149,108,0.06)}
+.start-btn{padding:16px 48px;border-radius:var(--radius);background:var(--warm);color:var(--bg);font-size:15px;font-weight:600;transition:all 0.25s;letter-spacing:0.5px}
+.start-btn:hover{opacity:0.85;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,149,108,0.2)}
+
+/* ─── Popup ─── */
+.popup{position:fixed;top:24px;left:50%;transform:translateX(-50%) translateY(-80px);background:var(--surface2);border:1px solid var(--gold);color:var(--gold);padding:10px 24px;border-radius:var(--radius);font-weight:500;font-size:13px;z-index:999;transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;backdrop-filter:blur(12px)}
+.popup.show{transform:translateX(-50%) translateY(0)}
+
+/* ─── Complete Screen ─── */
+.complete{text-align:center;padding:40px 20px}
+.complete h2{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;color:#f0ece4;margin-bottom:8px}
+.complete .final-score{font-family:'JetBrains Mono',monospace;font-size:48px;font-weight:600;color:var(--gold);margin:16px 0 4px}
+.complete .final-label{font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:32px}
+.complete-stats{display:flex;gap:24px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.cs{text-align:center}
+.cs .cv{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:#f0ece4}
+.cs .cl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:420px){
+  .cell{border-radius:4px}
+  .piece-cell{border-radius:2px}
+  .tray{gap:10px}
+  .piece{padding:8px}
+  .controls{gap:6px}
+  .ctrl{padding:8px 14px;font-size:12px}
+  .board-section{padding:20px 12px 16px}
+}
+</style>
+</head>
+<body>
+<div class="popup" id="popup"></div>
+
+<!-- Menu -->
+<div id="menuScreen" class="menu">
+  <h1>Shapes</h1>
+  <p class="sub">Fit the pieces to fill the target</p>
+  <div class="menu-stats">
+    <div class="menu-stat"><div class="v" id="mCompleted">0</div><div class="l">Solved</div></div>
+    <div class="menu-stat"><div class="v" id="mBest">—</div><div class="l">Best Score</div></div>
+    <div class="menu-stat"><div class="v" id="mStreak">0</div><div class="l">Streak</div></div>
+  </div>
+  <div class="level-select">
+    <div class="level-select-label">Select Level</div>
+    <div class="level-grid" id="levelGrid"></div>
+  </div>
+  <button class="start-btn" id="startBtn">Play</button>
+</div>
+
+<!-- Game -->
+<div id="gameScreen" class="app" style="display:none">
+  <div class="top-bar">
+    <button class="back-btn" id="backBtn">← Menu</button>
+    <div class="top-title">Shapes</div>
+    <div class="top-score" id="score">0</div>
+  </div>
+  <div class="level-bar">
+    <span class="level-tag">Level <span class="level-num" id="levelNum">1</span></span>
+    <span class="diff-label" id="diffLabel">Easy</span>
+  </div>
+  <div class="progress-row" id="progressRow"></div>
+  <div class="board-section">
+    <div class="board-label">Fill the shape</div>
+    <div class="grid-wrap"><div class="grid" id="grid"></div></div>
+  </div>
+  <div class="tray-section">
+    <div class="tray-label">Pieces</div>
+    <div class="tray" id="tray"></div>
+  </div>
+  <div class="controls" id="controls"></div>
+  <div class="msg" id="msg"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════
+//  PUZZLE DEFINITIONS
+//  Each puzzle: 2D grid of piece IDs
+//  -1 = empty, 0+ = piece index
+// ═══════════════════════════════════
+var PUZZLES = [
+  // ── Level 1: 2 pieces, small L ──
+  { grid: [
+    [0, 1],
+    [0, 1],
+    [0,-1]
+  ]},
+  // ── Level 2: 2 pieces, T-shape ──
+  { grid: [
+    [0, 0, 0],
+    [-1,1,-1],
+    [-1,1,-1]
+  ]},
+  // ── Level 3: 2 pieces, zigzag ──
+  { grid: [
+    [0, 0,-1],
+    [-1,1, 1],
+    [-1,-1,1]
+  ]},
+  // ── Level 4: 2 pieces, wider L ──
+  { grid: [
+    [0, 0, 0],
+    [1, 1, 0]
+  ]},
+  // ── Level 5: 2 pieces, step shape ──
+  { grid: [
+    [0, 0,-1,-1],
+    [-1,0, 1, 1],
+    [-1,-1,1,-1]
+  ]},
+  // ── Level 6: 3 pieces, rectangle ──
+  { grid: [
+    [0, 0, 1],
+    [0, 2, 1],
+    [2, 2, 1]
+  ]},
+  // ── Level 7: 3 pieces, cross ──
+  { grid: [
+    [-1,0,-1],
+    [ 1,0, 2],
+    [ 1,1, 2],
+    [-1,2,-1]
+  ]},
+  // ── Level 8: 3 pieces, big L ──
+  { grid: [
+    [0, 0, 0, 0],
+    [1, 1, 2,-1],
+    [-1,1, 2,-1]
+  ]},
+  // ── Level 9: 3 pieces, U-shape ──
+  { grid: [
+    [0,-1, 1],
+    [0,-1, 1],
+    [0, 2, 1],
+    [2, 2, 2]
+  ]},
+  // ── Level 10: 3 pieces, T-block ──
+  { grid: [
+    [0, 0, 0, 0],
+    [-1,1, 1,-1],
+    [-1,2, 2,-1]
+  ]},
+  // ── Level 11: 3 pieces, diamond ──
+  { grid: [
+    [-1, 0,-1],
+    [ 1, 0, 2],
+    [ 1, 1, 2],
+    [-1, 2,-1]
+  ]},
+  // ── Level 12: 4 pieces, square ──
+  { grid: [
+    [0, 0, 1, 1],
+    [0, 0, 1,-1],
+    [2, 3, 3,-1],
+    [2, 2, 3, 3]
+  ]},
+  // ── Level 13: 4 pieces, plus ──
+  { grid: [
+    [-1, 0, 0,-1],
+    [ 1, 1, 0, 2],
+    [-1, 3, 2, 2],
+    [-1, 3, 3,-1]
+  ]},
+  // ── Level 14: 4 pieces, wide shape ──
+  { grid: [
+    [0, 0, 1, 1, 1],
+    [0, 2, 2, 3,-1],
+    [-1,2, 3, 3,-1]
+  ]},
+  // ── Level 15: 4 pieces, complex ──
+  { grid: [
+    [0, 0,-1,-1],
+    [0, 1, 1, 2],
+    [3, 1, 2, 2],
+    [3, 3, 3,-1]
+  ]},
+  // ── Level 16: 4 pieces, H-shape ──
+  { grid: [
+    [0,-1, 1],
+    [0, 2, 1],
+    [0, 2, 1],
+    [0,-1, 1],
+    [3, 3, 3]
+  ]},
+  // ── Level 17: 5 pieces, large block ──
+  { grid: [
+    [0, 0, 1, 1],
+    [0, 2, 2, 1],
+    [3, 2, 4, 4],
+    [3, 3, 3, 4]
+  ]},
+  // ── Level 18: 5 pieces, castle ──
+  { grid: [
+    [0,-1, 1,-1, 2],
+    [0, 3, 3, 3, 2],
+    [0, 3, 4, 4, 2],
+    [-1,-1,4,-1,-1]
+  ]},
+  // ── Level 19: 5 pieces, big cross ──
+  { grid: [
+    [-1, 0, 0,-1],
+    [ 1, 1, 0, 2],
+    [ 1, 3, 3, 2],
+    [-1, 3, 4,-1],
+    [-1, 4, 4,-1]
+  ]},
+  // ── Level 20: 5 pieces, crown ──
+  { grid: [
+    [0,-1,1,-1, 2],
+    [0, 0,1, 2, 2],
+    [3, 3,3, 4, 4],
+    [-1,3,4, 4,-1]
+  ]}
+];
+
+var PIECE_COLORS = ['#7a9e7e','#c8956c','#8fa4b8','#b8967a','#9b7ab8','#b87a5e','#849e8f','#c4a96a'];
+var DIFF_RANGES = [
+  {label:'Easy',   cls:'diff-easy',   from:0, to:4},
+  {label:'Medium', cls:'diff-medium', from:5, to:9},
+  {label:'Hard',   cls:'diff-hard',   from:10,to:15},
+  {label:'Expert', cls:'diff-expert', from:16,to:19}
+];
+
+// ═══════════════════════════════════
+//  STATE
+// ═══════════════════════════════════
+var state = JSON.parse(localStorage.getItem('shapes_state')||'null') || {
+  completed: [],  // level indices completed
+  bestScore: 0,
+  totalSolved: 0,
+  streak: 0
+};
+function save(){ localStorage.setItem('shapes_state', JSON.stringify(state)); }
+
+var curLevel = 0;
+var score = 0;
+var selPiece = -1;
+var pieces = [];      // [{shape:[[r,c],...], placed:null|{cells}, used:false, rotations:0}]
+var targetCells = {};  // {r,c key => true}
+var gridRows = 0, gridCols = 0;
+var puzzleSolutions = []; // original piece cell positions for hints
+
+// ═══════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════
+function cellKey(r,c){ return r+','+c; }
+function norm(cells){
+  var mr=Infinity,mc=Infinity;
+  cells.forEach(function(c){if(c[0]<mr)mr=c[0];if(c[1]<mc)mc=c[1];});
+  return cells.map(function(c){return[c[0]-mr,c[1]-mc];});
+}
+function rot90(cells){
+  var mx=0;cells.forEach(function(c){if(c[0]>mx)mx=c[0];});
+  return norm(cells.map(function(c){return[c[1],mx-c[0]];}));
+}
+function pieceW(cells){var m=0;cells.forEach(function(c){if(c[1]>m)m=c[1];});return m+1;}
+function pieceH(cells){var m=0;cells.forEach(function(c){if(c[0]>m)m=c[0];});return m+1;}
+function getPlacedMap(){
+  var m={};
+  pieces.forEach(function(p,i){
+    if(p.placed){p.placed.cells.forEach(function(c){m[cellKey(c[0],c[1])]=i;});}
+  });
+  return m;
+}
+function canPlace(shape,ar,ac,skipIdx){
+  var pm=getPlacedMap();
+  var cells=shape.map(function(c){return[c[0]+ar,c[1]+ac];});
+  for(var i=0;i<cells.length;i++){
+    var k=cellKey(cells[i][0],cells[i][1]);
+    if(!targetCells[k])return null;
+    if(pm[k]!==undefined&&pm[k]!==skipIdx)return null;
+  }
+  return cells;
+}
+function isSolved(){
+  var pm=getPlacedMap();
+  for(var k in targetCells){if(pm[k]===undefined)return false;}
+  return true;
+}
+function showPopup(txt){
+  var el=document.getElementById('popup');
+  el.textContent=txt;el.classList.add('show');
+  setTimeout(function(){el.classList.remove('show');},2200);
+}
+function showMsg(txt,cls){
+  var el=document.getElementById('msg');
+  el.textContent=txt;el.className='msg'+(cls?' '+cls:'');
+  if(txt)setTimeout(function(){if(el.textContent===txt)el.textContent='';el.className='msg';},2200);
+}
+function getDiff(lvl){
+  for(var i=0;i<DIFF_RANGES.length;i++){
+    if(lvl>=DIFF_RANGES[i].from && lvl<=DIFF_RANGES[i].to) return DIFF_RANGES[i];
+  }
+  return DIFF_RANGES[DIFF_RANGES.length-1];
+}
+
+// ═══════════════════════════════════
+//  CELL SIZE — responsive
+// ═══════════════════════════════════
+function getCellSize(){
+  var w=Math.min(window.innerWidth-80, 480);
+  var maxCols=gridCols||5;
+  var sz=Math.floor((w - (maxCols-1)*3) / maxCols);
+  return Math.min(sz, 56);
+}
+function getPieceCellSize(){
+  var numPieces=pieces.length||3;
+  if(numPieces<=3) return 18;
+  if(numPieces<=4) return 16;
+  return 14;
+}
+
+// ═══════════════════════════════════
+//  MENU
+// ═══════════════════════════════════
+function renderMenu(){
+  document.getElementById('menuScreen').style.display='';
+  document.getElementById('gameScreen').style.display='none';
+  document.getElementById('mCompleted').textContent=state.totalSolved;
+  document.getElementById('mBest').textContent=state.bestScore||'—';
+  document.getElementById('mStreak').textContent=state.streak;
+
+  var grid=document.getElementById('levelGrid');
+  grid.innerHTML='';
+  PUZZLES.forEach(function(_,i){
+    var btn=document.createElement('button');
+    btn.className='lv-btn';
+    if(state.completed.indexOf(i)!==-1) btn.classList.add('done');
+    btn.textContent=i+1;
+    btn.addEventListener('click',function(){ curLevel=i; highlightLevel(); });
+    grid.appendChild(btn);
+  });
+  highlightLevel();
+
+  document.getElementById('startBtn').onclick=function(){ startLevel(curLevel); };
+}
+function highlightLevel(){
+  document.querySelectorAll('.lv-btn').forEach(function(b,i){
+    b.classList.toggle('current',i===curLevel);
+  });
+}
+
+// ═══════════════════════════════════
+//  START LEVEL
+// ═══════════════════════════════════
+function startLevel(lvl){
+  curLevel=lvl;
+  score=0;selPiece=-1;
+  document.getElementById('menuScreen').style.display='none';
+  document.getElementById('gameScreen').style.display='';
+  document.getElementById('score').textContent='0';
+
+  var diff=getDiff(lvl);
+  document.getElementById('levelNum').textContent=lvl+1;
+  var dl=document.getElementById('diffLabel');
+  dl.textContent=diff.label;dl.className='diff-label '+diff.cls;
+
+  // Parse puzzle
+  var pg=PUZZLES[lvl].grid;
+  gridRows=pg.length;
+  gridCols=pg[0].length;
+  targetCells={};
+  var pieceMap={};
+  puzzleSolutions=[];
+
+  for(var r=0;r<gridRows;r++){
+    for(var c=0;c<gridCols;c++){
+      var v=pg[r][c];
+      if(v>=0){
+        targetCells[cellKey(r,c)]=true;
+        if(!pieceMap[v])pieceMap[v]=[];
+        pieceMap[v].push([r,c]);
+      }
+    }
+  }
+
+  // Create pieces with random rotations
+  pieces=[];
+  var ids=Object.keys(pieceMap).map(Number).sort(function(a,b){return a-b;});
+  ids.forEach(function(id){
+    var solCells=pieceMap[id];
+    puzzleSolutions.push(solCells.slice());
+    var shape=norm(solCells.slice());
+    // apply random rotations
+    var rots=Math.floor(Math.random()*4);
+    for(var i=0;i<rots;i++) shape=rot90(shape);
+    pieces.push({shape:shape, placed:null, used:false, origRots:rots});
+  });
+
+  renderProgress();
+  renderBoard();
+}
+
+// ═══════════════════════════════════
+//  PROGRESS DOTS
+// ═══════════════════════════════════
+function renderProgress(){
+  var row=document.getElementById('progressRow');
+  row.innerHTML='';
+  var total=PUZZLES.length;
+  // show only nearby levels (±3)
+  var lo=Math.max(0,curLevel-3), hi=Math.min(total-1,curLevel+3);
+  for(var i=lo;i<=hi;i++){
+    var dot=document.createElement('div');
+    dot.className='prog-dot';
+    if(i===curLevel) dot.classList.add('current');
+    else if(state.completed.indexOf(i)!==-1) dot.classList.add('done');
+    row.appendChild(dot);
+  }
+}
+
+// ═══════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════
+function renderBoard(){
+  var cs=getCellSize(), pcs=getPieceCellSize();
+  var pm=getPlacedMap();
+
+  // ── Grid ──
+  var g=document.getElementById('grid');
+  g.style.gridTemplateColumns='repeat('+gridCols+','+cs+'px)';
+  g.innerHTML='';
+
+  for(var r=0;r<gridRows;r++){
+    for(var c=0;c<gridCols;c++){
+      var k=cellKey(r,c);
+      var cell=document.createElement('div');
+      cell.style.width=cs+'px';cell.style.height=cs+'px';
+
+      if(!targetCells[k]){
+        cell.className='cell empty';
+      } else if(pm[k]!==undefined){
+        var pi=pm[k];
+        cell.className='cell filled just-placed';
+        cell.style.background=PIECE_COLORS[pi%PIECE_COLORS.length];
+        cell.dataset.pr=r;cell.dataset.pc=c;
+        // Click filled cell to remove piece
+        (function(idx){
+          cell.addEventListener('click',function(){
+            pieces[idx].placed=null;pieces[idx].used=false;
+            selPiece=idx;
+            renderBoard();
+          });
+        })(pi);
+      } else {
+        cell.className='cell target';
+        cell.dataset.tr=r;cell.dataset.tc=c;
+        // Hover preview
+        (function(tr,tc){
+          cell.addEventListener('mouseenter',function(){ previewPlace(tr,tc); });
+          cell.addEventListener('mouseleave',clearPreview);
+          // Click to place
+          cell.addEventListener('click',function(){ placeAt(tr,tc); });
+        })(r,c);
+      }
+      g.appendChild(cell);
+    }
+  }
+
+  // ── Pieces Tray ──
+  var tray=document.getElementById('tray');
+  tray.innerHTML='';
+  pieces.forEach(function(p,i){
+    var wrap=document.createElement('div');
+    wrap.className='piece'+(i===selPiece?' selected':'')+(p.used?' placed':'');
+    wrap.dataset.pi=i;
+
+    var pgrid=document.createElement('div');
+    pgrid.className='piece-grid';
+    var w=pieceW(p.shape),h=pieceH(p.shape);
+    pgrid.style.gridTemplateColumns='repeat('+w+','+pcs+'px)';
+    var smap={};p.shape.forEach(function(c){smap[cellKey(c[0],c[1])]=true;});
+    for(var rr=0;rr<h;rr++){
+      for(var cc=0;cc<w;cc++){
+        var pc=document.createElement('div');
+        pc.className='piece-cell';
+        pc.style.width=pcs+'px';pc.style.height=pcs+'px';
+        pc.style.background=smap[cellKey(rr,cc)]?PIECE_COLORS[i%PIECE_COLORS.length]:'transparent';
+        if(!smap[cellKey(rr,cc)])pc.style.boxShadow='none';
+        pgrid.appendChild(pc);
+      }
+    }
+    wrap.appendChild(pgrid);
+
+    // Click piece to select/unselect
+    wrap.addEventListener('click',function(){
+      if(p.used){
+        // Clicking used piece picks it back up
+        p.placed=null;p.used=false;selPiece=i;
+        renderBoard();return;
+      }
+      selPiece=(selPiece===i)?-1:i;
+      renderBoard();
+    });
+    tray.appendChild(wrap);
+  });
+
+  // ── Controls ──
+  var ctrl=document.getElementById('controls');
+  ctrl.innerHTML='';
+
+  var rotBtn=document.createElement('button');
+  rotBtn.className='ctrl';rotBtn.textContent='↻ Rotate';
+  rotBtn.disabled=(selPiece===-1);
+  rotBtn.addEventListener('click',function(){
+    if(selPiece===-1)return;
+    pieces[selPiece].shape=rot90(pieces[selPiece].shape);
+    renderBoard();
+  });
+  ctrl.appendChild(rotBtn);
+
+  var clrBtn=document.createElement('button');
+  clrBtn.className='ctrl';clrBtn.textContent='Clear';
+  clrBtn.addEventListener('click',function(){
+    pieces.forEach(function(p){p.placed=null;p.used=false;});
+    selPiece=-1;renderBoard();
+  });
+  ctrl.appendChild(clrBtn);
+
+  var hintBtn=document.createElement('button');
+  hintBtn.className='ctrl';hintBtn.textContent='💡 Hint';
+  hintBtn.addEventListener('click',useHint);
+  ctrl.appendChild(hintBtn);
+
+  if(curLevel<PUZZLES.length-1){
+    var skipBtn=document.createElement('button');
+    skipBtn.className='ctrl';skipBtn.textContent='Skip →';
+    skipBtn.addEventListener('click',function(){
+      showMsg('Skipped');
+      setTimeout(function(){
+        if(curLevel<PUZZLES.length-1) startLevel(curLevel+1);
+        else renderMenu();
+      },500);
+    });
+    ctrl.appendChild(skipBtn);
+  }
+}
+
+// ═══════════════════════════════════
+//  PREVIEW + PLACEMENT
+// ═══════════════════════════════════
+function previewPlace(tr,tc){
+  if(selPiece===-1)return;
+  var shape=pieces[selPiece].shape;
+  // Find offset: place piece so that clicked cell aligns with first cell of shape
+  // Try all possible offsets where one shape cell lands on tr,tc
+  // For simplicity, use tr,tc as the anchor for shape[0]
+  var ar=tr-shape[0][0], ac=tc-shape[0][1];
+  var result=canPlace(shape,ar,ac,selPiece);
+  document.querySelectorAll('.cell.target').forEach(function(el){
+    el.classList.remove('highlight','invalid');
+  });
+  if(result){
+    result.forEach(function(c){
+      var el=document.querySelector('.cell.target[data-tr="'+c[0]+'"][data-tc="'+c[1]+'"]');
+      if(el)el.classList.add('highlight');
+    });
+  }
+}
+function clearPreview(){
+  document.querySelectorAll('.cell.target').forEach(function(el){
+    el.classList.remove('highlight','invalid');
+  });
+}
+
+function placeAt(tr,tc){
+  if(selPiece===-1){showMsg('Select a piece first');return;}
+  var shape=pieces[selPiece].shape;
+
+  // Try multiple anchor strategies to find a valid placement
+  var placed=false;
+  // Strategy 1: align shape[0] to clicked cell
+  for(var si=0;si<shape.length&&!placed;si++){
+    var ar=tr-shape[si][0], ac=tc-shape[si][1];
+    var result=canPlace(shape,ar,ac,selPiece);
+    if(result){
+      pieces[selPiece].placed={cells:result};
+      pieces[selPiece].used=true;
+      placed=true;
+    }
+  }
+
+  if(!placed){
+    showMsg("Doesn't fit there — try rotating or another spot",'error');
+    // Flash invalid
+    document.querySelectorAll('.cell.target').forEach(function(el){el.classList.remove('highlight');});
+    var el=document.querySelector('.cell.target[data-tr="'+tr+'"][data-tc="'+tc+'"]');
+    if(el){el.classList.add('invalid');setTimeout(function(){el.classList.remove('invalid');},400);}
+    return;
+  }
+
+  var justPlaced=selPiece;
+  selPiece=-1;
+  renderBoard();
+
+  // Check solved
+  if(isSolved()){
+    solvePuzzle();
+  }
+}
+
+function solvePuzzle(){
+  var pts=20+(pieces.length*5);
+  score+=pts;
+  document.getElementById('score').textContent=score;
+
+  // Mark completed
+  if(state.completed.indexOf(curLevel)===-1){
+    state.completed.push(curLevel);
+    state.totalSolved++;
+  }
+  state.streak++;
+  if(score>state.bestScore) state.bestScore=score;
+  save();
+
+  showPopup('✦ Solved! +'+pts+' pts');
+
+  // Glow animation
+  document.querySelectorAll('.cell.filled').forEach(function(f){
+    f.classList.remove('just-placed');
+    f.classList.add('solved');
+  });
+
+  // Disable interaction
+  document.getElementById('controls').innerHTML='';
+  document.querySelectorAll('.cell,.piece').forEach(function(el){el.style.pointerEvents='none';});
+
+  setTimeout(function(){
+    if(curLevel<PUZZLES.length-1){
+      startLevel(curLevel+1);
+    } else {
+      // All done!
+      showComplete();
+    }
+  },1600);
+}
+
+function showComplete(){
+  var area=document.getElementById('gameScreen');
+  area.innerHTML='<div class="complete"><h2>All Puzzles Complete!</h2>'+
+    '<div class="final-score">'+state.totalSolved+'/'+PUZZLES.length+'</div>'+
+    '<div class="final-label">Puzzles Solved</div>'+
+    '<div class="complete-stats"><div class="cs"><div class="cv">'+state.bestScore+'</div><div class="cl">Best Score</div></div>'+
+    '<div class="cs"><div class="cv">'+state.streak+'</div><div class="cl">Streak</div></div></div>'+
+    '<div class="btn-row"><button class="start-btn" onclick="location.reload()">Back to Menu</button></div></div>';
+}
+
+function useHint(){
+  // Find first unplaced piece, reset its rotation, and place it correctly
+  for(var i=0;i<pieces.length;i++){
+    if(!pieces[i].used){
+      pieces[i].shape=norm(puzzleSolutions[i].slice());
+      var solCells=puzzleSolutions[i].slice();
+      pieces[i].placed={cells:solCells};
+      pieces[i].used=true;
+      selPiece=-1;
+      showMsg('Piece placed for you','');
+      renderBoard();
+      if(isSolved()) solvePuzzle();
+      return;
+    }
+  }
+}
+
+// ═══════════════════════════════════
+//  BACK BUTTON
+// ═══════════════════════════════════
+document.getElementById('backBtn').addEventListener('click',function(){
+  renderMenu();
+});
+
+// ═══════════════════════════════════
+//  INIT
+// ═══════════════════════════════════
+// Find first uncompleted level
+curLevel=0;
+for(var i=0;i<PUZZLES.length;i++){
+  if(state.completed.indexOf(i)===-1){curLevel=i;break;}
+}
+renderMenu();
+</script>
+</body>
+</html>
