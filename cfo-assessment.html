@@ -12,118 +12,11 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Inter',sans-serif;background:#fff;}
-  .w-full{width:100%;}
-  .max-w-3xl{max-width:48rem;}
-  .max-w-4xl{max-width:56rem;}
-  .max-w-xl{max-width:36rem;}
-  .max-w-md{max-width:28rem;}
-  .mx-auto{margin-left:auto;margin-right:auto;}
-  .px-6{padding-left:1.5rem;padding-right:1.5rem;}
-  .px-8{padding-left:2rem;padding-right:2rem;}
-  .py-4{padding-top:1rem;padding-bottom:1rem;}
-  .py-5{padding-top:1.25rem;padding-bottom:1.25rem;}
-  .py-8{padding-top:2rem;padding-bottom:2rem;}
-  .py-10{padding-top:2.5rem;padding-bottom:2.5rem;}
-  .py-12{padding-top:3rem;padding-bottom:3rem;}
-  .py-16{padding-top:4rem;padding-bottom:4rem;}
-  .py-20{padding-top:5rem;padding-bottom:5rem;}
-  .py-2{padding-top:.5rem;padding-bottom:.5rem;}
-  .pt-2{padding-top:.5rem;}
-  .pb-5{padding-bottom:1.25rem;}
-  .pb-8{padding-bottom:2rem;}
-  .mb-1{margin-bottom:.25rem;}
-  .mb-2{margin-bottom:.5rem;}
-  .mb-3{margin-bottom:.75rem;}
-  .mb-4{margin-bottom:1rem;}
-  .mb-5{margin-bottom:1.25rem;}
-  .mb-6{margin-bottom:1.5rem;}
-  .mb-8{margin-bottom:2rem;}
-  .mb-12{margin-bottom:3rem;}
-  .mt-1{margin-top:.25rem;}
-  .mt-2{margin-top:.5rem;}
-  .mt-3{margin-top:.75rem;}
-  .mt-4{margin-top:1rem;}
-  .mt-5{margin-top:1.25rem;}
-  .mt-8{margin-top:2rem;}
-  .flex{display:flex;}
-  .flex-col{flex-direction:column;}
-  .flex-wrap{flex-wrap:wrap;}
-  .items-center{align-items:center;}
-  .items-start{align-items:flex-start;}
-  .items-end{align-items:flex-end;}
-  .justify-center{justify-content:center;}
-  .justify-between{justify-content:space-between;}
-  .gap-0{gap:0;}
-  .gap-1{gap:.25rem;}
-  .gap-1\.5{gap:.375rem;}
-  .gap-2{gap:.5rem;}
-  .gap-3{gap:.75rem;}
-  .gap-4{gap:1rem;}
-  .gap-5{gap:1.25rem;}
-  .gap-6{gap:1.5rem;}
-  .gap-8{gap:2rem;}
-  .gap-10{gap:2.5rem;}
-  .gap-12{gap:3rem;}
-  .grid{display:grid;}
-  .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
-  .space-y-2>*+*{margin-top:.5rem;}
-  .space-y-3>*+*{margin-top:.75rem;}
-  .rounded{border-radius:.25rem;}
-  .rounded-sm{border-radius:.125rem;}
-  .rounded-full{border-radius:9999px;}
-  .rounded-lg{border-radius:.5rem;}
-  .border{border-width:1px;border-style:solid;}
-  .border-gray-200{border-color:#e5e7eb;}
-  .shadow-sm{box-shadow:0 1px 2px 0 rgb(0 0 0/.05);}
-  .bg-white{background-color:#fff;}
-  .min-h-screen{min-height:100vh;}
-  .text-xs{font-size:.75rem;line-height:1rem;}
-  .text-sm{font-size:.875rem;line-height:1.25rem;}
-  .text-base{font-size:1rem;line-height:1.5rem;}
-  .text-2xl{font-size:1.5rem;line-height:2rem;}
-  .text-3xl{font-size:1.875rem;line-height:2.25rem;}
-  .text-5xl{font-size:3rem;line-height:1;}
-  .font-medium{font-weight:500;}
-  .font-semibold{font-weight:600;}
-  .font-bold{font-weight:700;}
-  .font-extrabold,.font-800{font-weight:800;}
-  .text-white{color:#fff;}
-  .leading-relaxed{line-height:1.625;}
-  .tracking-wide{letter-spacing:.025em;}
-  .tracking-widest{letter-spacing:.1em;}
-  .uppercase{text-transform:uppercase;}
-  .italic{font-style:italic;}
-  .h-1\.5{height:.375rem;}
-  .h-2{height:.5rem;}
-  .h-8{height:2rem;}
-  .h-12{height:3rem;}
-  .w-8{width:2rem;}
-  .w-12{width:3rem;}
-  .transition-all{transition:all .15s;}
-  .cursor-pointer{cursor:pointer;}
-  .cursor-not-allowed{cursor:not-allowed;}
-  .overflow-hidden{overflow:hidden;}
-  .overflow-auto{overflow:auto;}
-  .sticky{position:sticky;}
-  .top-0{top:0;}
-  .z-10{z-index:10;}
-  .absolute{position:absolute;}
-  .relative{position:relative;}
-  .fixed{position:fixed;}
-  .inset-0{inset:0;}
-  .flex-shrink-0{flex-shrink:0;}
-  .flex-1{flex:1 1 0%;}
-  .text-center{text-align:center;}
-  .text-left{text-align:left;}
-  .text-right{text-align:right;}
-  .border-t-transparent{border-top-color:transparent;}
   @keyframes spin{to{transform:rotate(360deg)}}
   .animate-spin{animation:spin 1s linear infinite;}
   .no-print{display:flex;}
   @media print{.no-print{display:none!important;}#print-area{margin:0!important;padding:32px!important;}}
-  @media(max-width:640px){.grid-cols-2{grid-template-columns:1fr;}.grid-cols-5{grid-template-columns:repeat(3,1fr);}}
-  /* Kochimi header bar */
+  @media(max-width:640px){.grid-cols-2{grid-template-columns:1fr!important;}.grid-cols-5{grid-template-columns:repeat(3,1fr)!important;}}
   .kochimi-nav{background:#0D2340;padding:10px 24px;display:flex;align-items:center;gap:16px;}
   .kochimi-nav a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;}
   .kochimi-nav a:hover{color:white;}
@@ -132,8 +25,6 @@
 </style>
 </head>
 <body>
-
-<!-- Kochimi Nav Bar -->
 <div class="kochimi-nav">
   <a class="brand" href="/">Kochimi</a>
   <span class="sep">|</span>
@@ -144,7 +35,6 @@
   <span class="sep">|</span>
   <span style="color:#E8600A;font-weight:700;font-size:13px;">Roxi's Corner</span>
 </div>
-
 <div id="root"></div>
 
 <script type="text/babel">
@@ -152,14 +42,15 @@ const { useState, useEffect } = React;
 
 const COMPANY_PASSWORD = "CFO2024";
 const STORAGE_KEY = "cfo-published-test";
+const CANDIDATES_KEY = "cfo-candidates";
 const N = {navy:"#0D2340",orange:"#E8600A",slate:"#4A5568",slateL:"#718096",slateXL:"#A0AEC0",border:"#E2E8F0",bg:"#F7F9FC"};
 
 const COMPETENCIES = {
-  acc:{label:"Accounting & Controlling Expert",short:"Accounting",color:"#1E4270",lightBg:"#EEF3FA",description:"Proven track record of closing books monthly (5-day target), quarterly, and annually. Establishes accounting standards, prepares for first audit, maximizes revenue recognition, and manages tax issues.",indicators:["Monthly close within 5-day target","Revenue recognition (GAAP/IFRS)","Quote-to-cash & cash management","Audit preparation & compliance","Tax strategy & oversight"]},
-  mfo:{label:"Metrics-Driven Financial Operator",short:"FP&A / Metrics",color:"#7B3F00",lightBg:"#FDF3EC",description:"Analytical leader who establishes and tracks KPI metrics and business drivers. Trusted partner to CEO and cross-functional stakeholders on operating plans, budgets, and resource allocation.",indicators:["Driver-based KPI framework & ARR metrics","Budgeting & rolling forecast","Cross-functional business partnering","Cash burn optimization","Operating plan & goal alignment"]},
-  inv:{label:"Investor Experience",short:"Investor",color:"#2D5A27",lightBg:"#EEF7ED",description:"Experience preparing quarterly board/investor decks and pitch decks for capital raising. Develops and executes sound financial strategy aligned with growth objectives and investor expectations.",indicators:["Board deck & investor narrative","Capital raising & fundraising","Financial strategy & investor relations","Equity & debt financing structures","Exit readiness & M&A"]},
-  team:{label:"Team Builder",short:"Team",color:"#5B1F6A",lightBg:"#F5EEF8",description:"Track record of building and leading high-performing teams, fostering a culture of efficiency and continuous improvement. Hands-on player-coach who leads by example.",indicators:["Finance team hiring & development","Player-coach leadership","Culture of continuous improvement","Cross-functional stakeholder trust","Talent network & sourcing"]},
-  fsv:{label:"Financial Systems Visionary",short:"Systems",color:"#1A4A4A",lightBg:"#EEF7F7",description:"Experience selecting, implementing, and managing financial and business systems to streamline processes, enhance reporting accuracy, and improve overall financial efficiency.",indicators:["ERP selection & implementation","Billing & revenue recognition systems","FP&A tooling & planning infrastructure","Data architecture & BI reporting","Systems integration & automation"]},
+  acc:{label:"Accounting & Controlling Expert",short:"Accounting",color:"#1E4270",lightBg:"#EEF3FA",description:"Proven track record of closing books monthly (5-day target), quarterly, and annually.",indicators:["Monthly close within 5-day target","Revenue recognition (GAAP/IFRS)","Quote-to-cash & cash management","Audit preparation & compliance","Tax strategy & oversight"]},
+  mfo:{label:"Metrics-Driven Financial Operator",short:"FP&A / Metrics",color:"#7B3F00",lightBg:"#FDF3EC",description:"Analytical leader who establishes and tracks KPI metrics and business drivers.",indicators:["Driver-based KPI framework & ARR metrics","Budgeting & rolling forecast","Cross-functional business partnering","Cash burn optimization","Operating plan & goal alignment"]},
+  inv:{label:"Investor Experience",short:"Investor",color:"#2D5A27",lightBg:"#EEF7ED",description:"Experience preparing quarterly board/investor decks and pitch decks for capital raising.",indicators:["Board deck & investor narrative","Capital raising & fundraising","Financial strategy & investor relations","Equity & debt financing structures","Exit readiness & M&A"]},
+  team:{label:"Team Builder",short:"Team",color:"#5B1F6A",lightBg:"#F5EEF8",description:"Track record of building and leading high-performing teams.",indicators:["Finance team hiring & development","Player-coach leadership","Culture of continuous improvement","Cross-functional stakeholder trust","Talent network & sourcing"]},
+  fsv:{label:"Financial Systems Visionary",short:"Systems",color:"#1A4A4A",lightBg:"#EEF7F7",description:"Experience selecting, implementing, and managing financial and business systems.",indicators:["ERP selection & implementation","Billing & revenue recognition systems","FP&A tooling & planning infrastructure","Data architecture & BI reporting","Systems integration & automation"]},
 };
 
 const CONFIG_STEPS = [
@@ -188,6 +79,25 @@ const EXP = {
 function cfgMeta(c) {
   const arrNum = c.arr==="$0-$25M"?"18":c.arr==="$25-$50M"?"35":c.arr==="$50-$100M"?"72":c.arr==="$500M-$1B"?"750":c.arr===">$1B"?"1500":"145";
   return {currency: CURRENCY_MAP[c.hq]||"USD", arrNum};
+}
+
+// ── CANDIDATE STORAGE HELPERS ────────────────────────────────────────────────
+function loadCandidates() {
+  try { const d = localStorage.getItem(CANDIDATES_KEY); return d ? JSON.parse(d) : []; } catch(e) { return []; }
+}
+function saveCandidateResult(record) {
+  try {
+    const existing = loadCandidates();
+    existing.unshift(record); // newest first
+    localStorage.setItem(CANDIDATES_KEY, JSON.stringify(existing));
+  } catch(e) {}
+}
+function updateCandidateWrittenScore(id, writtenScore) {
+  try {
+    const candidates = loadCandidates();
+    const idx = candidates.findIndex(c => c.id === id);
+    if (idx >= 0) { candidates[idx].writtenScore = writtenScore; localStorage.setItem(CANDIDATES_KEY, JSON.stringify(candidates)); }
+  } catch(e) {}
 }
 
 function buildFallback(cfg) {
@@ -225,10 +135,10 @@ function buildFallback(cfg) {
     {id:"TB04",comp:"team",difficulty:4,question:"The company is scaling rapidly and the finance team is overwhelmed. As CFO, how do you prioritize the next hire?",options:["Hire the most senior person available","Diagnose the specific bottleneck first: if close accuracy is the problem, hire a senior accountant; if decision support is the constraint, hire a business-facing FP&A partner","Hire a CFO-level deputy","Outsource the entire finance function"],correct:1,explanation:"Finance team design should be constraint-driven."},
     {id:"TB05",comp:"team",difficulty:5,question:"You are building the finance team from scratch. Your first three hires should be sequenced as:",options:["CFO Deputy, then Analyst, then Controller","Controller or Senior Accountant first, then FP&A Manager, then Systems specialist - sequenced by most pressing constraint","Head of Finance, then two generalists","Hire all three simultaneously"],correct:1,explanation:"Accounting integrity comes first, then business partnership, then infrastructure."},
     {id:"FS01",comp:"fsv",difficulty:1,question:"Which system is the authoritative system of record for financial reporting in a SaaS company?",options:["CRM (e.g., Salesforce)","ERP / General Ledger (e.g., NetSuite, SAP)","BI tool (e.g., Tableau, Looker)","Billing system (e.g., Zuora, Stripe)"],correct:1,explanation:"The ERP / General Ledger is the system of record. Other systems feed into it."},
-    {id:"FS02",comp:"fsv",difficulty:2,question:hasERP?"The company is implementing a new ERP. The single most critical success factor is:":"The company considers upgrading from its current accounting system. The primary trigger that justifies the investment is:",options:hasERP?["Minimizing implementation cost","Data migration integrity and chart of accounts design aligned with reporting requirements before any configuration begins","Timeline adherence above all else","Executive sponsor visibility only"]:["Investor or board pressure","Multi-entity consolidation needs, revenue recognition automation, or reporting complexity exceeding current system capabilities","Competitor adoption","IT recommendation alone"],correct:1,explanation:hasERP?"Poor data migration and misaligned chart of accounts are the most common causes of ERP failure.":"ERP upgrades should be driven by genuine business requirements."},
+    {id:"FS02",comp:"fsv",difficulty:2,question:hasERP?"The company is implementing a new ERP. The single most critical success factor is:":"The company considers upgrading from its current accounting system. The primary trigger that justifies the investment is:",options:hasERP?["Minimising implementation cost","Data migration integrity and chart of accounts design aligned with reporting requirements before any configuration begins","Timeline adherence above all else","Executive sponsor visibility only"]:["Investor or board pressure","Multi-entity consolidation needs, revenue recognition automation, or reporting complexity exceeding current system capabilities","Competitor adoption","IT recommendation alone"],correct:1,explanation:hasERP?"Poor data migration and misaligned chart of accounts are the most common causes of ERP failure.":"ERP upgrades should be driven by genuine business requirements."},
     {id:"FS03",comp:"fsv",difficulty:3,question:"The data architecture that best supports ARR waterfall and cohort analytics for investors is:",options:["CSV exports from billing into Excel","Cloud data warehouse (Snowflake/BigQuery) plus transformation layer (dbt) plus BI tool (Looker/Tableau), fed by billing and CRM","Manual data entry into a financial model","Excel pivot tables refreshed monthly"],correct:1,explanation:"A modern data stack enables automated, auditable ARR waterfall and cohort reporting."},
     {id:"FS04",comp:"fsv",difficulty:4,question:"The company is selecting an FP&A planning tool at "+arrNum+"M "+currency+" ARR. The decision should be based primarily on:",options:["Selecting the most feature-rich enterprise tool","Current complexity, team size, and integration requirements - matching the tool to the stage of the business","The tool used by the largest competitor","The tool the CFO used previously"],correct:1,explanation:"FP&A tool selection should be stage-appropriate. Over-engineering early is as costly as under-investing."},
-    {id:"FS05",comp:"fsv",difficulty:5,question:isGlobal?"The company has a global workforce. The approach that best minimizes payroll compliance risk is:":"The company migrates ERP mid-year during high growth. The highest risk to financial reporting continuity is:",options:isGlobal?["Single domestic payroll system extended globally","Global HRIS with local payroll integrations or Employer of Record solutions per jurisdiction","Spreadsheet-based payroll per country","Independent standalone systems per country"]:["Implementation cost overrun","Parallel-run data reconciliation failures and deferred revenue accuracy across the system cutover date","User adoption lag","Vendor support response time"],correct:1,explanation:isGlobal?"A Global HRIS with local integrations or EOR solutions provides compliance coverage no single domestic system can replicate.":"The parallel-run period is critical - deferred revenue schedules must reconcile exactly at cutover."},
+    {id:"FS05",comp:"fsv",difficulty:5,question:isGlobal?"The company has a global workforce. The approach that best minimises payroll compliance risk is:":"The company migrates ERP mid-year during high growth. The highest risk to financial reporting continuity is:",options:isGlobal?["Single domestic payroll system extended globally","Global HRIS with local payroll integrations or Employer of Record solutions per jurisdiction","Spreadsheet-based payroll per country","Independent standalone systems per country"]:["Implementation cost overrun","Parallel-run data reconciliation failures and deferred revenue accuracy across the system cutover date","User adoption lag","Vendor support response time"],correct:1,explanation:isGlobal?"A Global HRIS with local integrations or EOR solutions provides compliance coverage no single domestic system can replicate.":"The parallel-run period is critical - deferred revenue schedules must reconcile exactly at cutover."},
   ];
 }
 
@@ -269,16 +179,16 @@ async function generateCaseStudies(cfg){
   catch(e){
     const arr=arrNum;
     return[
-      {type:"written",competency:"acc",competencyLabel:"Accounting & Controlling Expert",title:"Financial Reporting Architecture & Close Optimization",objective:"Assess ability to build a scalable, audit-ready financial infrastructure that delivers a reliable 5-day monthly close.",context:"The company operates on a basic accounting system with a manual, 12-day monthly close. At "+arr+"M "+currency+" ARR growing at "+cfg.growth+", close delays are creating reporting gaps. Revenue recognition under "+cfg.standard+" has not been systematically documented. The deferred revenue waterfall is maintained in Excel and has not been independently reconciled in over 6 months.",areas:["How you would diagnose current close bottlenecks and design a 5-day close process","Your approach to establishing "+cfg.standard+" accounting standards from scratch","Preparation plan for the first external audit","Quote-to-Cash process design","Cash management and liquidity forecasting discipline"],deliverable:"A written memo (2-3 pages): (1) 90-day close optimization plan, (2) "+cfg.standard+" policy framework, (3) audit readiness assessment, and (4) Quote-to-Cash process design.",rubric:[{criterion:"Close process design",strong:"Identifies specific bottlenecks; proposes automation steps with timeline; sets measurable targets",weak:"Proposes generic solutions; no timeline or measurable targets"},{criterion:cfg.standard+" standards",strong:"Articulates specific policy framework covering all contract types",weak:"Generic description without application to company's contract types"},{criterion:"Audit preparation",strong:"Pre-audit readiness assessment with specific risk areas; timeline working backward from audit start",weak:"Treats audit as reactive rather than managed proactively"},{criterion:"Cash discipline",strong:"Connects Quote-to-Cash controls to DSO; weekly cash reporting cadence",weak:"Treats cash management as accounting function only"}]},
+      {type:"written",competency:"acc",competencyLabel:"Accounting & Controlling Expert",title:"Financial Reporting Architecture & Close Optimization",objective:"Assess ability to build a scalable, audit-ready financial infrastructure that delivers a reliable 5-day monthly close.",context:"The company operates on a basic accounting system with a manual, 12-day monthly close. At "+arr+"M "+currency+" ARR growing at "+cfg.growth+", close delays are creating reporting gaps. Revenue recognition under "+cfg.standard+" has not been systematically documented.",areas:["How you would diagnose current close bottlenecks and design a 5-day close process","Your approach to establishing "+cfg.standard+" accounting standards from scratch","Preparation plan for the first external audit","Quote-to-Cash process design","Cash management and liquidity forecasting discipline"],deliverable:"A written memo (2-3 pages): (1) 90-day close optimization plan, (2) "+cfg.standard+" policy framework, (3) audit readiness assessment, and (4) Quote-to-Cash process design.",rubric:[{criterion:"Close process design",strong:"Identifies specific bottlenecks; proposes automation steps with timeline; sets measurable targets",weak:"Proposes generic solutions; no timeline or measurable targets"},{criterion:cfg.standard+" standards",strong:"Articulates specific policy framework covering all contract types",weak:"Generic description without application to company's contract types"},{criterion:"Audit preparation",strong:"Pre-audit readiness assessment with specific risk areas; timeline working backward from audit start",weak:"Treats audit as reactive rather than managed proactively"},{criterion:"Cash discipline",strong:"Connects Quote-to-Cash controls to DSO; weekly cash reporting cadence",weak:"Treats cash management as accounting function only"}]},
       {type:"written",competency:"mfo",competencyLabel:"Metrics-Driven Financial Operator",title:"FP&A Operating Model & Driver-Based Planning Framework",objective:"Assess FP&A technical depth and operating mindset.",context:"At "+cfg.growth+" growth, the company needs a budgeting and forecasting process that balances speed, flexibility, and accountability. FP&A is currently seen as a reporting function, not a business partner.",areas:["How you would rebuild the annual budget process","The specific ARR and operating model drivers you would build","How FP&A becomes a genuine business partner","Performance tracking cadence","How key strategic initiatives are financially governed"],deliverable:"A written proposal (2-3 pages): (1) budgeting process redesign, (2) driver tree for one business function, (3) FP&A business partnering model, and (4) performance tracking cadence.",rubric:[{criterion:"Driver-based model",strong:"Identifies key ARR drivers and connects them to operating costs through capacity planning",weak:"Presents top-down growth rate without driver-level decomposition"},{criterion:"Business partnering",strong:"Distinguishes FP&A as reporting vs decision-enabler; describes earning credibility through understanding the business",weak:"Describes FP&A as primarily a reporting function"},{criterion:"Performance tracking",strong:"Specific cadence with ownership; each metric tied to a decision; variance analysis leads to recommendations",weak:"Generic monthly reporting; no connection between variance and operating decisions"},{criterion:"Initiative governance",strong:"Specific financial guardrails including investment criteria and kill criteria",weak:"Treats initiatives as part of annual budget; no kill criteria"}]},
       {type:"written",competency:"inv",competencyLabel:"Investor Experience",title:"Capital Allocation Framework & Fundraising Strategy",objective:"Assess ability to develop and execute a sound financial strategy aligned with growth objectives and investor expectations.",context:"The company is investing aggressively to sustain "+cfg.growth+" growth and is evaluating a capital raise. The current investor narrative is fragmented and cohort data does not exist in auditable form.",areas:["How you would categorize investments into core growth, expansion, and option-creating bets","The capital allocation framework: investment criteria, success definitions, and kill criteria","Fundraising readiness: what the ARR narrative and financial model need to look like","The 3-year financial strategy to propose to the board","Governance structure: management vs board investment decisions"],deliverable:"A written proposal (2-3 pages): (1) capital allocation framework, (2) fundraising readiness roadmap, and (3) 1-page board-ready financial strategy summary.",rubric:[{criterion:"Investment categorization",strong:"Cleanly distinguishes 3+ investment categories with different risk profiles, time horizons, and success criteria",weak:"Treats all investments similarly"},{criterion:"Fundraising readiness rigor",strong:"Identifies specific gaps in ARR reporting and cohort data; realistic timeline to close gaps",weak:"Treats fundraising readiness as primarily a pitch deck exercise"},{criterion:"Multiple expansion strategy",strong:"Articulates specific levers - NRR improvement, gross margin expansion, Rule of 40 trajectory",weak:"Focuses exclusively on ARR growth"},{criterion:"Governance design",strong:"Distinguishes management vs board decisions; specific cadence for capital allocation reviews",weak:"Escalates all investment decisions to board"}]},
-      {type:"discussion",competency:"team",competencyLabel:"Team Builder",title:"Building the Finance Team & Partnering with the Business",objective:"Assess track record and philosophy for building high-performing finance teams.",context:"The company's finance team currently consists of 3 people who are technically competent but disconnected from the business. The incoming CFO has a mandate to build finance into a genuine business partner.",topics:["Your philosophy on building a finance team at this stage - sequencing of hires, what you look for beyond technical skills","A specific example of rebuilding trust between finance and a functional team","How you evaluate your team's strengths and weaknesses","Your approach to hiring: how you source candidates and what your interview process looks like","How you balance being a player-coach with building a team capable of operating without you"],signals:["Does the candidate describe team building as a strategic priority?","When describing hiring, are they specific? Do they screen for business partnership instinct?","Can they tell a specific, personal story about rebuilding team credibility?","Do they describe a player-coach style with genuine specificity?"],openingQuestion:"Tell me about the finance team you are most proud of building - what was the situation when you arrived, what did you change, and how did you know it was working?"},
-      {type:"discussion",competency:"fsv",competencyLabel:"Financial Systems Visionary",title:"Systems Strategy & Finance Technology Roadmap",objective:"Assess experience selecting, implementing, and managing financial and business systems.",context:"The company currently operates on basic accounting software, a separate billing system with no ERP integration, and Excel-based FP&A. Data integrity issues are emerging across the quote-to-cash process.",topics:["How you would diagnose the current systems landscape and prioritize gaps","Your decision framework for when to upgrade vs optimize within the current system","How you have previously led an ERP selection or implementation","Your view on the FP&A tooling decision at "+arr+"M "+currency+" ARR","How you build a data architecture that gives CEO, board, and investors a single version of truth"],signals:["Does the candidate lead with business outcomes or technology preferences?","Are they appropriately skeptical of over-building at the current ARR stage?","Can they describe a specific ERP implementation with specificity?","Do they understand the difference between ERP, billing system, and data warehouse?"],openingQuestion:"Walk me through the systems landscape you inherited at your last company and the roadmap you built. What did you change, why, and how did you decide what to prioritize?"},
+      {type:"discussion",competency:"team",competencyLabel:"Team Builder",title:"Building the Finance Team & Partnering with the Business",objective:"Assess track record and philosophy for building high-performing finance teams.",context:"The company's finance team currently consists of 3 people who are technically competent but disconnected from the business.",topics:["Your philosophy on building a finance team at this stage - sequencing of hires, what you look for beyond technical skills","A specific example of rebuilding trust between finance and a functional team","How you evaluate your team's strengths and weaknesses","Your approach to hiring: how you source candidates and what your interview process looks like","How you balance being a player-coach with building a team capable of operating without you"],signals:["Does the candidate describe team building as a strategic priority?","When describing hiring, are they specific? Do they screen for business partnership instinct?","Can they tell a specific, personal story about rebuilding team credibility?","Do they describe a player-coach style with genuine specificity?"],openingQuestion:"Tell me about the finance team you are most proud of building - what was the situation when you arrived, what did you change, and how did you know it was working?"},
+      {type:"discussion",competency:"fsv",competencyLabel:"Financial Systems Visionary",title:"Systems Strategy & Finance Technology Roadmap",objective:"Assess experience selecting, implementing, and managing financial and business systems.",context:"The company currently operates on basic accounting software, a separate billing system with no ERP integration, and Excel-based FP&A.",topics:["How you would diagnose the current systems landscape and prioritize gaps","Your decision framework for when to upgrade vs optimize within the current system","How you have previously led an ERP selection or implementation","Your view on the FP&A tooling decision at "+arr+"M "+currency+" ARR","How you build a data architecture that gives CEO, board, and investors a single version of truth"],signals:["Does the candidate lead with business outcomes or technology preferences?","Are they appropriately skeptical of over-building at the current ARR stage?","Can they describe a specific ERP implementation with specificity?","Do they understand the difference between ERP, billing system, and data warehouse?"],openingQuestion:"Walk me through the systems landscape you inherited at your last company and the roadmap you built. What did you change, why, and how did you decide what to prioritize?"},
     ];
   }
 }
 
-// ── COMPONENTS ─────────────────────────────────────────────────────────────
+// ── SHARED COMPONENTS ────────────────────────────────────────────────────────
 function CompBadge({compKey, small}) {
   const comp = COMPETENCIES[compKey];
   if (!comp) return null;
@@ -324,7 +234,189 @@ function Spinner({label}) {
   );
 }
 
-function EditPhase({qPool,setQPool,caseStudies,setCaseStudies,scenario,onPreview,companyName,aiGenerated,onPublish,publishedAt}) {
+// ── CANDIDATES DASHBOARD ──────────────────────────────────────────────────────
+function CandidatesDashboard({companyName, onBack}) {
+  const [candidates, setCandidates] = useState(loadCandidates());
+  const [editId, setEditId] = useState(null);
+  const [writtenInput, setWrittenInput] = useState("");
+  const [writtenMax, setWrittenMax] = useState("");
+  const [deleteConfirm, setDeleteConfirm] = useState(null);
+
+  const pct = (a, b) => b === 0 ? 0 : Math.round(a / b * 100);
+  const level = p => p >= 85 ? "Expert CFO" : p >= 70 ? "Senior CFO" : p >= 55 ? "Proficient CFO" : "Developing CFO";
+  const levelColor = p => p >= 85 ? "#15803D" : p >= 70 ? N.navy : p >= 55 ? N.orange : "#DC2626";
+
+  function saveWritten(id) {
+    const sc = Number(writtenInput), mx = Number(writtenMax);
+    if (isNaN(sc) || isNaN(mx) || mx <= 0 || sc < 0 || sc > mx) return;
+    updateCandidateWrittenScore(id, {score: sc, max: mx, pct: pct(sc, mx)});
+    setCandidates(loadCandidates());
+    setEditId(null);
+  }
+
+  function deleteCandidate(id) {
+    try {
+      const updated = loadCandidates().filter(c => c.id !== id);
+      localStorage.setItem(CANDIDATES_KEY, JSON.stringify(updated));
+      setCandidates(updated);
+    } catch(e) {}
+    setDeleteConfirm(null);
+  }
+
+  const totalComplete = candidates.filter(c => c.overall).length;
+  const avgScore = totalComplete > 0
+    ? Math.round(candidates.filter(c => c.overall).reduce((s, c) => s + c.overall.pct, 0) / totalComplete)
+    : null;
+
+  return (
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader title={companyName||"CFO SKILL ASSESSMENT"} sub="Candidates Dashboard"/>
+      <div style={{maxWidth:"72rem",margin:"0 auto",padding:"24px 24px"}}>
+
+        {/* Summary bar */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:16,marginBottom:24}}>
+          {[
+            ["Total Candidates", candidates.length, "assessed"],
+            ["Avg. MCQ Score", avgScore !== null ? avgScore+"%" : "—", avgScore !== null ? level(avgScore) : "no data yet"],
+            ["Written Scores Pending", candidates.filter(c => c.overall && !c.writtenScore).length, "awaiting manual grade"],
+          ].map(([lbl, val, sub]) => (
+            <div key={lbl} style={{background:N.navy,borderRadius:8,padding:"16px 20px"}}>
+              <p style={{margin:"0 0 4px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{lbl}</p>
+              <p style={{margin:0,fontSize:28,fontWeight:800,color:"white"}}>{val}</p>
+              <p style={{margin:"4px 0 0",fontSize:11,color:"rgba(255,255,255,0.45)"}}>{sub}</p>
+            </div>
+          ))}
+        </div>
+
+        {candidates.length === 0 ? (
+          <div style={{textAlign:"center",padding:"64px 24px",border:"1px dashed "+N.border,borderRadius:8}}>
+            <p style={{fontSize:32,marginBottom:12}}>📋</p>
+            <p style={{color:N.navy,fontSize:16,fontWeight:700,marginBottom:6}}>No candidates yet</p>
+            <p style={{color:N.slateL,fontSize:13}}>Publish the assessment and candidates will appear here as they complete it.</p>
+          </div>
+        ) : (
+          <div style={{border:"1px solid "+N.border,borderRadius:8,overflow:"hidden"}}>
+            {/* Table header */}
+            <div style={{display:"grid",gridTemplateColumns:"200px 120px 100px 100px 110px 120px 1fr",gap:0,background:N.bg,borderBottom:"2px solid "+N.border,padding:"10px 16px"}}>
+              {["Candidate","Date","MCQ","Case Study","Written","Overall","Competencies"].map(h => (
+                <span key={h} style={{fontSize:11,fontWeight:700,color:N.slateL,textTransform:"uppercase",letterSpacing:"0.08em"}}>{h}</span>
+              ))}
+            </div>
+
+            {candidates.map((c, i) => {
+              const isEditing = editId === c.id;
+              const totalPct = c.overall ? (c.writtenScore
+                ? Math.round((c.overall.correct + c.writtenScore.score) / (c.overall.total + c.writtenScore.max) * 100)
+                : c.overall.pct) : null;
+              return (
+                <div key={c.id} style={{borderBottom: i < candidates.length-1 ? "1px solid "+N.border : "none"}}>
+                  <div style={{display:"grid",gridTemplateColumns:"200px 120px 100px 100px 110px 120px 1fr",gap:0,padding:"12px 16px",alignItems:"center",background:i%2===0?"white":N.bg}}>
+                    {/* Name */}
+                    <div>
+                      <p style={{margin:0,fontSize:13,fontWeight:700,color:N.navy}}>{c.name}</p>
+                      {c.company && <p style={{margin:"2px 0 0",fontSize:11,color:N.slateL}}>{c.company}</p>}
+                    </div>
+                    {/* Date */}
+                    <p style={{margin:0,fontSize:12,color:N.slate}}>{c.date ? new Date(c.date).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) : "—"}</p>
+                    {/* MCQ */}
+                    <div>
+                      {c.mcqScore ? (
+                        <>
+                          <p style={{margin:0,fontSize:13,fontWeight:700,color:N.navy}}>{c.mcqScore.pct}%</p>
+                          <p style={{margin:"2px 0 0",fontSize:11,color:N.slateL}}>{c.mcqScore.correct}/{c.mcqScore.total}</p>
+                        </>
+                      ) : <span style={{color:N.slateXL,fontSize:12}}>—</span>}
+                    </div>
+                    {/* Case Study */}
+                    <div>
+                      {c.caseScore ? (
+                        <>
+                          <p style={{margin:0,fontSize:13,fontWeight:700,color:N.navy}}>{c.caseScore.pct}%</p>
+                          <p style={{margin:"2px 0 0",fontSize:11,color:N.slateL}}>{c.caseScore.correct}/{c.caseScore.total}</p>
+                        </>
+                      ) : <span style={{color:N.slateXL,fontSize:12}}>—</span>}
+                    </div>
+                    {/* Written (manual) */}
+                    <div>
+                      {c.writtenScore ? (
+                        <div>
+                          <p style={{margin:0,fontSize:13,fontWeight:700,color:N.navy}}>{c.writtenScore.pct}%</p>
+                          <p style={{margin:"2px 0 0",fontSize:11,color:N.slateL}}>{c.writtenScore.score}/{c.writtenScore.max}</p>
+                          <button onClick={()=>{setEditId(c.id);setWrittenInput(String(c.writtenScore.score));setWrittenMax(String(c.writtenScore.max));}} style={{fontSize:10,color:N.orange,background:"transparent",border:"none",cursor:"pointer",padding:0,marginTop:2}}>Edit</button>
+                        </div>
+                      ) : c.overall ? (
+                        <button onClick={()=>{setEditId(c.id);setWrittenInput("");setWrittenMax("");}} style={{fontSize:11,fontWeight:600,padding:"4px 10px",borderRadius:4,border:"1px solid "+N.orange,background:"#FFF7F2",color:N.orange,cursor:"pointer"}}>+ Enter Score</button>
+                      ) : <span style={{color:N.slateXL,fontSize:12}}>—</span>}
+                    </div>
+                    {/* Overall */}
+                    <div>
+                      {totalPct !== null ? (
+                        <>
+                          <p style={{margin:0,fontSize:16,fontWeight:800,color:levelColor(totalPct)}}>{totalPct}%</p>
+                          <p style={{margin:"2px 0 0",fontSize:10,fontWeight:700,color:levelColor(totalPct)}}>{level(totalPct)}</p>
+                        </>
+                      ) : <span style={{color:N.slateXL,fontSize:12}}>In progress</span>}
+                    </div>
+                    {/* Competencies + delete */}
+                    <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+                      {c.competencies && Object.entries(c.competencies).map(([ck, cs]) => {
+                        const comp = COMPETENCIES[ck];
+                        if (!comp || !cs.total) return null;
+                        const p2 = Math.round(cs.correct / cs.total * 100);
+                        return (
+                          <div key={ck} title={comp.label+": "+cs.correct+"/"+cs.total} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:1}}>
+                            <span style={{fontSize:9,fontWeight:700,color:comp.color}}>{comp.short.split(" ")[0]}</span>
+                            <span style={{fontSize:11,fontWeight:700,color:p2>=70?comp.color:N.orange}}>{p2}%</span>
+                          </div>
+                        );
+                      })}
+                      <button onClick={()=>setDeleteConfirm(c.id)} style={{marginLeft:"auto",fontSize:10,color:"#DC2626",background:"transparent",border:"none",cursor:"pointer",padding:"2px 6px"}}>✕</button>
+                    </div>
+                  </div>
+
+                  {/* Written score entry row */}
+                  {isEditing && (
+                    <div style={{padding:"12px 16px",background:"#FFFAF7",borderTop:"1px solid "+N.border,display:"flex",alignItems:"center",gap:12,flexWrap:"wrap"}}>
+                      <p style={{margin:0,fontSize:12,fontWeight:700,color:N.navy}}>Enter Written Case Study Score for <span style={{color:N.orange}}>{c.name}</span></p>
+                      <div style={{display:"flex",alignItems:"center",gap:8}}>
+                        <input value={writtenInput} onChange={e=>setWrittenInput(e.target.value)} placeholder="Score" style={{width:70,padding:"6px 10px",border:"1px solid "+N.border,borderRadius:4,fontSize:13,color:N.navy}} type="number" min="0"/>
+                        <span style={{color:N.slateL,fontSize:13}}>out of</span>
+                        <input value={writtenMax} onChange={e=>setWrittenMax(e.target.value)} placeholder="Max" style={{width:70,padding:"6px 10px",border:"1px solid "+N.border,borderRadius:4,fontSize:13,color:N.navy}} type="number" min="1"/>
+                      </div>
+                      <div style={{display:"flex",gap:8}}>
+                        <button onClick={()=>saveWritten(c.id)} style={{padding:"6px 16px",background:N.navy,color:"white",border:"none",borderRadius:4,fontSize:12,fontWeight:700,cursor:"pointer"}}>Save</button>
+                        <button onClick={()=>setEditId(null)} style={{padding:"6px 12px",background:"white",color:N.slate,border:"1px solid "+N.border,borderRadius:4,fontSize:12,cursor:"pointer"}}>Cancel</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Delete confirm */}
+        {deleteConfirm && (
+          <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:2000}}>
+            <div style={{background:"white",borderRadius:10,padding:28,maxWidth:360,width:"90%",textAlign:"center"}}>
+              <p style={{fontSize:15,fontWeight:700,color:N.navy,marginBottom:8}}>Delete this candidate?</p>
+              <p style={{fontSize:13,color:N.slateL,marginBottom:20}}>This will permanently remove their record from the dashboard.</p>
+              <div style={{display:"flex",gap:10,justifyContent:"center"}}>
+                <button onClick={()=>deleteCandidate(deleteConfirm)} style={{padding:"8px 20px",background:"#DC2626",color:"white",border:"none",borderRadius:6,fontSize:13,fontWeight:700,cursor:"pointer"}}>Delete</button>
+                <button onClick={()=>setDeleteConfirm(null)} style={{padding:"8px 20px",background:"white",color:N.navy,border:"1px solid "+N.border,borderRadius:6,fontSize:13,cursor:"pointer"}}>Cancel</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <button onClick={onBack} style={{marginTop:20,padding:"10px 24px",background:"white",color:N.navy,border:"1px solid "+N.border,borderRadius:6,fontSize:13,fontWeight:600,cursor:"pointer"}}>← Back to Company Setup</button>
+      </div>
+    </div>
+  );
+}
+
+// ── EDIT PHASE ────────────────────────────────────────────────────────────────
+function EditPhase({qPool,setQPool,caseStudies,setCaseStudies,scenario,onPreview,companyName,aiGenerated,onPublish,publishedAt,onDashboard}) {
   const [tab,setTab] = useState("questions");
   const [editQIdx,setEditQIdx] = useState(null);
   const [qDraft,setQDraft] = useState(null);
@@ -357,10 +449,11 @@ function EditPhase({qPool,setQPool,caseStudies,setCaseStudies,scenario,onPreview
       <div style={{maxWidth:"56rem",margin:"0 auto",padding:"20px 24px"}}>
         <div style={{background:N.bg,border:"1px solid "+N.border,borderRadius:6,padding:"10px 16px",marginBottom:16,display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,flexWrap:"wrap"}}>
           <div>
-            <p style={{color:N.slate,fontSize:12,margin:"0 0 2px"}}>{aiGenerated?"AI-generated":"Built-in question bank"} - tailored to your profile. Click Edit on any item to modify.</p>
-            {publishedAt&&<p style={{color:"#15803D",fontSize:11,margin:0}}>{"Published and ready for candidates - "+publishedAt}</p>}
+            <p style={{color:N.slate,fontSize:12,margin:"0 0 2px"}}>{aiGenerated?"AI-generated":"Built-in question bank"} — tailored to your profile.</p>
+            {publishedAt&&<p style={{color:"#15803D",fontSize:11,margin:0}}>Published {publishedAt}</p>}
           </div>
           <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+            <button onClick={onDashboard} style={{fontSize:11,fontWeight:700,padding:"6px 14px",borderRadius:4,border:"none",background:"#5B1F6A",color:"white",cursor:"pointer"}}>📊 Candidates</button>
             {[["test","Candidate Test"],["sheet","Answer Sheet"],["cases","Evaluator Guide"],["key","Answer Key"]].map(([m,lbl])=>(
               <button key={m} onClick={()=>onPreview(m)} style={{fontSize:11,fontWeight:600,padding:"6px 12px",borderRadius:4,border:"1px solid "+N.border,background:m==="test"?N.navy:"white",color:m==="test"?"white":N.navy,cursor:"pointer"}}>{lbl}</button>
             ))}
@@ -398,7 +491,7 @@ function EditPhase({qPool,setQPool,caseStudies,setCaseStudies,scenario,onPreview
                         <textarea value={qDraft.question} onChange={e=>setQDraft({...qDraft,question:e.target.value})} rows={3} style={{...ta}}/>
                       </div>
                       <div style={{marginBottom:10}}>
-                        <label style={{fontSize:11,fontWeight:700,color:N.navy,display:"block",marginBottom:3}}>Options - select radio button next to the correct answer</label>
+                        <label style={{fontSize:11,fontWeight:700,color:N.navy,display:"block",marginBottom:3}}>Options — click radio button to mark correct answer</label>
                         {qDraft.options.map((opt,j)=>(
                           <div key={j} style={{display:"flex",gap:8,marginBottom:6,alignItems:"center"}}>
                             <input type="radio" name={"correct_"+idx} checked={qDraft.correct===j} onChange={()=>setQDraft({...qDraft,correct:j})}/>
@@ -460,7 +553,7 @@ function EditPhase({qPool,setQPool,caseStudies,setCaseStudies,scenario,onPreview
   );
 }
 
-// ── PRINT PREVIEW (simplified for HTML file) ─────────────────────────────────
+// ── PRINT PREVIEW ─────────────────────────────────────────────────────────────
 function PrintPreview({cfg,qPool,companyName,candidateName,scenario,mcqRes,sRes,caseStudies,mode,onClose}) {
   const today=new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
   const pct=(a,b)=>b===0?0:Math.round(a/b*100);
@@ -473,11 +566,10 @@ function PrintPreview({cfg,qPool,companyName,candidateName,scenario,mcqRes,sRes,
   const op=pct(total,totalMax);
   const level=op>=85?"Expert CFO":op>=70?"Senior CFO":op>=55?"Proficient CFO":"Developing CFO";
   const compScore=ck=>{const qs=mcqRes.filter(r=>r.q.comp===ck);return{correct:qs.filter(r=>r.correct).length,total:qs.length,pct:pct(qs.filter(r=>r.correct).length,qs.length)};};
-  const DIFF_LBL=["","Entry","Developing","Proficient","Advanced","Expert"];
 
   const renderQ=(q,label,userAns,showAnswer)=>(
     <div style={{marginBottom:20,paddingBottom:16,borderBottom:"1px solid "+N.border}}>
-      {showAnswer&&<div style={{marginBottom:5,display:"flex",gap:8,alignItems:"center"}}><CompBadge compKey={q.comp||q.competency} small={true}/><span style={{fontSize:11,color:N.slateL}}>{"Diff: "+DIFF_LBL[q.difficulty]}</span></div>}
+      {showAnswer&&<div style={{marginBottom:5,display:"flex",gap:8,alignItems:"center"}}><CompBadge compKey={q.comp||q.competency} small={true}/><span style={{fontSize:11,color:N.slateL}}>{"Diff: "+DIFF_LABEL[q.difficulty]}</span></div>}
       <p style={{margin:"0 0 10px",fontSize:13,fontWeight:600,color:N.navy,lineHeight:1.5}}><strong>{label}.</strong> {q.question}</p>
       {q.options.map((opt,j)=>{
         const isC=j===q.correct,isU=userAns===j;
@@ -509,14 +601,13 @@ function PrintPreview({cfg,qPool,companyName,candidateName,scenario,mcqRes,sRes,
       </div>
 
       <div id="print-area" style={{background:"white",maxWidth:760,margin:"24px auto",padding:"48px 40px"}}>
-        {/* Header */}
         <div style={{borderBottom:"3px solid "+N.navy,paddingBottom:20,marginBottom:24,display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
           <div>
             {companyName&&<p style={{margin:"0 0 4px",fontSize:11,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{companyName}</p>}
             <h1 style={{margin:0,fontSize:20,fontWeight:800,color:N.navy}}>
-              {mode==="test"?"CFO Technical Skill Assessment":mode==="key"?"CFO Assessment - Answer Key & Results":mode==="sheet"?"CFO Assessment - Answer Sheet":"CFO Assessment - Case Studies & Evaluator Guide"}
+              {mode==="test"?"CFO Technical Skill Assessment":mode==="key"?"CFO Assessment — Answer Key & Results":mode==="sheet"?"CFO Assessment — Answer Sheet":"CFO Assessment — Case Studies & Evaluator Guide"}
             </h1>
-            <p style={{margin:"6px 0 0",fontSize:12,color:N.slateL}}>{mode==="key"?"Confidential - Hiring Manager Only - ":mode==="cases"?"Hiring Team Use Only - ":""}{today}</p>
+            <p style={{margin:"6px 0 0",fontSize:12,color:N.slateL}}>{mode==="key"?"Confidential — Hiring Manager Only — ":mode==="cases"?"Hiring Team Use Only — ":""}{today}</p>
           </div>
           {(mode==="test"||mode==="sheet")&&(
             <div style={{textAlign:"right"}}>
@@ -530,35 +621,19 @@ function PrintPreview({cfg,qPool,companyName,candidateName,scenario,mcqRes,sRes,
           )}
         </div>
 
-        {/* ANSWER SHEET */}
         {mode==="sheet"&&(
           <div>
-            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part A - Multiple Choice (Q1-Q25)</p>
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part A — Multiple Choice (Q1–Q25)</p>
             <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8,marginBottom:24}}>
-              {Array.from({length:25},(_,i)=>(
-                <div key={i} style={{border:"1px solid "+N.border,borderRadius:6,padding:"8px 10px"}}>
-                  <p style={{margin:"0 0 6px",fontSize:12,fontWeight:700,color:N.navy}}>{i+1}.</p>
-                  <div style={{display:"flex",gap:5}}>
-                    {["A","B","C","D"].map(l=>(<div key={l} style={{width:24,height:24,borderRadius:"50%",border:"1.5px solid "+N.border,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:N.slateL}}>{l}</div>))}
-                  </div>
-                </div>
-              ))}
+              {Array.from({length:25},(_,i)=>(<div key={i} style={{border:"1px solid "+N.border,borderRadius:6,padding:"8px 10px"}}><p style={{margin:"0 0 6px",fontSize:12,fontWeight:700,color:N.navy}}>{i+1}.</p><div style={{display:"flex",gap:5}}>{["A","B","C","D"].map(l=>(<div key={l} style={{width:24,height:24,borderRadius:"50%",border:"1.5px solid "+N.border,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:N.slateL}}>{l}</div>))}</div></div>))}
             </div>
-            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part B - Case Study (S1-S5)</p>
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part B — Case Study (S1–S5)</p>
             <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8,marginBottom:24}}>
-              {[1,2,3,4,5].map(num=>(
-                <div key={num} style={{border:"1px solid "+N.border,borderRadius:6,padding:"8px 10px"}}>
-                  <p style={{margin:"0 0 6px",fontSize:12,fontWeight:700,color:N.navy}}>{"S"+num}.</p>
-                  <div style={{display:"flex",gap:5}}>
-                    {["A","B","C","D"].map(l=>(<div key={l} style={{width:24,height:24,borderRadius:"50%",border:"1.5px solid "+N.border,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:N.slateL}}>{l}</div>))}
-                  </div>
-                </div>
-              ))}
+              {[1,2,3,4,5].map(num=>(<div key={num} style={{border:"1px solid "+N.border,borderRadius:6,padding:"8px 10px"}}><p style={{margin:"0 0 6px",fontSize:12,fontWeight:700,color:N.navy}}>{"S"+num}.</p><div style={{display:"flex",gap:5}}>{["A","B","C","D"].map(l=>(<div key={l} style={{width:24,height:24,borderRadius:"50%",border:"1.5px solid "+N.border,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:N.slateL}}>{l}</div>))}</div></div>))}
             </div>
           </div>
         )}
 
-        {/* CANDIDATE TEST */}
         {mode==="test"&&(
           <div>
             <div style={{marginBottom:20,padding:"12px 16px",background:N.bg,border:"1px solid "+N.border,borderRadius:6}}>
@@ -569,97 +644,46 @@ function PrintPreview({cfg,qPool,companyName,candidateName,scenario,mcqRes,sRes,
             </div>
             <div style={{marginBottom:16,padding:"10px 14px",borderLeft:"3px solid "+N.orange,background:"#FFFAF7"}}>
               <p style={{margin:"0 0 4px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Assessment Overview</p>
-              <p style={{margin:0,fontSize:12,color:N.slate,lineHeight:1.6}}><strong>Part A</strong> - 25 multiple-choice questions (50 min). Record answers on the answer sheet.<br/><strong>Part B</strong> - Case study with 5 judgment questions (25 min).<br/><strong>Part C</strong> - {writtenCases.length} written proposals (submit as separate documents).<br/><strong>Part D</strong> - {discussionCases.length} live discussion topics.</p>
+              <p style={{margin:0,fontSize:12,color:N.slate,lineHeight:1.6}}><strong>Part A</strong> — 25 multiple-choice questions (50 min).<br/><strong>Part B</strong> — Case study with 5 judgment questions (25 min).<br/><strong>Part C</strong> — {writtenCases.length} written proposals (submit as separate documents).<br/><strong>Part D</strong> — {discussionCases.length} live discussion topics.</p>
             </div>
-            <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART A - MULTIPLE CHOICE</p></div>
+            <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART A — MULTIPLE CHOICE</p></div>
             {qPool.slice(0,25).map((q,i)=>renderQ(q,i+1,undefined,false))}
             {scenario&&(
               <div>
-                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART B - CASE STUDY</p></div>
-                <div style={{background:N.navy,borderRadius:6,padding:20,marginBottom:14}}><p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{(scenario.companyName||"Meridian Software").toUpperCase()} - CFO ONBOARDING SCENARIO</p><p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",lineHeight:1.6}}>{scenario.narrative}</p></div>
+                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART B — CASE STUDY</p></div>
+                <div style={{background:N.navy,borderRadius:6,padding:20,marginBottom:14}}><p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{(scenario.companyName||"Meridian Software").toUpperCase()} — CFO ONBOARDING SCENARIO</p><p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",lineHeight:1.6}}>{scenario.narrative}</p></div>
                 {scenario.questions.map((sq,i)=>renderQ(sq,"S"+(i+1),undefined,false))}
               </div>
             )}
-            {writtenCases.length>0&&(
-              <div>
-                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART C - WRITTEN PROPOSALS</p></div>
-                {writtenCases.map((cs,i)=>(
-                  <div key={i} style={{marginBottom:22,paddingBottom:18,borderBottom:"1px solid "+N.border}}>
-                    <p style={{margin:"0 0 5px",fontSize:13,fontWeight:800,color:N.navy}}>{"C"+(i+1)+". "+cs.title}</p>
-                    <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
-                    <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase",letterSpacing:"0.08em"}}>Context</p>
-                    <p style={{margin:"0 0 10px",fontSize:13,color:N.slate,lineHeight:1.6}}>{cs.context}</p>
-                    <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase",letterSpacing:"0.08em"}}>Areas to Address</p>
-                    <ul style={{margin:"0 0 10px",paddingLeft:20}}>{(cs.areas||[]).map((a,j)=><li key={j} style={{fontSize:13,color:N.slate,marginBottom:4}}>{a}</li>)}</ul>
-                    <div style={{background:N.bg,border:"1px solid "+N.border,borderRadius:4,padding:"8px 14px"}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Deliverable</p><p style={{margin:0,fontSize:12,color:N.slate}}>{cs.deliverable}</p></div>
-                  </div>
-                ))}
-              </div>
-            )}
-            {discussionCases.length>0&&(
-              <div>
-                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART D - LIVE DISCUSSIONS</p></div>
-                {discussionCases.map((cs,i)=>(
-                  <div key={i} style={{marginBottom:18,paddingBottom:14,borderBottom:"1px solid "+N.border}}>
-                    <p style={{margin:"0 0 5px",fontSize:13,fontWeight:800,color:N.navy}}>{"D"+(i+1)+". "+cs.title}</p>
-                    <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
-                    <p style={{margin:"0 0 8px",fontSize:13,color:N.slate,lineHeight:1.5}}>{cs.context}</p>
-                    <ul style={{margin:0,paddingLeft:20}}>{(cs.topics||[]).map((t,j)=><li key={j} style={{fontSize:13,color:N.slate,marginBottom:4}}>{t}</li>)}</ul>
-                  </div>
-                ))}
-              </div>
-            )}
+            {writtenCases.length>0&&(<div><div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART C — WRITTEN PROPOSALS</p></div>{writtenCases.map((cs,i)=>(<div key={i} style={{marginBottom:22,paddingBottom:18,borderBottom:"1px solid "+N.border}}><p style={{margin:"0 0 5px",fontSize:13,fontWeight:800,color:N.navy}}>{"C"+(i+1)+". "+cs.title}</p><div style={{marginBottom:8}}><CompBadge compKey={cs.competency}/></div><p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Context</p><p style={{margin:"0 0 10px",fontSize:13,color:N.slate,lineHeight:1.6}}>{cs.context}</p><p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Areas to Address</p><ul style={{margin:"0 0 10px",paddingLeft:20}}>{(cs.areas||[]).map((a,j)=><li key={j} style={{fontSize:13,color:N.slate,marginBottom:4}}>{a}</li>)}</ul><div style={{background:N.bg,border:"1px solid "+N.border,borderRadius:4,padding:"8px 14px"}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Deliverable</p><p style={{margin:0,fontSize:12,color:N.slate}}>{cs.deliverable}</p></div></div>))}</div>)}
+            {discussionCases.length>0&&(<div><div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART D — LIVE DISCUSSIONS</p></div>{discussionCases.map((cs,i)=>(<div key={i} style={{marginBottom:18,paddingBottom:14,borderBottom:"1px solid "+N.border}}><p style={{margin:"0 0 5px",fontSize:13,fontWeight:800,color:N.navy}}>{"D"+(i+1)+". "+cs.title}</p><div style={{marginBottom:8}}><CompBadge compKey={cs.competency}/></div><p style={{margin:"0 0 8px",fontSize:13,color:N.slate,lineHeight:1.5}}>{cs.context}</p><ul style={{margin:0,paddingLeft:20}}>{(cs.topics||[]).map((t,j)=><li key={j} style={{fontSize:13,color:N.slate,marginBottom:4}}>{t}</li>)}</ul></div>))}</div>)}
           </div>
         )}
 
-        {/* EVALUATOR GUIDE */}
         {mode==="cases"&&(
           <div>
-            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part C - Written Proposal Evaluator Rubrics</p>
-            {writtenCases.map((cs,i)=>(
-              <div key={i} style={{marginBottom:28,paddingBottom:24,borderBottom:"1px solid "+N.border}}>
-                <p style={{margin:"0 0 5px",fontSize:14,fontWeight:800,color:N.navy}}>{"C"+(i+1)+". "+cs.title}</p>
-                <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
-                <p style={{margin:"0 0 12px",fontSize:12,color:N.slate,lineHeight:1.5}}>{cs.context}</p>
-                <table style={{width:"100%",borderCollapse:"collapse"}}>
-                  <thead><tr>{["Criterion","Strong","Weak"].map(h=><th key={h} style={{textAlign:"left",fontSize:11,color:N.slateL,padding:"6px 10px",borderBottom:"2px solid "+N.navy,width:h==="Criterion"?"25%":"37.5%"}}>{h}</th>)}</tr></thead>
-                  <tbody>{(cs.rubric||[]).map((r,j)=>(<tr key={j} style={{background:j%2===0?"white":N.bg}}><td style={{padding:"8px 10px",fontSize:12,fontWeight:600,color:N.navy,borderBottom:"1px solid "+N.border,verticalAlign:"top"}}>{r.criterion}</td><td style={{padding:"8px 10px",fontSize:12,color:"#15803D",borderBottom:"1px solid "+N.border,lineHeight:1.4,verticalAlign:"top"}}>{r.strong}</td><td style={{padding:"8px 10px",fontSize:12,color:"#DC2626",borderBottom:"1px solid "+N.border,lineHeight:1.4,verticalAlign:"top"}}>{r.weak}</td></tr>))}</tbody>
-                </table>
-              </div>
-            ))}
-            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part D - Live Discussion Facilitator Guide</p>
-            {discussionCases.map((cs,i)=>(
-              <div key={i} style={{marginBottom:24,paddingBottom:20,borderBottom:"1px solid "+N.border}}>
-                <p style={{margin:"0 0 5px",fontSize:14,fontWeight:800,color:N.navy}}>{"D"+(i+1)+". "+cs.title}</p>
-                <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
-                <div style={{background:N.navy,borderRadius:4,padding:"10px 14px",marginBottom:10}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:N.orange,textTransform:"uppercase"}}>Opening Question</p><p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",fontStyle:"italic"}}>"{cs.openingQuestion}"</p></div>
-                <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Discussion Topics</p>
-                <ul style={{margin:"0 0 10px",paddingLeft:20}}>{(cs.topics||[]).map((t,j)=><li key={j} style={{fontSize:12,color:N.slate,marginBottom:4}}>{t}</li>)}</ul>
-                <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>What to Listen For</p>
-                <ul style={{margin:0,paddingLeft:20}}>{(cs.signals||[]).map((s,j)=><li key={j} style={{fontSize:12,color:N.slate,marginBottom:4,fontStyle:"italic"}}>{s}</li>)}</ul>
-              </div>
-            ))}
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part C — Written Proposal Evaluator Rubrics</p>
+            {writtenCases.map((cs,i)=>(<div key={i} style={{marginBottom:28,paddingBottom:24,borderBottom:"1px solid "+N.border}}><p style={{margin:"0 0 5px",fontSize:14,fontWeight:800,color:N.navy}}>{"C"+(i+1)+". "+cs.title}</p><div style={{marginBottom:8}}><CompBadge compKey={cs.competency}/></div><p style={{margin:"0 0 12px",fontSize:12,color:N.slate,lineHeight:1.5}}>{cs.context}</p><table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr>{["Criterion","Strong","Weak"].map(h=><th key={h} style={{textAlign:"left",fontSize:11,color:N.slateL,padding:"6px 10px",borderBottom:"2px solid "+N.navy,width:h==="Criterion"?"25%":"37.5%"}}>{h}</th>)}</tr></thead><tbody>{(cs.rubric||[]).map((r,j)=>(<tr key={j} style={{background:j%2===0?"white":N.bg}}><td style={{padding:"8px 10px",fontSize:12,fontWeight:600,color:N.navy,borderBottom:"1px solid "+N.border,verticalAlign:"top"}}>{r.criterion}</td><td style={{padding:"8px 10px",fontSize:12,color:"#15803D",borderBottom:"1px solid "+N.border,lineHeight:1.4,verticalAlign:"top"}}>{r.strong}</td><td style={{padding:"8px 10px",fontSize:12,color:"#DC2626",borderBottom:"1px solid "+N.border,lineHeight:1.4,verticalAlign:"top"}}>{r.weak}</td></tr>))}</tbody></table></div>))}
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part D — Live Discussion Facilitator Guide</p>
+            {discussionCases.map((cs,i)=>(<div key={i} style={{marginBottom:24,paddingBottom:20,borderBottom:"1px solid "+N.border}}><p style={{margin:"0 0 5px",fontSize:14,fontWeight:800,color:N.navy}}>{"D"+(i+1)+". "+cs.title}</p><div style={{marginBottom:8}}><CompBadge compKey={cs.competency}/></div><div style={{background:N.navy,borderRadius:4,padding:"10px 14px",marginBottom:10}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:N.orange,textTransform:"uppercase"}}>Opening Question</p><p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",fontStyle:"italic"}}>"{cs.openingQuestion}"</p></div><p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Discussion Topics</p><ul style={{margin:"0 0 10px",paddingLeft:20}}>{(cs.topics||[]).map((t,j)=><li key={j} style={{fontSize:12,color:N.slate,marginBottom:4}}>{t}</li>)}</ul><p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>What to Listen For</p><ul style={{margin:0,paddingLeft:20}}>{(cs.signals||[]).map((s,j)=><li key={j} style={{fontSize:12,color:N.slate,marginBottom:4,fontStyle:"italic"}}>{s}</li>)}</ul></div>))}
           </div>
         )}
 
-        {/* ANSWER KEY */}
         {mode==="key"&&(
           <div>
+            {candidateName&&<div style={{background:"#F5EEF8",border:"1px solid #5B1F6A33",borderRadius:6,padding:"10px 16px",marginBottom:16,display:"flex",gap:16,alignItems:"center"}}><div><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:"#5B1F6A",textTransform:"uppercase"}}>Candidate</p><p style={{margin:0,fontSize:15,fontWeight:700,color:N.navy}}>{candidateName}</p></div><div style={{borderLeft:"1px solid #5B1F6A22",paddingLeft:16}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:"#5B1F6A",textTransform:"uppercase"}}>Date</p><p style={{margin:0,fontSize:13,color:N.slate}}>{new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})}</p></div></div>}
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:20}}>
-              {[["Overall Score",op+"%",total+" of "+totalMax+" correct"],["Assessment Level",level,exp.label],["Case Study",pct(sCorrect,sRes.length)+"%",sCorrect+" of "+sRes.length]].map(([lbl,val,sub])=>(<div key={lbl} style={{background:N.navy,borderRadius:6,padding:16}}><p style={{margin:"0 0 4px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{lbl}</p><p style={{margin:0,fontSize:val.length>5?18:28,fontWeight:800,color:"white"}}>{val}</p>{sub&&<p style={{margin:"4px 0 0",fontSize:11,color:"rgba(255,255,255,0.5)"}}>{sub}</p>}</div>))}
+              {[["Overall Score",op+"%",total+" of "+totalMax+" correct"],["Assessment Level",level,EXP[cfg.experience]?.label||""],["Case Study",pct(sCorrect,sRes.length)+"%",sCorrect+" of "+sRes.length]].map(([lbl,val,sub])=>(<div key={lbl} style={{background:N.navy,borderRadius:6,padding:16}}><p style={{margin:"0 0 4px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{lbl}</p><p style={{margin:0,fontSize:val.length>5?18:28,fontWeight:800,color:"white"}}>{val}</p>{sub&&<p style={{margin:"4px 0 0",fontSize:11,color:"rgba(255,255,255,0.5)"}}>{sub}</p>}</div>))}
             </div>
             <p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Competency Performance</p>
-            <table style={{width:"100%",borderCollapse:"collapse",marginBottom:20}}>
-              <thead><tr>{["Competency","Score","Pct."].map(h=><th key={h} style={{textAlign:h==="Competency"?"left":"center",fontSize:11,color:N.slateL,padding:"6px 0",borderBottom:"2px solid "+N.navy}}>{h}</th>)}</tr></thead>
-              <tbody>{Object.entries(COMPETENCIES).map(([k,v])=>{const cs=compScore(k);return(<tr key={k}><td style={{padding:"8px 0",borderBottom:"1px solid "+N.border}}><span style={{fontSize:13,fontWeight:600,color:v.color}}>{v.label}</span></td><td style={{padding:"8px 0",fontSize:13,textAlign:"center",borderBottom:"1px solid "+N.border}}>{cs.correct}/{cs.total}</td><td style={{padding:"8px 0",fontSize:13,fontWeight:700,textAlign:"center",color:cs.pct>=70?N.navy:N.orange,borderBottom:"1px solid "+N.border}}>{cs.pct}%</td></tr>);})}</tbody>
-            </table>
-            <p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part A - Multiple Choice</p>
+            <table style={{width:"100%",borderCollapse:"collapse",marginBottom:20}}><thead><tr>{["Competency","Score","Pct."].map(h=><th key={h} style={{textAlign:h==="Competency"?"left":"center",fontSize:11,color:N.slateL,padding:"6px 0",borderBottom:"2px solid "+N.navy}}>{h}</th>)}</tr></thead><tbody>{Object.entries(COMPETENCIES).map(([k,v])=>{const cs=compScore(k);return(<tr key={k}><td style={{padding:"8px 0",borderBottom:"1px solid "+N.border}}><span style={{fontSize:13,fontWeight:600,color:v.color}}>{v.label}</span></td><td style={{padding:"8px 0",fontSize:13,textAlign:"center",borderBottom:"1px solid "+N.border}}>{cs.correct}/{cs.total}</td><td style={{padding:"8px 0",fontSize:13,fontWeight:700,textAlign:"center",color:cs.pct>=70?N.navy:N.orange,borderBottom:"1px solid "+N.border}}>{cs.pct}%</td></tr>);})}</tbody></table>
+            <p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part A — Multiple Choice</p>
             {qPool.slice(0,25).map((q,i)=>{const r=mcqRes[i];return(<div key={q.id||i}>{r&&<div style={{display:"flex",gap:8,marginBottom:2,alignItems:"center"}}><span style={{fontSize:12,fontWeight:700,color:N.navy}}>{"#"+(i+1)}</span><span style={{fontSize:11,fontWeight:700,color:r.correct?"#15803D":"#DC2626",marginLeft:"auto"}}>{r.correct?"Correct":"Incorrect"}</span></div>}{renderQ(q,i+1,r?.userAns,true)}</div>);})}
           </div>
         )}
 
         <div style={{marginTop:24,paddingTop:16,borderTop:"1px solid "+N.border,display:"flex",justifyContent:"space-between",fontSize:11,color:N.slateXL}}>
-          <span>CFO Technical Skill Assessment - Roxi's Corner | Kochimi.io</span>
+          <span>CFO Technical Skill Assessment — Roxi's Corner | Kochimi.io</span>
           <span>{today}</span>
         </div>
       </div>
@@ -697,7 +721,6 @@ function App() {
   const [sSel, setSSel] = useState(null);
   const [sRes, setSRes] = useState([]);
 
-  // Use localStorage for persistence (no window.storage in standalone HTML)
   useEffect(()=>{
     try{const d=localStorage.getItem(STORAGE_KEY);if(d){const p=JSON.parse(d);if(p.companyName)setCompanyName(p.companyName);}}catch(e){}
   },[]);
@@ -722,7 +745,7 @@ function App() {
       localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
       const ts=new Date().toLocaleString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"});
       setPublishedAt(ts);
-      alert("Test published! Candidates can now begin their assessment.");
+      alert("Assessment published! Candidates can now begin.");
     }catch(e){alert("Failed to publish. Please try again.");}
   }
 
@@ -768,8 +791,44 @@ function App() {
     if(sSel===null)return;
     const correct=sSel===scenario.questions[sqi].correct;
     const newSRes=[...sRes,{correct,userAns:sSel}];setSRes(newSRes);
-    if(sqi+1>=scenario.questions.length){setPhase("results");return;}
+    if(sqi+1>=scenario.questions.length){
+      // Save candidate record
+      saveResults(newSRes);
+      setPhase("results");
+      return;
+    }
     setSqi(sqi+1);setSSel(null);
+  }
+
+  function saveResults(finalSRes) {
+    const pct = (a,b) => b===0?0:Math.round(a/b*100);
+    const mcqCorrect = mcqRes.filter(r=>r.correct).length;
+    const sCorrect = finalSRes.filter(r=>r.correct).length;
+    const total = mcqCorrect + sCorrect;
+    const totalMax = 25 + finalSRes.length;
+    const compScores = {};
+    Object.keys(COMPETENCIES).forEach(ck => {
+      const qs = mcqRes.filter(r => r.comp === ck);
+      compScores[ck] = {correct: qs.filter(r=>r.correct).length, total: qs.length};
+    });
+    const avgDiff = mcqRes.length ? (mcqRes.reduce((s,r)=>s+r.d,0)/mcqRes.length).toFixed(1) : 0;
+    const level = p => p>=85?"Expert CFO":p>=70?"Senior CFO":p>=55?"Proficient CFO":"Developing CFO";
+    const op = pct(total, totalMax);
+    const record = {
+      id: Date.now().toString(),
+      name: candidateName || "Unknown Candidate",
+      company: companyName || "",
+      date: new Date().toISOString(),
+      experience: cfg.experience,
+      arr: cfg.arr,
+      mcqScore: {correct: mcqCorrect, total: 25, pct: pct(mcqCorrect, 25)},
+      caseScore: {correct: sCorrect, total: finalSRes.length, pct: pct(sCorrect, finalSRes.length)},
+      overall: {correct: total, total: totalMax, pct: op},
+      competencies: compScores,
+      level: level(op),
+      avgDifficulty: Number(avgDiff),
+    };
+    saveCandidateResult(record);
   }
 
   function reset(){
@@ -786,11 +845,15 @@ function App() {
   const pct=(a,b)=>b===0?0:Math.round(a/b*100);
 
   if(preview){return<PrintPreview cfg={cfg} qPool={qPool} companyName={companyName} candidateName={candidateName} scenario={scenario} mcqRes={mcqRes} sRes={sRes} caseStudies={caseStudies} mode={preview} onClose={()=>setPreview(null)}/>;}
-  if(loading){return<div style={{minHeight:"100vh",background:"white"}}><AppHeader title={companyName||"CFO SKILL ASSESSMENT"}/><div style={{maxWidth:"36rem",margin:"0 auto",padding:"64px 24px",textAlign:"center"}}><Spinner label={loadMsg}/><p style={{color:N.slateXL,fontSize:12,marginTop:8}}>This may take 20-30 seconds</p></div></div>;}
+  if(loading){return<div style={{minHeight:"100vh",background:"white"}}><AppHeader title={companyName||"CFO SKILL ASSESSMENT"}/><div style={{maxWidth:"36rem",margin:"0 auto",padding:"64px 24px",textAlign:"center"}}><Spinner label={loadMsg}/><p style={{color:"#A0AEC0",fontSize:12,marginTop:8}}>This may take 20–30 seconds</p></div></div>;}
 
   const btnStyle=(primary)=>({padding:"12px 32px",background:primary?N.navy:"white",color:primary?"white":N.navy,border:primary?"none":"1px solid "+N.border,borderRadius:6,fontSize:14,fontWeight:600,cursor:"pointer"});
   const inputStyle={width:"100%",padding:"12px 14px",border:"1px solid "+N.border,borderRadius:6,fontSize:14,color:N.navy,outline:"none",marginBottom:20,boxSizing:"border-box"};
 
+  // ── DASHBOARD ──
+  if(phase==="dashboard"){return<CandidatesDashboard companyName={companyName} onBack={()=>setPhase("edit")}/>;}
+
+  // ── WELCOME ──
   if(phase==="welcome"){return(
     <div style={{minHeight:"100vh",background:"white"}}>
       <AppHeader/>
@@ -811,7 +874,7 @@ function App() {
           <button onClick={()=>{setUserMode("company");setPhase("password");}} style={{background:"white",border:"2px solid "+N.border,borderRadius:10,padding:24,textAlign:"left",cursor:"pointer"}} onMouseOver={e=>e.currentTarget.style.borderColor=N.orange} onMouseOut={e=>e.currentTarget.style.borderColor=N.border}>
             <div style={{width:40,height:40,borderRadius:8,background:"#FDF3EC",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:12}}><div style={{width:20,height:14,border:"2px solid "+N.orange,borderRadius:2}}/></div>
             <p style={{color:N.navy,fontSize:15,fontWeight:700,margin:"0 0 4px"}}>Company Setup</p>
-            <p style={{color:N.slateL,fontSize:12,margin:0,lineHeight:1.5}}>Configure, review, edit, and publish the assessment. Password required.</p>
+            <p style={{color:N.slateL,fontSize:12,margin:0,lineHeight:1.5}}>Configure, review, edit, publish the assessment, and track candidates.</p>
           </button>
         </div>
         <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
@@ -832,7 +895,7 @@ function App() {
         <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:8}}>Welcome</h2>
         <p style={{color:N.slate,fontSize:14,marginBottom:24,lineHeight:1.6}}>Please enter your full name before beginning the assessment.</p>
         <p style={{color:N.navy,fontSize:14,fontWeight:600,marginBottom:4}}>Your Full Name <span style={{color:N.orange}}>*</span></p>
-        <p style={{color:N.slateL,fontSize:11,marginBottom:10}}>Required - appears on your answer sheet and score report.</p>
+        <p style={{color:N.slateL,fontSize:11,marginBottom:10}}>Required — appears on your answer sheet and score report.</p>
         <input value={nameInput} onChange={e=>setNameInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&canContinue){setCandidateName(nameInput.trim());loadCandidateTest();}}} placeholder="e.g. Jane Smith" style={{...inputStyle}} autoFocus/>
         <div style={{display:"flex",gap:12}}>
           <button onClick={()=>{if(canContinue){setCandidateName(nameInput.trim());loadCandidateTest();}}} disabled={!canContinue} style={{...btnStyle(true),background:canContinue?N.navy:N.border,cursor:canContinue?"pointer":"not-allowed"}}>Begin Assessment</button>
@@ -846,7 +909,7 @@ function App() {
     <div style={{minHeight:"100vh",background:"white"}}>
       <AppHeader/>
       <div style={{maxWidth:"28rem",margin:"0 auto",padding:"80px 24px",textAlign:"center"}}>
-        <div style={{width:48,height:48,borderRadius:12,background:"#FDF3EC",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 16px"}}><div style={{width:24,height:24,border:"2px solid "+N.orange,borderRadius:4}}/></div>
+        <p style={{fontSize:32,marginBottom:12}}>📋</p>
         <h2 style={{color:N.navy,fontSize:20,fontWeight:800,marginBottom:12}}>No Assessment Assigned</h2>
         <p style={{color:N.slate,fontSize:13,lineHeight:1.6,marginBottom:24}}>No assessment has been published yet. Please contact your hiring coordinator.</p>
         <button onClick={()=>{setPhase("welcome");setUserMode(null);}} style={btnStyle(true)}>Back to Home</button>
@@ -862,16 +925,57 @@ function App() {
         <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:8}}>Company Setup</h2>
         <p style={{color:N.slate,fontSize:14,marginBottom:24}}>Enter the administrator password to access configuration tools.</p>
         <p style={{color:N.navy,fontSize:14,fontWeight:600,marginBottom:8}}>Password</p>
-        <input type="password" value={passwordInput} onChange={e=>{setPasswordInput(e.target.value);setPasswordError(false);}} onKeyDown={e=>{if(e.key==="Enter"){if(passwordInput===COMPANY_PASSWORD){setPasswordError(false);setPhase("company_name");}else{setPasswordError(true);setPasswordInput("");};}}} placeholder="Enter password" style={{...inputStyle,borderColor:passwordError?"#EF4444":N.border,marginBottom:passwordError?6:20}} autoFocus/>
+        <input type="password" value={passwordInput} onChange={e=>{setPasswordInput(e.target.value);setPasswordError(false);}} onKeyDown={e=>{if(e.key==="Enter"){if(passwordInput===COMPANY_PASSWORD){setPasswordError(false);setPhase("company_action");}else{setPasswordError(true);setPasswordInput("");};}}} placeholder="Enter password" style={{...inputStyle,borderColor:passwordError?"#EF4444":N.border,marginBottom:passwordError?6:20}} autoFocus/>
         {passwordError&&<p style={{color:"#DC2626",fontSize:12,marginBottom:14}}>Incorrect password. Please try again.</p>}
         <div style={{display:"flex",gap:12}}>
-          <button onClick={()=>{if(passwordInput===COMPANY_PASSWORD){setPasswordError(false);setPhase("company_name");}else{setPasswordError(true);setPasswordInput("");}}} style={btnStyle(true)}>Continue</button>
+          <button onClick={()=>{if(passwordInput===COMPANY_PASSWORD){setPasswordError(false);setPhase("company_action");}else{setPasswordError(true);setPasswordInput("");}}} style={btnStyle(true)}>Continue</button>
           <button onClick={()=>{setPhase("welcome");setUserMode(null);setPasswordInput("");setPasswordError(false);}} style={btnStyle(false)}>Back</button>
         </div>
         <p style={{color:N.slateXL,fontSize:11,marginTop:20}}>Default password: CFO2024</p>
       </div>
     </div>
   );}
+
+  // ── COMPANY ACTION CHOOSER (new) ──
+  if(phase==="company_action"){
+    const candidateCount = loadCandidates().length;
+    return(
+      <div style={{minHeight:"100vh",background:"white"}}>
+        <AppHeader title={companyName||"CFO SKILL ASSESSMENT"} sub="Company Portal"/>
+        <div style={{maxWidth:"40rem",margin:"0 auto",padding:"64px 24px"}}>
+          <div style={{width:40,height:4,background:N.orange,borderRadius:2,marginBottom:16}}/>
+          <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:24}}>What would you like to do?</h2>
+          <div style={{display:"flex",flexDirection:"column",gap:14}}>
+            <button onClick={()=>setPhase("company_name")} style={{background:"white",border:"2px solid "+N.border,borderRadius:10,padding:20,textAlign:"left",cursor:"pointer",display:"flex",gap:16,alignItems:"center"}} onMouseOver={e=>e.currentTarget.style.borderColor=N.orange} onMouseOut={e=>e.currentTarget.style.borderColor=N.border}>
+              <div style={{width:40,height:40,borderRadius:8,background:"#FDF3EC",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><span style={{fontSize:20}}>⚙️</span></div>
+              <div><p style={{color:N.navy,fontSize:15,fontWeight:700,margin:"0 0 2px"}}>Configure & Publish New Assessment</p><p style={{color:N.slateL,fontSize:12,margin:0}}>Set up company parameters, generate questions, review and publish.</p></div>
+            </button>
+            {(()=>{
+              try{const d=localStorage.getItem(STORAGE_KEY);if(d){const p=JSON.parse(d);if(p.qPool){return(
+                <button onClick={()=>{
+                  const d2=JSON.parse(localStorage.getItem(STORAGE_KEY));
+                  setCfg(d2.cfg||{});setQPool(d2.qPool||[]);setCaseStudies(d2.caseStudies||[]);
+                  if(d2.companyName)setCompanyName(d2.companyName);
+                  setPhase("edit");
+                }} style={{background:"white",border:"2px solid "+N.border,borderRadius:10,padding:20,textAlign:"left",cursor:"pointer",display:"flex",gap:16,alignItems:"center"}} onMouseOver={e=>e.currentTarget.style.borderColor=N.navy} onMouseOut={e=>e.currentTarget.style.borderColor=N.border}>
+                  <div style={{width:40,height:40,borderRadius:8,background:"#EEF3FA",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><span style={{fontSize:20}}>✏️</span></div>
+                  <div><p style={{color:N.navy,fontSize:15,fontWeight:700,margin:"0 0 2px"}}>Edit Published Assessment</p><p style={{color:N.slateL,fontSize:12,margin:0}}>Review, modify, or republish the current assessment.</p></div>
+                </button>
+              );}}}catch(e){}return null;
+            })()}
+            <button onClick={()=>setPhase("dashboard")} style={{background:"white",border:"2px solid "+N.border,borderRadius:10,padding:20,textAlign:"left",cursor:"pointer",display:"flex",gap:16,alignItems:"center"}} onMouseOver={e=>e.currentTarget.style.borderColor="#5B1F6A"} onMouseOut={e=>e.currentTarget.style.borderColor=N.border}>
+              <div style={{width:40,height:40,borderRadius:8,background:"#F5EEF8",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><span style={{fontSize:20}}>📊</span></div>
+              <div style={{display:"flex",alignItems:"center",gap:10,flex:1}}>
+                <div><p style={{color:N.navy,fontSize:15,fontWeight:700,margin:"0 0 2px"}}>Candidates Dashboard</p><p style={{color:N.slateL,fontSize:12,margin:0}}>View all candidates, scores, and enter written case study grades.</p></div>
+                {candidateCount>0&&<span style={{marginLeft:"auto",background:"#5B1F6A",color:"white",fontSize:12,fontWeight:700,padding:"3px 10px",borderRadius:9999}}>{candidateCount}</span>}
+              </div>
+            </button>
+          </div>
+          <button onClick={()=>{setPhase("welcome");setUserMode(null);setPasswordInput("");}} style={{marginTop:20,fontSize:12,color:N.slateL,background:"transparent",border:"none",cursor:"pointer"}}>← Back to Home</button>
+        </div>
+      </div>
+    );
+  }
 
   if(phase==="company_name"){return(
     <div style={{minHeight:"100vh",background:"white"}}>
@@ -884,7 +988,7 @@ function App() {
         <input value={nameInput} onChange={e=>setNameInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"){setCompanyName(nameInput.trim());setPhase("config");}}} placeholder="e.g. Xelix, Portfolio Company A" style={{...inputStyle,maxWidth:380}} autoFocus/>
         <div style={{display:"flex",gap:12}}>
           <button onClick={()=>{setCompanyName(nameInput.trim());setPhase("config");}} style={btnStyle(true)}>Continue to Configuration</button>
-          <button onClick={()=>{setPhase("password");setNameInput("");}} style={btnStyle(false)}>Back</button>
+          <button onClick={()=>{setPhase("company_action");setNameInput("");}} style={btnStyle(false)}>Back</button>
         </div>
       </div>
     </div>
@@ -894,8 +998,10 @@ function App() {
     <div style={{minHeight:"100vh",background:"white"}}>
       <AppHeader title={companyName||"CFO SKILL ASSESSMENT"} sub={"Step "+(cfgStep+1)+" of "+CONFIG_STEPS.length}/>
       <div style={{maxWidth:"40rem",margin:"0 auto",padding:"40px 24px"}}>
-        <div style={{marginBottom:24}}><ProgressBar value={((cfgStep+1)/CONFIG_STEPS.length)*100}/></div>
-        <p style={{color:N.slateXL,fontSize:11,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:8}}>Company Configuration - {cfgStep+1} of {CONFIG_STEPS.length}</p>
+        <div style={{marginBottom:24}}>
+          <div style={{width:"100%",height:6,background:N.bg,borderRadius:9999}}><div style={{height:6,borderRadius:9999,transition:"width 0.3s",width:(((cfgStep+1)/CONFIG_STEPS.length)*100)+"%",background:N.orange}}/></div>
+        </div>
+        <p style={{color:N.slateXL,fontSize:11,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:8}}>Company Configuration — {cfgStep+1} of {CONFIG_STEPS.length}</p>
         <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:4}}>{step.label}</h2>
         <p style={{color:N.slate,fontSize:13,marginBottom:20}}>{step.desc}</p>
         <div style={{display:"flex",flexDirection:"column",gap:8}}>
@@ -909,27 +1015,26 @@ function App() {
     </div>
   );}
 
-  if(phase==="edit"){return<EditPhase qPool={qPool} setQPool={setQPool} caseStudies={caseStudies} setCaseStudies={setCaseStudies} scenario={scenario} onPreview={m=>setPreview(m)} companyName={companyName} aiGenerated={aiGenerated} onPublish={publishTest} publishedAt={publishedAt}/>;}
+  if(phase==="edit"){return<EditPhase qPool={qPool} setQPool={setQPool} caseStudies={caseStudies} setCaseStudies={setCaseStudies} scenario={scenario} onPreview={m=>setPreview(m)} companyName={companyName} aiGenerated={aiGenerated} onPublish={publishTest} publishedAt={publishedAt} onDashboard={()=>setPhase("dashboard")}/>;}
 
   if(phase==="assessment"&&curQ){
     const ck=curQ.comp||curQ.competency;const comp=COMPETENCIES[ck];
-    const headerTitle=candidateName?(companyName?companyName+" - "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
+    const headerTitle=candidateName?(companyName?companyName+" — "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
     return(
       <div style={{minHeight:"100vh",background:"white"}}>
-        <AppHeader title={headerTitle} sub={"Part A - Question "+(qi+1)+" of 25"}/>
+        <AppHeader title={headerTitle} sub={"Part A — Question "+(qi+1)+" of 25"}/>
         <div style={{maxWidth:"48rem",margin:"0 auto",padding:"32px 24px"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
             {comp&&<span style={{display:"inline-block",padding:"2px 8px",borderRadius:3,fontSize:10,fontWeight:700,color:comp.color,background:comp.lightBg,border:"1px solid "+comp.color+"33"}}>{comp.short}</span>}
             <div style={{display:"flex",gap:3}}>{Array.from({length:25},(_,i)=><div key={i} style={{width:8,height:8,borderRadius:2,background:i<qi?N.navy:i===qi?N.orange:N.border}}/>)}</div>
           </div>
-          <ProgressBar value={((qi+1)/25)*100}/>
-          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:32,marginTop:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+          <div style={{width:"100%",height:6,background:N.bg,borderRadius:9999,marginBottom:20}}><div style={{height:6,borderRadius:9999,transition:"width 0.3s",width:(((qi+1)/25)*100)+"%",background:N.orange}}/></div>
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:32,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
             <p style={{color:N.navy,fontSize:15,fontWeight:600,marginBottom:24,lineHeight:1.5}}>{curQ.question}</p>
             <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:24}}>
               {curQ.options.map((opt,i)=>{const isUser=sel===i;return(
                 <button key={i} onClick={()=>setSel(i)} style={{width:"100%",textAlign:"left",padding:"12px 20px",borderRadius:6,border:"1px solid "+(isUser?N.orange:N.border),background:isUser?"#FFF7F2":"white",color:isUser?N.orange:N.navy,fontSize:13,cursor:"pointer",display:"flex",alignItems:"flex-start",gap:12,transition:"all 0.15s"}}>
-                  <span style={{fontWeight:700,fontSize:11,color:isUser?N.orange:N.slateXL,flexShrink:0,marginTop:2}}>{String.fromCharCode(65+i)}.</span>
-                  {opt}
+                  <span style={{fontWeight:700,fontSize:11,color:isUser?N.orange:N.slateXL,flexShrink:0,marginTop:2}}>{String.fromCharCode(65+i)}.</span>{opt}
                 </button>
               );})}
             </div>
@@ -952,30 +1057,29 @@ function App() {
 
   if(phase==="scenario"&&scenario){
     const sq=scenario.questions[sqi];const sqComp=sq.comp||sq.competency;
-    const headerTitle=candidateName?(companyName?companyName+" - "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
+    const headerTitle=candidateName?(companyName?companyName+" — "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
     return(
       <div style={{minHeight:"100vh",background:"white"}}>
-        <AppHeader title={headerTitle} sub={"Part B - S"+(sqi+1)+" of "+scenario.questions.length}/>
+        <AppHeader title={headerTitle} sub={"Part B — S"+(sqi+1)+" of "+scenario.questions.length}/>
         <div style={{maxWidth:"48rem",margin:"0 auto",padding:"32px 24px"}}>
           <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
-            <span style={{fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",padding:"4px 10px",borderRadius:4,border:"1px solid "+N.border,color:N.navy,background:N.bg}}>Part B - Case Study</span>
+            <span style={{fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",padding:"4px 10px",borderRadius:4,border:"1px solid "+N.border,color:N.navy,background:N.bg}}>Part B — Case Study</span>
             <span style={{color:N.slateL,fontSize:11,fontWeight:500}}>{"S"+(sqi+1)+" of "+scenario.questions.length}</span>
           </div>
-          <ProgressBar value={((sqi+1)/scenario.questions.length)*100} color={N.navy}/>
+          <div style={{width:"100%",height:6,background:N.bg,borderRadius:9999,marginBottom:16}}><div style={{height:6,borderRadius:9999,width:(((sqi+1)/scenario.questions.length)*100)+"%",background:N.navy}}/></div>
           {sqi===0&&(
-            <div style={{marginTop:20,borderRadius:8,padding:24,background:N.navy}}>
-              <p style={{margin:"0 0 10px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{(scenario.companyName||"MERIDIAN SOFTWARE").toUpperCase()} - CFO ONBOARDING SCENARIO</p>
+            <div style={{marginBottom:20,borderRadius:8,padding:24,background:N.navy}}>
+              <p style={{margin:"0 0 10px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{(scenario.companyName||"MERIDIAN SOFTWARE").toUpperCase()} — CFO ONBOARDING SCENARIO</p>
               <p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",lineHeight:1.7}}>{scenario.narrative}</p>
             </div>
           )}
-          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:32,marginTop:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
-            {sqComp&&COMPETENCIES[sqComp]&&<div style={{marginBottom:16}}><span style={{display:"inline-block",padding:"2px 8px",borderRadius:3,fontSize:10,fontWeight:700,color:COMPETENCIES[sqComp].color,background:COMPETENCIES[sqComp].lightBg,border:"1px solid "+COMPETENCIES[sqComp].color+"33"}}>{COMPETENCIES[sqComp].short}</span></div>}
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:32,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+            {sqComp&&COMPETENCIES[sqComp]&&<div style={{marginBottom:16}}><CompBadge compKey={sqComp} small={true}/></div>}
             <p style={{color:N.navy,fontSize:15,fontWeight:600,marginBottom:24,lineHeight:1.5}}>{sq.question}</p>
             <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:24}}>
               {sq.options.map((opt,i)=>{const isUser=sSel===i;return(
                 <button key={i} onClick={()=>setSSel(i)} style={{width:"100%",textAlign:"left",padding:"12px 20px",borderRadius:6,border:"1px solid "+(isUser?N.orange:N.border),background:isUser?"#FFF7F2":"white",color:isUser?N.orange:N.navy,fontSize:13,cursor:"pointer",display:"flex",alignItems:"flex-start",gap:12,transition:"all 0.15s"}}>
-                  <span style={{fontWeight:700,fontSize:11,color:isUser?N.orange:N.slateXL,flexShrink:0,marginTop:2}}>{String.fromCharCode(65+i)}.</span>
-                  {opt}
+                  <span style={{fontWeight:700,fontSize:11,color:isUser?N.orange:N.slateXL,flexShrink:0,marginTop:2}}>{String.fromCharCode(65+i)}.</span>{opt}
                 </button>
               );})}
             </div>
@@ -996,33 +1100,34 @@ function App() {
     const avgDiff=mcqRes.length?(mcqRes.reduce((s,r)=>s+r.d,0)/mcqRes.length).toFixed(1):0;
     const level=op>=85?"Expert CFO":op>=70?"Senior CFO":op>=55?"Proficient CFO":"Developing CFO";
     const exp=EXP[cfg.experience]||EXP.first;
-    const headerTitle=candidateName?(companyName?companyName+" - "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
+    const headerTitle=candidateName?(companyName?companyName+" — "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
     return(
       <div style={{minHeight:"100vh",background:"white"}}>
         <AppHeader title={headerTitle} sub="Assessment Complete"/>
         <div style={{maxWidth:"48rem",margin:"0 auto",padding:"32px 24px"}}>
+          {candidateName&&<div style={{background:"#F5EEF8",border:"1px solid #5B1F6A33",borderRadius:6,padding:"12px 16px",marginBottom:16,display:"flex",gap:8,alignItems:"center"}}><span style={{fontSize:14}}>✅</span><p style={{margin:0,fontSize:13,color:N.navy}}>Assessment complete for <strong>{candidateName}</strong>. Your results have been recorded.</p></div>}
           <div style={{borderRadius:8,padding:24,marginBottom:20,display:"flex",alignItems:"flex-start",justifyContent:"space-between",gap:24,background:N.navy}}>
             <div><p style={{fontSize:11,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase",margin:"0 0 12px"}}>OVERALL RESULT</p><p style={{fontSize:48,fontWeight:800,color:"white",margin:"0 0 4px"}}>{op}%</p><p style={{fontSize:13,color:"rgba(255,255,255,0.45)",margin:0}}>{total} of {totalMax} correct</p></div>
             <div style={{textAlign:"right"}}>
               <div style={{display:"inline-block",borderRadius:4,padding:"8px 16px",marginBottom:8,background:N.orange}}><p style={{color:"white",fontWeight:700,fontSize:13,margin:0}}>{level}</p></div>
               <p style={{fontSize:11,color:"rgba(255,255,255,0.45)",margin:"4px 0 0"}}>Avg. difficulty: {DIFF_LABEL[Math.round(Number(avgDiff))]}</p>
-              <p style={{fontSize:11,color:"rgba(255,255,255,0.45)",margin:"2px 0 0"}}>{exp.label} - {cfg.arr}</p>
+              <p style={{fontSize:11,color:"rgba(255,255,255,0.45)",margin:"2px 0 0"}}>{exp.label} — {cfg.arr}</p>
             </div>
           </div>
-          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:24,marginBottom:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:24,marginBottom:20}}>
             <p style={{color:N.navy,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:16}}>Competency Performance</p>
             {Object.entries(COMPETENCIES).map(([ck,v])=>{const cs=compScore(ck);const p2=pct(cs.correct,cs.total);return(
               <div key={ck} style={{marginBottom:12}}>
-                <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:v.color,fontSize:12,fontWeight:700}}>{v.label}</span><span style={{color:N.slate,fontSize:12}}>{cs.correct}/{cs.total} - {p2}%</span></div>
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:v.color,fontSize:12,fontWeight:700}}>{v.label}</span><span style={{color:N.slate,fontSize:12}}>{cs.correct}/{cs.total} — {p2}%</span></div>
                 <div style={{width:"100%",height:8,background:N.bg,borderRadius:9999}}><div style={{height:8,borderRadius:9999,width:p2+"%",background:p2>=70?v.color:N.orange}}/></div>
               </div>
             );})}
           </div>
-          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:24,marginBottom:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:24,marginBottom:20}}>
             <p style={{color:N.navy,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:4}}>Documents</p>
             <p style={{color:N.slateL,fontSize:12,marginBottom:16}}>Preview each document and use Print / Save as PDF.</p>
             <div style={{display:"flex",flexDirection:"column",gap:8}}>
-              {[["test","Candidate Test","Parts A, B, C & D - no answers"],["sheet","Answer Sheet","Bubble grid for Parts A & B"],["cases","Case Studies & Evaluator Guide","Competency rubrics - hiring team only"],["key","Answer Key & Results","Full scoring - hiring manager only"]].map(([m,lbl,desc])=>(
+              {[["test","Candidate Test","Parts A, B, C & D — no answers"],["sheet","Answer Sheet","Bubble grid for Parts A & B"],["cases","Case Studies & Evaluator Guide","Competency rubrics — hiring team only"],["key","Answer Key & Results","Full scoring — hiring manager only"]].map(([m,lbl,desc])=>(
                 <button key={m} onClick={()=>setPreview(m)} style={{padding:"12px 20px",background:m==="test"?N.navy:"white",color:m==="test"?"white":N.navy,border:m==="test"?"none":"1px solid "+N.border,borderRadius:6,fontSize:13,fontWeight:600,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
                   <span>{lbl}</span>
                   <span style={{fontSize:11,color:m==="test"?"rgba(255,255,255,0.6)":N.slateL}}>{desc}</span>
