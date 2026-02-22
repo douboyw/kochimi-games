@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CFO Skill Assessment — Roxi's Corner | Kochimi</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:#fff;}
+  .w-full{width:100%;}
+  .max-w-3xl{max-width:48rem;}
+  .max-w-4xl{max-width:56rem;}
+  .max-w-xl{max-width:36rem;}
+  .max-w-md{max-width:28rem;}
+  .mx-auto{margin-left:auto;margin-right:auto;}
+  .px-6{padding-left:1.5rem;padding-right:1.5rem;}
+  .px-8{padding-left:2rem;padding-right:2rem;}
+  .py-4{padding-top:1rem;padding-bottom:1rem;}
+  .py-5{padding-top:1.25rem;padding-bottom:1.25rem;}
+  .py-8{padding-top:2rem;padding-bottom:2rem;}
+  .py-10{padding-top:2.5rem;padding-bottom:2.5rem;}
+  .py-12{padding-top:3rem;padding-bottom:3rem;}
+  .py-16{padding-top:4rem;padding-bottom:4rem;}
+  .py-20{padding-top:5rem;padding-bottom:5rem;}
+  .py-2{padding-top:.5rem;padding-bottom:.5rem;}
+  .pt-2{padding-top:.5rem;}
+  .pb-5{padding-bottom:1.25rem;}
+  .pb-8{padding-bottom:2rem;}
+  .mb-1{margin-bottom:.25rem;}
+  .mb-2{margin-bottom:.5rem;}
+  .mb-3{margin-bottom:.75rem;}
+  .mb-4{margin-bottom:1rem;}
+  .mb-5{margin-bottom:1.25rem;}
+  .mb-6{margin-bottom:1.5rem;}
+  .mb-8{margin-bottom:2rem;}
+  .mb-12{margin-bottom:3rem;}
+  .mt-1{margin-top:.25rem;}
+  .mt-2{margin-top:.5rem;}
+  .mt-3{margin-top:.75rem;}
+  .mt-4{margin-top:1rem;}
+  .mt-5{margin-top:1.25rem;}
+  .mt-8{margin-top:2rem;}
+  .flex{display:flex;}
+  .flex-col{flex-direction:column;}
+  .flex-wrap{flex-wrap:wrap;}
+  .items-center{align-items:center;}
+  .items-start{align-items:flex-start;}
+  .items-end{align-items:flex-end;}
+  .justify-center{justify-content:center;}
+  .justify-between{justify-content:space-between;}
+  .gap-0{gap:0;}
+  .gap-1{gap:.25rem;}
+  .gap-1\.5{gap:.375rem;}
+  .gap-2{gap:.5rem;}
+  .gap-3{gap:.75rem;}
+  .gap-4{gap:1rem;}
+  .gap-5{gap:1.25rem;}
+  .gap-6{gap:1.5rem;}
+  .gap-8{gap:2rem;}
+  .gap-10{gap:2.5rem;}
+  .gap-12{gap:3rem;}
+  .grid{display:grid;}
+  .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+  .space-y-2>*+*{margin-top:.5rem;}
+  .space-y-3>*+*{margin-top:.75rem;}
+  .rounded{border-radius:.25rem;}
+  .rounded-sm{border-radius:.125rem;}
+  .rounded-full{border-radius:9999px;}
+  .rounded-lg{border-radius:.5rem;}
+  .border{border-width:1px;border-style:solid;}
+  .border-gray-200{border-color:#e5e7eb;}
+  .shadow-sm{box-shadow:0 1px 2px 0 rgb(0 0 0/.05);}
+  .bg-white{background-color:#fff;}
+  .min-h-screen{min-height:100vh;}
+  .text-xs{font-size:.75rem;line-height:1rem;}
+  .text-sm{font-size:.875rem;line-height:1.25rem;}
+  .text-base{font-size:1rem;line-height:1.5rem;}
+  .text-2xl{font-size:1.5rem;line-height:2rem;}
+  .text-3xl{font-size:1.875rem;line-height:2.25rem;}
+  .text-5xl{font-size:3rem;line-height:1;}
+  .font-medium{font-weight:500;}
+  .font-semibold{font-weight:600;}
+  .font-bold{font-weight:700;}
+  .font-extrabold,.font-800{font-weight:800;}
+  .text-white{color:#fff;}
+  .leading-relaxed{line-height:1.625;}
+  .tracking-wide{letter-spacing:.025em;}
+  .tracking-widest{letter-spacing:.1em;}
+  .uppercase{text-transform:uppercase;}
+  .italic{font-style:italic;}
+  .h-1\.5{height:.375rem;}
+  .h-2{height:.5rem;}
+  .h-8{height:2rem;}
+  .h-12{height:3rem;}
+  .w-8{width:2rem;}
+  .w-12{width:3rem;}
+  .transition-all{transition:all .15s;}
+  .cursor-pointer{cursor:pointer;}
+  .cursor-not-allowed{cursor:not-allowed;}
+  .overflow-hidden{overflow:hidden;}
+  .overflow-auto{overflow:auto;}
+  .sticky{position:sticky;}
+  .top-0{top:0;}
+  .z-10{z-index:10;}
+  .absolute{position:absolute;}
+  .relative{position:relative;}
+  .fixed{position:fixed;}
+  .inset-0{inset:0;}
+  .flex-shrink-0{flex-shrink:0;}
+  .flex-1{flex:1 1 0%;}
+  .text-center{text-align:center;}
+  .text-left{text-align:left;}
+  .text-right{text-align:right;}
+  .border-t-transparent{border-top-color:transparent;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .animate-spin{animation:spin 1s linear infinite;}
+  .no-print{display:flex;}
+  @media print{.no-print{display:none!important;}#print-area{margin:0!important;padding:32px!important;}}
+  @media(max-width:640px){.grid-cols-2{grid-template-columns:1fr;}.grid-cols-5{grid-template-columns:repeat(3,1fr);}}
+  /* Kochimi header bar */
+  .kochimi-nav{background:#0D2340;padding:10px 24px;display:flex;align-items:center;gap:16px;}
+  .kochimi-nav a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;}
+  .kochimi-nav a:hover{color:white;}
+  .kochimi-nav .brand{color:white;font-weight:800;font-size:16px;text-decoration:none;margin-right:8px;}
+  .kochimi-nav .sep{color:rgba(255,255,255,0.3);}
+</style>
+</head>
+<body>
+
+<!-- Kochimi Nav Bar -->
+<div class="kochimi-nav">
+  <a class="brand" href="/">Kochimi</a>
+  <span class="sep">|</span>
+  <a href="/">Home</a>
+  <a href="/allocation-game.html">Allocation Game</a>
+  <a href="/math-challenge.html">Math Challenge</a>
+  <a href="/reading-quest.html">Reading Quest</a>
+  <span class="sep">|</span>
+  <span style="color:#E8600A;font-weight:700;font-size:13px;">Roxi's Corner</span>
+</div>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const COMPANY_PASSWORD = "CFO2024";
+const STORAGE_KEY = "cfo-published-test";
+const N = {navy:"#0D2340",orange:"#E8600A",slate:"#4A5568",slateL:"#718096",slateXL:"#A0AEC0",border:"#E2E8F0",bg:"#F7F9FC"};
+
+const COMPETENCIES = {
+  acc:{label:"Accounting & Controlling Expert",short:"Accounting",color:"#1E4270",lightBg:"#EEF3FA",description:"Proven track record of closing books monthly (5-day target), quarterly, and annually. Establishes accounting standards, prepares for first audit, maximizes revenue recognition, and manages tax issues.",indicators:["Monthly close within 5-day target","Revenue recognition (GAAP/IFRS)","Quote-to-cash & cash management","Audit preparation & compliance","Tax strategy & oversight"]},
+  mfo:{label:"Metrics-Driven Financial Operator",short:"FP&A / Metrics",color:"#7B3F00",lightBg:"#FDF3EC",description:"Analytical leader who establishes and tracks KPI metrics and business drivers. Trusted partner to CEO and cross-functional stakeholders on operating plans, budgets, and resource allocation.",indicators:["Driver-based KPI framework & ARR metrics","Budgeting & rolling forecast","Cross-functional business partnering","Cash burn optimization","Operating plan & goal alignment"]},
+  inv:{label:"Investor Experience",short:"Investor",color:"#2D5A27",lightBg:"#EEF7ED",description:"Experience preparing quarterly board/investor decks and pitch decks for capital raising. Develops and executes sound financial strategy aligned with growth objectives and investor expectations.",indicators:["Board deck & investor narrative","Capital raising & fundraising","Financial strategy & investor relations","Equity & debt financing structures","Exit readiness & M&A"]},
+  team:{label:"Team Builder",short:"Team",color:"#5B1F6A",lightBg:"#F5EEF8",description:"Track record of building and leading high-performing teams, fostering a culture of efficiency and continuous improvement. Hands-on player-coach who leads by example.",indicators:["Finance team hiring & development","Player-coach leadership","Culture of continuous improvement","Cross-functional stakeholder trust","Talent network & sourcing"]},
+  fsv:{label:"Financial Systems Visionary",short:"Systems",color:"#1A4A4A",lightBg:"#EEF7F7",description:"Experience selecting, implementing, and managing financial and business systems to streamline processes, enhance reporting accuracy, and improve overall financial efficiency.",indicators:["ERP selection & implementation","Billing & revenue recognition systems","FP&A tooling & planning infrastructure","Data architecture & BI reporting","Systems integration & automation"]},
+};
+
+const CONFIG_STEPS = [
+  {id:"standard",label:"Accounting Standard",desc:"Which accounting standard does the company follow?",opts:[{v:"US GAAP",l:"US GAAP (ASC 606 / ASC 340-40)"},{v:"IFRS",l:"IFRS (IFRS 15 / IAS 21)"}]},
+  {id:"arr",label:"Annual Recurring Revenue",desc:"What is the company's current ARR?",opts:[{v:"$0-$25M",l:"$0 - $25M ARR"},{v:"$25-$50M",l:"$25M - $50M ARR"},{v:"$50-$100M",l:"$50M - $100M ARR"},{v:"$100-$500M",l:"$100M - $500M ARR"},{v:"$500M-$1B",l:"$500M - $1B ARR"},{v:">$1B",l:">$1B ARR"}]},
+  {id:"growth",label:"ARR Growth Rate",desc:"What is the company's current year-over-year ARR growth rate?",opts:[{v:"<20%",l:"Below 20% - Stable / Optimizing"},{v:"20-50%",l:"20% - 50% - Growth Stage"},{v:"50-100%",l:"50% - 100% - High Growth"},{v:">100%",l:"Above 100% - Hypergrowth"}]},
+  {id:"hq",label:"Headquarters Location",desc:"Where is the company's primary headquarters?",opts:[{v:"United States",l:"United States"},{v:"United Kingdom",l:"United Kingdom"},{v:"Germany / EU",l:"Germany / EU"},{v:"Canada",l:"Canada"},{v:"Australia / New Zealand",l:"Australia / New Zealand"},{v:"Singapore / Southeast Asia",l:"Singapore / Southeast Asia"},{v:"Israel",l:"Israel"},{v:"India",l:"India"}]},
+  {id:"contracts",label:"Contract Structure",desc:"How are customer contracts legally structured?",opts:[{v:"concentrated",l:"Concentrated in the main legal entity"},{v:"distributed",l:"Distributed by customer jurisdiction / local subsidiary"}]},
+  {id:"currencies",label:"Billing Currencies",desc:"How many currencies does the company bill in?",opts:[{v:"single",l:"Single (functional currency only)"},{v:"multiple",l:"Multiple currencies"}]},
+  {id:"workforce",label:"Workforce Geography",desc:"Where is the company's workforce based?",opts:[{v:"domestic",l:"Domestic only"},{v:"global",l:"Global (multi-country)"}]},
+  {id:"erp",label:"ERP Status",desc:"Does the company have ERP implementation or upgrade needs?",opts:[{v:false,l:"No - current ERP and systems are adequate"},{v:true,l:"Yes - ERP implementation or upgrade is planned"}]},
+  {id:"techStack",label:"SaaS Tech Stack",desc:"Does the company need additional SaaS finance tools?",opts:[{v:false,l:"No - current tech stack is sufficient"},{v:true,l:"Yes - additional billing, planning, or data tools needed"}]},
+  {id:"pricing",label:"Pricing Complexity",desc:"How complex is the company's pricing model?",opts:[{v:"simple",l:"Simple - flat rate or seat-based only"},{v:"moderate",l:"Moderate - tiered or volume-based"},{v:"complex",l:"Complex - usage, seat-based, and professional services combined"}]},
+  {id:"experience",label:"Candidate Experience Level",desc:"What level of CFO experience is being assessed?",opts:[{v:"vp",l:"VP Finance - aspiring to first CFO role"},{v:"first",l:"First-Time CFO - in or entering first CFO role"},{v:"multi",l:"Multiple CFO Roles - has held CFO at 2+ companies"},{v:"exits",l:"Experienced CFO with Exits - has led companies through M&A or IPO"}]},
+];
+
+const DIFF_LABEL = ["","Entry","Developing","Proficient","Advanced","Expert"];
+const CURRENCY_MAP = {"United States":"USD","United Kingdom":"GBP","Germany / EU":"EUR","Canada":"CAD","Australia / New Zealand":"AUD","Singapore / Southeast Asia":"SGD","Israel":"ILS","India":"INR"};
+const EXP = {
+  vp:{label:"VP Finance",startDiff:2,maxDiff:3,focus:"Focus on foundational accounting, basic metrics/KPIs, and systems fundamentals."},
+  first:{label:"First-Time CFO",startDiff:2,maxDiff:4,focus:"Cover core SaaS metrics, revenue recognition, capital allocation basics, team building, and ERP decisions."},
+  multi:{label:"Multi-Company CFO",startDiff:3,maxDiff:5,focus:"Emphasize cross-company pattern recognition, investor relations, team building at scale, and capital structure."},
+  exits:{label:"CFO with Exit Experience",startDiff:4,maxDiff:5,focus:"Prioritize exit readiness, M&A diligence, IPO preparation, advanced investor relations, and covenant structuring."},
+};
+
+function cfgMeta(c) {
+  const arrNum = c.arr==="$0-$25M"?"18":c.arr==="$25-$50M"?"35":c.arr==="$50-$100M"?"72":c.arr==="$500M-$1B"?"750":c.arr===">$1B"?"1500":"145";
+  return {currency: CURRENCY_MAP[c.hq]||"USD", arrNum};
+}
+
+function buildFallback(cfg) {
+  const {currency,arrNum} = cfgMeta(cfg);
+  const isIFRS=cfg.standard==="IFRS", isGlobal=cfg.workforce==="global";
+  const isMultiCurr=cfg.currencies==="multiple", isHighGrowth=cfg.growth==="50-100%"||cfg.growth===">100%";
+  const isComplex=cfg.pricing==="complex", isDistrib=cfg.contracts==="distributed", hasERP=cfg.erp;
+  const n=Number(arrNum), std=cfg.standard;
+  return [
+    {id:"AC01",comp:"acc",difficulty:1,question:"Under "+(isIFRS?"IFRS 15":"ASC 606")+", how is SaaS subscription revenue typically recognized?",options:["At contract signing, in full","Ratably over the subscription period as the service is delivered","When cash payment is received","Upon written customer acceptance"],correct:1,explanation:std+" requires revenue to be recognized as performance obligations are satisfied."},
+    {id:"AC02",comp:"acc",difficulty:2,question:"The company is approaching its first external audit at "+arrNum+"M "+currency+" ARR. The single most important preparation step is:",options:["Hiring an audit firm with the lowest fee","Ensuring the chart of accounts, revenue recognition schedules, and deferred revenue waterfall are clean and reconciled before fieldwork begins","Preparing a polished investor presentation","Upgrading the accounting system immediately before the audit"],correct:1,explanation:"Audit readiness starts with clean records. The chart of accounts, rev rec schedules, and deferred revenue waterfall are the first things auditors test."},
+    {id:"AC03",comp:"acc",difficulty:2,question:"A "+arrNum+"M "+currency+" ARR SaaS is targeting a 5-day monthly close. The most impactful single change is:",options:["Hiring additional accountants","Automating the revenue recognition and journal entry posting workflow between billing, rev rec module, and ERP","Moving to quarterly close","Outsourcing accounts payable"],correct:1,explanation:"Automating the billing to rev rec to ERP flow typically cuts 3-5 days from a manual close process."},
+    {id:"AC04",comp:"acc",difficulty:3,question:"A customer purchases a subscription plus implementation services. Under "+std+":",options:["Combined as one performance obligation in all cases","Assessed for distinctness; if distinct, allocated at standalone selling prices and recognized separately","Implementation always recognized immediately","All revenue deferred until implementation is complete"],correct:1,explanation:std+" requires identifying distinct performance obligations and allocating consideration at standalone selling prices."},
+    {id:"AC05",comp:"acc",difficulty:3,question:"The company has "+currency+Math.round(n*0.4)+"M cash and burns "+currency+Math.round(n*0.05)+"M per month. Its runway is:",options:[Math.round((n*0.4)/(n*0.05)*0.6)+" months",Math.round((n*0.4)/(n*0.05))+" months",Math.round((n*0.4)/(n*0.05)*1.4)+" months",Math.round((n*0.4)/(n*0.05)*2)+" months"],correct:1,explanation:"Runway = cash divided by monthly burn = "+Math.round((n*0.4)/(n*0.05))+" months."},
+    {id:"AC06",comp:"acc",difficulty:4,question:"Under "+std+", sales commissions on new SaaS contracts should be:",options:["Expensed immediately","Capitalized and amortized over the expected customer life if incremental to obtaining the contract","Amortized only over the initial contract term","Classified as goodwill"],correct:1,explanation:(isIFRS?"IFRS 15":"ASC 340-40")+" requires capitalization of incremental contract costs and amortization over the expected period of benefit."},
+    {id:"AC07",comp:"acc",difficulty:4,question:isMultiCurr?"The company bills in multiple currencies. Under "+(isIFRS?"IAS 21":"ASC 830")+", the correct revenue translation rate is:":"Revenue recognition has been misapplied to multi-year contracts. As CFO, your first action is:",options:isMultiCurr?["Year-end closing rate","Spot rate at transaction date or average rate if it approximates spot; monetary items use closing rate","Historical rate locked at contract inception","A management-approved budget rate"]:["Continue until the next audit","Quantify the misstatement, assess materiality, engage auditors proactively, and disclose timeline implications to the board","Renegotiate contracts","Reverse all affected revenue immediately"],correct:1,explanation:isMultiCurr?"Revenue is translated at spot or average rate; monetary items use closing rate.":"Revenue recognition errors require immediate materiality assessment."},
+    {id:"AC08",comp:"acc",difficulty:5,question:isDistrib?"Customer contracts are distributed across local subsidiaries. For consolidation:":"The company is implementing Quote-to-Cash improvements. The most important outcome metric is:",options:isDistrib?["Recognize intercompany revenue in the P&L","Eliminate all intercompany revenues and costs; recognize only third-party revenue","Leave as-is with footnote disclosure","Eliminate 50%"]:["Number of invoices processed per day","Days Sales Outstanding trend, cash collections cycle, invoice error rate, and deferred revenue accuracy","Total billing system uptime","Number of users trained"],correct:1,explanation:isDistrib?"All intercompany revenues and costs must be eliminated on consolidation.":"DSO and cash collections cycle directly measure Quote-to-Cash efficiency."},
+    {id:"MF01",comp:"mfo",difficulty:1,question:"Net Revenue Retention (NRR) above 100% means:",options:["Zero customer churn","Expansion revenue from existing customers exceeds revenue lost to churn and contraction","New customer acquisition is accelerating","CAC has decreased"],correct:1,explanation:"NRR above 100% means the existing customer base grows organically."},
+    {id:"MF02",comp:"mfo",difficulty:2,question:"Beginning ARR: "+currency+arrNum+"M | New ARR: "+currency+Math.round(n*0.25)+"M | Expansion: "+currency+Math.round(n*0.05)+"M | Churn: "+currency+Math.round(n*0.08)+"M. Ending ARR and NRR are:",options:[currency+(n*1.22).toFixed(0)+"M ARR; NRR "+Math.round(((n+n*0.05-n*0.08)/n)*100)+"%",currency+(n*1.25).toFixed(0)+"M ARR; NRR 115%",currency+(n*1.17).toFixed(0)+"M ARR; NRR 100%",currency+(n*1.3).toFixed(0)+"M ARR; NRR 105%"],correct:0,explanation:"Ending ARR = Beginning + New + Expansion minus Churn. NRR = (Beginning + Expansion minus Churn) / Beginning ARR."},
+    {id:"MF03",comp:"mfo",difficulty:2,question:isHighGrowth?"The company is growing rapidly and needs cash burn discipline. The most important near-term FP&A deliverable is:":"Building a bottoms-up revenue model: the most critical driver of expansion ARR is:",options:isHighGrowth?["Annual budget only","Rolling 13-week cash flow forecast with scenario analysis and runway sensitivity","Prior-year actuals grown by market rate","Investor relations deck"]:["Total addressable market size","Expansion rate per logo by cohort, tenure, and customer segment","Total marketing spend","Industry analyst forecasts"],correct:1,explanation:isHighGrowth?"A rolling 13-week cash flow forecast drives fundraising timing and burn management.":"Cohort expansion behavior is the most powerful driver in a bottom-up ARR model."},
+    {id:"MF04",comp:"mfo",difficulty:3,question:"The company's S&M efficiency is deteriorating. As CFO, the most actionable diagnostic is:",options:["Total S&M as % of revenue only","Cohort-level CAC by acquisition channel, customer segment, and quarter with CAC payback trend","Total headcount-to-revenue ratio","Marketing budget vs. plan variance"],correct:1,explanation:"Cohort-level CAC analysis reveals which acquisition motions are efficient."},
+    {id:"MF05",comp:"mfo",difficulty:3,question:"As CFO, which framework best guides the operating plan at "+arrNum+"M "+currency+" ARR growing at "+cfg.growth+"?",options:["Maximize headcount growth regardless of unit economics","Driver-based model connecting pipeline, hiring, ACV, and NRR to ARR targets with explicit burn multiple and Rule of 40 guardrails","Simple top-down revenue growth rate applied uniformly","Prior-year actuals plus inflation"],correct:1,explanation:"A driver-based operating model lets the CEO and CFO make explicit trade-offs."},
+    {id:"MF06",comp:"mfo",difficulty:4,question:"The Rule of 40 is best understood as:",options:["Gross margin must exceed 40%","Revenue growth rate plus EBITDA (or FCF) margin should equal or exceed 40%","Net Revenue Retention must exceed 40%","CAC payback period below 40 months"],correct:1,explanation:"The Rule of 40 balances growth and efficiency: growth rate plus profitability margin at or above 40%."},
+    {id:"MF07",comp:"mfo",difficulty:5,question:"The PE sponsor requests exit-readiness in 6 months. As CFO, your top three financial deliverables are:",options:["EBITDA improvement through cost cutting only","Clean revenue recognition, audited ARR metrics with NRR cohort data, and a 3-year operating model demonstrating a Rule of 40 improvement pathway","Maximize EBITDA through aggressive accounting judgment","Focus exclusively on new customer acquisition"],correct:1,explanation:"Exit readiness requires clean auditable financials, investor-grade ARR metrics with cohort depth, and a compelling financial narrative."},
+    {id:"IN01",comp:"inv",difficulty:1,question:"When preparing a board deck at "+arrNum+"M "+currency+" ARR, the financial metrics most critical for board members are:",options:["Revenue, expenses, and net income only","ARR, NRR, Gross Margin, Burn Multiple or Rule of 40, and CAC Payback with waterfall and cohort data","Headcount by department","Total customer count and product roadmap"],correct:1,explanation:"Boards track ARR quality, capital efficiency, and unit economics."},
+    {id:"IN02",comp:"inv",difficulty:2,question:"The company is raising a growth round. Investors will primarily value the company based on:",options:["EBITDA multiple","ARR multiple calibrated by NRR, growth rate, gross margin, and churn quality","Price-to-earnings multiple","Book value of tangible assets"],correct:1,explanation:"Growth-stage SaaS companies are valued on ARR multiples calibrated by ARR quality."},
+    {id:"IN03",comp:"inv",difficulty:2,question:"A PE-backed "+arrNum+"M "+currency+" ARR SaaS with 74% gross margins evaluates financing options. Which structure is most likely optimal?",options:["Equity only to avoid financial covenants","Revenue-based financing at high effective cost","ARR-based revolving credit facility or term loan leveraging recurring revenue quality","Convertible notes at any valuation"],correct:2,explanation:"High-gross-margin SaaS can access non-dilutive ARR-based debt at attractive rates, preserving equity value."},
+    {id:"IN04",comp:"inv",difficulty:3,question:"The top 3 customers represent "+(cfg.contracts==="concentrated"?"45%":"22%")+" of ARR. How does this affect the next fundraising process?",options:["No impact","Increases investor risk premium; investors haircut the ARR quality score and may require diversification milestones","Reduces cost of capital due to large enterprise stability","Affects only debt financing"],correct:1,explanation:"ARR concentration creates binary renewal risk that investors discount in ARR quality scoring."},
+    {id:"IN05",comp:"inv",difficulty:3,question:"As CFO, you are preparing the pitch deck for a capital raise. The financial narrative must:",options:["Show the highest possible ARR growth regardless of cohort trends","Tell a coherent story connecting ARR quality, capital efficiency, and the forward model with a clear use of proceeds tied to specific growth levers","Focus exclusively on revenue growth","Minimize disclosure of churn rates"],correct:1,explanation:"A credible investor narrative connects ARR quality, capital efficiency, and a believable forward model."},
+    {id:"IN06",comp:"inv",difficulty:4,question:"The PE sponsor wants to declare a dividend recapitalization. As CFO, your primary analysis must:",options:["Approve immediately","Model post-dividend leverage ratio, covenant headroom under base and downside scenarios, and liquidity sufficiency before recommending","Defer entirely to investment bankers","Refuse without financial justification"],correct:1,explanation:"The CFO must lead rigorous leverage, covenant, and liquidity stress-testing before any recommendation."},
+    {id:"IN07",comp:"inv",difficulty:5,question:isHighGrowth?"The company is burning "+currency+Math.round(n*0.3)+"M annually at "+cfg.growth+" growth. The most important capital efficiency metric for investors is:":"The company is preparing for a strategic sale. The 3-year model presented to acquirers should:",options:isHighGrowth?["EBITDA margin alone","Burn Multiple (net burn divided by net new ARR) alongside CAC payback and NRR","Headcount growth vs revenue growth","Gross margin only"]:["Present an optimistic scenario only","Present base, upside, and downside scenarios with documented assumptions","Present only the downside scenario","Delegate entirely to investment bankers"],correct:1,explanation:isHighGrowth?"Burn Multiple shows cash consumed per unit of ARR added.":"Range-of-scenarios modeling with documented assumptions builds buyer confidence."},
+    {id:"TB01",comp:"team",difficulty:1,question:"As a player-coach CFO at a "+arrNum+"M "+currency+" ARR SaaS, which best describes your role?",options:["Delegate all execution and focus exclusively on strategy","Roll up your sleeves on critical deliverables while building team capability, coaching closely, and gradually stepping back as the team matures","Focus only on external stakeholders","Hire senior talent for all roles and act as pure executive from day one"],correct:1,explanation:"A player-coach CFO is essential at the growth stage."},
+    {id:"TB02",comp:"team",difficulty:2,question:"The company needs to hire its first FP&A Manager. Beyond technical skills, the most important attribute is:",options:["The ability to build complex Excel models","Business partnership instinct - ability to build credibility with functional leaders and translate business context into financial insight","Experience at a larger company","Proficiency with advanced FP&A tools"],correct:1,explanation:"At the growth stage, FP&A value comes from business partnership."},
+    {id:"TB03",comp:"team",difficulty:3,question:"You inherit a finance team with strong technical skills but low credibility with business leaders. The most effective first step is:",options:["Immediately replace team members who are not seen as strong partners","Spend 30 days listening, sitting in on leadership team meetings, understanding each leader's priorities, then redesign how FP&A engages","Require all leaders to submit budget requests in a standard format","Increase reporting frequency to demonstrate value"],correct:1,explanation:"Trust with business leaders is earned, not mandated. Listening first is the most effective path."},
+    {id:"TB04",comp:"team",difficulty:4,question:"The company is scaling rapidly and the finance team is overwhelmed. As CFO, how do you prioritize the next hire?",options:["Hire the most senior person available","Diagnose the specific bottleneck first: if close accuracy is the problem, hire a senior accountant; if decision support is the constraint, hire a business-facing FP&A partner","Hire a CFO-level deputy","Outsource the entire finance function"],correct:1,explanation:"Finance team design should be constraint-driven."},
+    {id:"TB05",comp:"team",difficulty:5,question:"You are building the finance team from scratch. Your first three hires should be sequenced as:",options:["CFO Deputy, then Analyst, then Controller","Controller or Senior Accountant first, then FP&A Manager, then Systems specialist - sequenced by most pressing constraint","Head of Finance, then two generalists","Hire all three simultaneously"],correct:1,explanation:"Accounting integrity comes first, then business partnership, then infrastructure."},
+    {id:"FS01",comp:"fsv",difficulty:1,question:"Which system is the authoritative system of record for financial reporting in a SaaS company?",options:["CRM (e.g., Salesforce)","ERP / General Ledger (e.g., NetSuite, SAP)","BI tool (e.g., Tableau, Looker)","Billing system (e.g., Zuora, Stripe)"],correct:1,explanation:"The ERP / General Ledger is the system of record. Other systems feed into it."},
+    {id:"FS02",comp:"fsv",difficulty:2,question:hasERP?"The company is implementing a new ERP. The single most critical success factor is:":"The company considers upgrading from its current accounting system. The primary trigger that justifies the investment is:",options:hasERP?["Minimizing implementation cost","Data migration integrity and chart of accounts design aligned with reporting requirements before any configuration begins","Timeline adherence above all else","Executive sponsor visibility only"]:["Investor or board pressure","Multi-entity consolidation needs, revenue recognition automation, or reporting complexity exceeding current system capabilities","Competitor adoption","IT recommendation alone"],correct:1,explanation:hasERP?"Poor data migration and misaligned chart of accounts are the most common causes of ERP failure.":"ERP upgrades should be driven by genuine business requirements."},
+    {id:"FS03",comp:"fsv",difficulty:3,question:"The data architecture that best supports ARR waterfall and cohort analytics for investors is:",options:["CSV exports from billing into Excel","Cloud data warehouse (Snowflake/BigQuery) plus transformation layer (dbt) plus BI tool (Looker/Tableau), fed by billing and CRM","Manual data entry into a financial model","Excel pivot tables refreshed monthly"],correct:1,explanation:"A modern data stack enables automated, auditable ARR waterfall and cohort reporting."},
+    {id:"FS04",comp:"fsv",difficulty:4,question:"The company is selecting an FP&A planning tool at "+arrNum+"M "+currency+" ARR. The decision should be based primarily on:",options:["Selecting the most feature-rich enterprise tool","Current complexity, team size, and integration requirements - matching the tool to the stage of the business","The tool used by the largest competitor","The tool the CFO used previously"],correct:1,explanation:"FP&A tool selection should be stage-appropriate. Over-engineering early is as costly as under-investing."},
+    {id:"FS05",comp:"fsv",difficulty:5,question:isGlobal?"The company has a global workforce. The approach that best minimizes payroll compliance risk is:":"The company migrates ERP mid-year during high growth. The highest risk to financial reporting continuity is:",options:isGlobal?["Single domestic payroll system extended globally","Global HRIS with local payroll integrations or Employer of Record solutions per jurisdiction","Spreadsheet-based payroll per country","Independent standalone systems per country"]:["Implementation cost overrun","Parallel-run data reconciliation failures and deferred revenue accuracy across the system cutover date","User adoption lag","Vendor support response time"],correct:1,explanation:isGlobal?"A Global HRIS with local integrations or EOR solutions provides compliance coverage no single domestic system can replicate.":"The parallel-run period is critical - deferred revenue schedules must reconcile exactly at cutover."},
+  ];
+}
+
+function extractJSON(t){try{return JSON.parse(t);}catch(e){}const s=t.replace(/```json\s*/gi,"").replace(/```\s*/g,"").trim();try{return JSON.parse(s);}catch(e){}const i0=t.indexOf("{"),i1=t.lastIndexOf("}");if(i0>=0&&i1>i0){try{return JSON.parse(t.slice(i0,i1+1));}catch(e){}}return null;}
+async function callAPI(prompt,maxTokens=8000){const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:maxTokens,messages:[{role:"user",content:prompt}]})});if(!r.ok)throw new Error("API "+r.status);const d=await r.json();const tx=d.content.map(i=>i.text||"").join("");const p=extractJSON(tx);if(!p)throw new Error("JSON parse failed");return p;}
+
+async function generateQuestionsWithFallback(cfg){
+  const{currency,arrNum}=cfgMeta(cfg);const exp=EXP[cfg.experience]||EXP.first;
+  const compLines=Object.entries(COMPETENCIES).map(([k,v])=>"- "+k+": "+v.label).join("\n");
+  const prompt="Generate 32 SaaS CFO assessment questions mapped to these competencies:\n"+compLines+"\n\nCandidate: "+exp.label+". "+exp.focus+"\nCompany: "+cfg.standard+", "+arrNum+"M "+currency+" ARR, "+cfg.growth+" growth, HQ "+cfg.hq+", "+cfg.contracts+" contracts, "+cfg.currencies+" currency, "+cfg.workforce+" workforce, ERP "+(cfg.erp?"upgrade needed":"adequate")+", "+cfg.pricing+" pricing. All amounts in "+currency+". "+(cfg.standard==="IFRS"?"Cite IFRS.":"Cite US GAAP.")+"\nDistribute: 8 acc, 7 mfo, 7 inv, 5 team, 5 fsv. Weight difficulty "+exp.startDiff+"-"+exp.maxDiff+". No domain or difficulty labels in question text.\nReturn ONLY JSON: {\"questions\":[{\"id\":\"Q01\",\"comp\":\"acc\",\"difficulty\":2,\"question\":\"...\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correct\":0,\"explanation\":\"...\"}]}";
+  try{const d=await callAPI(prompt,8000);if(d?.questions?.length>=25)return{questions:d.questions,aiGenerated:true};throw new Error();}
+  catch(e){return{questions:buildFallback(cfg),aiGenerated:false};}
+}
+
+async function generateScenario(cfg,mcqResults){
+  const{currency,arrNum}=cfgMeta(cfg);const exp=EXP[cfg.experience]||EXP.first;
+  const compScores={};Object.keys(COMPETENCIES).forEach(c=>{const qs=mcqResults.filter(r=>r.comp===c);compScores[c]=qs.length?Math.round(qs.filter(r=>r.correct).length/qs.length*100):50;});
+  const weak=Object.entries(compScores).filter(([,v])=>v<60).map(([k])=>COMPETENCIES[k]?.label||k).join(", ")||"general CFO judgment";
+  const prompt="Create a CFO onboarding case study for Meridian Software in "+cfg.hq+". Use "+currency+". ARR ~"+arrNum+"M, "+cfg.growth+" growth. PE-backed, "+cfg.standard+". Candidate: "+exp.label+". Probe weak areas: "+weak+".\nReturn ONLY JSON: {\"companyName\":\"Meridian Software\",\"narrative\":\"6-8 sentence scenario...\",\"questions\":[{\"question\":\"...\",\"comp\":\"acc\",\"options\":[\"A\",\"B\",\"C\",\"D\"],\"correct\":0,\"explanation\":\"...\"}]}";
+  try{const d=await callAPI(prompt,5000);if(d?.questions?.length>=3)return d;throw new Error();}
+  catch(e){
+    const arr=arrNum;
+    return{companyName:"Meridian Software",narrative:"Meridian Software is a B2B SaaS company headquartered in "+cfg.hq+" with "+currency+arr+"M ARR reporting under "+cfg.standard+". Acquired by a PE sponsor 18 months ago at a "+currency+Math.round(Number(arr)*5)+"M enterprise value, growing at "+cfg.growth+" with NRR of 108%, gross margins of 74%, and a -12% EBITDA margin. The outgoing CFO departed 3 months ago following a revenue recognition review. A bolt-on acquisition is 60% integrated with the acquired entity's billing system unreconciled, extending the month-end close from 8 to 14 days. The board has requested exit-readiness materials within 6 months while the PE sponsor evaluates a dividend recapitalization.",
+    questions:[
+      {question:"Revenue recognition has been misapplied to multi-year contracts. The board simultaneously requests exit-readiness in 6 months. How do you sequence priorities?",comp:"acc",options:["Proceed with exit materials immediately","Commission a recognition audit, quantify misstatements, engage auditors proactively, and disclose timeline implications to the board","Continue current practice and address post-exit","Renegotiate contracts"],correct:1,explanation:"Financial reporting integrity must take precedence. Misstatements found during buyer diligence are far more damaging than proactive disclosure."},
+      {question:"You need to present updated KPIs to the board in 30 days but ARR data is produced manually in Excel with no cohort analysis. Your approach is:",comp:"mfo",options:["Present the Excel data as-is","Immediately implement a data warehouse before the board meeting","Build a defensible interim ARR waterfall model in Excel with disclosed methodology, and in parallel commit to a 90-day permanent infrastructure implementation","Ask the board to defer the KPI review"],correct:2,explanation:"The CFO must balance the immediate board deliverable with the longer-term infrastructure need."},
+      {question:"The PE sponsor is pushing for both a dividend recapitalization and a full exit process simultaneously. How do you advise the board?",comp:"inv",options:["Support both","Model post-recap leverage ratio and covenant headroom; present scenarios showing the risk of pursuing both simultaneously; make a clear recommendation","Defer to investment bankers","Approve the recap and let the exit proceed independently"],correct:1,explanation:"The CFO must provide independent financial analysis with rigorous scenario modeling."},
+      {question:"The finance team is stretched and morale is low. In your first 30 days, your approach is:",comp:"team",options:["Immediately restructure and replace underperformers","Spend time with each team member individually, understand their work and frustrations, roll up your sleeves on critical deliverables alongside them, then make thoughtful structural changes","Bring in a consulting firm while you assess","Set aggressive new performance targets immediately"],correct:1,explanation:"Trust and stability are the first priorities when inheriting a stretched team."},
+      {question:"The month-end close has extended from 8 to 14 days due to the unreconciled acquisition billing system. The highest-priority intervention is:",comp:"fsv",options:["Hire 2 additional accountants","Assess root cause and define a structured integration plan with a cutover date and parallel-run reconciliation controls","Abandon the integration and maintain separate systems","Outsource the close process"],correct:1,explanation:"Extended close cycles from system integration reflect data architecture problems, not headcount gaps."},
+    ]};
+  }
+}
+
+async function generateCaseStudies(cfg){
+  const{currency,arrNum}=cfgMeta(cfg);const exp=EXP[cfg.experience]||EXP.first;
+  const prompt="Create 5 CFO interview case studies (3 written, 2 discussion) for a "+exp.label+" for a "+arrNum+"M "+currency+" ARR SaaS company in "+cfg.hq+". "+exp.focus+"\nReturn ONLY JSON: {\"caseStudies\":[{\"type\":\"written\",\"competency\":\"acc\",\"competencyLabel\":\"Accounting & Controlling Expert\",\"title\":\"...\",\"objective\":\"...\",\"context\":\"...\",\"areas\":[\"...\"],\"deliverable\":\"...\",\"rubric\":[{\"criterion\":\"...\",\"strong\":\"...\",\"weak\":\"...\"}]},{\"type\":\"discussion\",\"competency\":\"team\",\"competencyLabel\":\"Team Builder\",\"title\":\"...\",\"objective\":\"...\",\"context\":\"...\",\"topics\":[\"...\"],\"signals\":[\"...\"],\"openingQuestion\":\"...\"}]}";
+  try{const d=await callAPI(prompt,7000);if(d?.caseStudies?.length>=3)return d.caseStudies;throw new Error();}
+  catch(e){
+    const arr=arrNum;
+    return[
+      {type:"written",competency:"acc",competencyLabel:"Accounting & Controlling Expert",title:"Financial Reporting Architecture & Close Optimization",objective:"Assess ability to build a scalable, audit-ready financial infrastructure that delivers a reliable 5-day monthly close.",context:"The company operates on a basic accounting system with a manual, 12-day monthly close. At "+arr+"M "+currency+" ARR growing at "+cfg.growth+", close delays are creating reporting gaps. Revenue recognition under "+cfg.standard+" has not been systematically documented. The deferred revenue waterfall is maintained in Excel and has not been independently reconciled in over 6 months.",areas:["How you would diagnose current close bottlenecks and design a 5-day close process","Your approach to establishing "+cfg.standard+" accounting standards from scratch","Preparation plan for the first external audit","Quote-to-Cash process design","Cash management and liquidity forecasting discipline"],deliverable:"A written memo (2-3 pages): (1) 90-day close optimization plan, (2) "+cfg.standard+" policy framework, (3) audit readiness assessment, and (4) Quote-to-Cash process design.",rubric:[{criterion:"Close process design",strong:"Identifies specific bottlenecks; proposes automation steps with timeline; sets measurable targets",weak:"Proposes generic solutions; no timeline or measurable targets"},{criterion:cfg.standard+" standards",strong:"Articulates specific policy framework covering all contract types",weak:"Generic description without application to company's contract types"},{criterion:"Audit preparation",strong:"Pre-audit readiness assessment with specific risk areas; timeline working backward from audit start",weak:"Treats audit as reactive rather than managed proactively"},{criterion:"Cash discipline",strong:"Connects Quote-to-Cash controls to DSO; weekly cash reporting cadence",weak:"Treats cash management as accounting function only"}]},
+      {type:"written",competency:"mfo",competencyLabel:"Metrics-Driven Financial Operator",title:"FP&A Operating Model & Driver-Based Planning Framework",objective:"Assess FP&A technical depth and operating mindset.",context:"At "+cfg.growth+" growth, the company needs a budgeting and forecasting process that balances speed, flexibility, and accountability. FP&A is currently seen as a reporting function, not a business partner.",areas:["How you would rebuild the annual budget process","The specific ARR and operating model drivers you would build","How FP&A becomes a genuine business partner","Performance tracking cadence","How key strategic initiatives are financially governed"],deliverable:"A written proposal (2-3 pages): (1) budgeting process redesign, (2) driver tree for one business function, (3) FP&A business partnering model, and (4) performance tracking cadence.",rubric:[{criterion:"Driver-based model",strong:"Identifies key ARR drivers and connects them to operating costs through capacity planning",weak:"Presents top-down growth rate without driver-level decomposition"},{criterion:"Business partnering",strong:"Distinguishes FP&A as reporting vs decision-enabler; describes earning credibility through understanding the business",weak:"Describes FP&A as primarily a reporting function"},{criterion:"Performance tracking",strong:"Specific cadence with ownership; each metric tied to a decision; variance analysis leads to recommendations",weak:"Generic monthly reporting; no connection between variance and operating decisions"},{criterion:"Initiative governance",strong:"Specific financial guardrails including investment criteria and kill criteria",weak:"Treats initiatives as part of annual budget; no kill criteria"}]},
+      {type:"written",competency:"inv",competencyLabel:"Investor Experience",title:"Capital Allocation Framework & Fundraising Strategy",objective:"Assess ability to develop and execute a sound financial strategy aligned with growth objectives and investor expectations.",context:"The company is investing aggressively to sustain "+cfg.growth+" growth and is evaluating a capital raise. The current investor narrative is fragmented and cohort data does not exist in auditable form.",areas:["How you would categorize investments into core growth, expansion, and option-creating bets","The capital allocation framework: investment criteria, success definitions, and kill criteria","Fundraising readiness: what the ARR narrative and financial model need to look like","The 3-year financial strategy to propose to the board","Governance structure: management vs board investment decisions"],deliverable:"A written proposal (2-3 pages): (1) capital allocation framework, (2) fundraising readiness roadmap, and (3) 1-page board-ready financial strategy summary.",rubric:[{criterion:"Investment categorization",strong:"Cleanly distinguishes 3+ investment categories with different risk profiles, time horizons, and success criteria",weak:"Treats all investments similarly"},{criterion:"Fundraising readiness rigor",strong:"Identifies specific gaps in ARR reporting and cohort data; realistic timeline to close gaps",weak:"Treats fundraising readiness as primarily a pitch deck exercise"},{criterion:"Multiple expansion strategy",strong:"Articulates specific levers - NRR improvement, gross margin expansion, Rule of 40 trajectory",weak:"Focuses exclusively on ARR growth"},{criterion:"Governance design",strong:"Distinguishes management vs board decisions; specific cadence for capital allocation reviews",weak:"Escalates all investment decisions to board"}]},
+      {type:"discussion",competency:"team",competencyLabel:"Team Builder",title:"Building the Finance Team & Partnering with the Business",objective:"Assess track record and philosophy for building high-performing finance teams.",context:"The company's finance team currently consists of 3 people who are technically competent but disconnected from the business. The incoming CFO has a mandate to build finance into a genuine business partner.",topics:["Your philosophy on building a finance team at this stage - sequencing of hires, what you look for beyond technical skills","A specific example of rebuilding trust between finance and a functional team","How you evaluate your team's strengths and weaknesses","Your approach to hiring: how you source candidates and what your interview process looks like","How you balance being a player-coach with building a team capable of operating without you"],signals:["Does the candidate describe team building as a strategic priority?","When describing hiring, are they specific? Do they screen for business partnership instinct?","Can they tell a specific, personal story about rebuilding team credibility?","Do they describe a player-coach style with genuine specificity?"],openingQuestion:"Tell me about the finance team you are most proud of building - what was the situation when you arrived, what did you change, and how did you know it was working?"},
+      {type:"discussion",competency:"fsv",competencyLabel:"Financial Systems Visionary",title:"Systems Strategy & Finance Technology Roadmap",objective:"Assess experience selecting, implementing, and managing financial and business systems.",context:"The company currently operates on basic accounting software, a separate billing system with no ERP integration, and Excel-based FP&A. Data integrity issues are emerging across the quote-to-cash process.",topics:["How you would diagnose the current systems landscape and prioritize gaps","Your decision framework for when to upgrade vs optimize within the current system","How you have previously led an ERP selection or implementation","Your view on the FP&A tooling decision at "+arr+"M "+currency+" ARR","How you build a data architecture that gives CEO, board, and investors a single version of truth"],signals:["Does the candidate lead with business outcomes or technology preferences?","Are they appropriately skeptical of over-building at the current ARR stage?","Can they describe a specific ERP implementation with specificity?","Do they understand the difference between ERP, billing system, and data warehouse?"],openingQuestion:"Walk me through the systems landscape you inherited at your last company and the roadmap you built. What did you change, why, and how did you decide what to prioritize?"},
+    ];
+  }
+}
+
+// ── COMPONENTS ─────────────────────────────────────────────────────────────
+function CompBadge({compKey, small}) {
+  const comp = COMPETENCIES[compKey];
+  if (!comp) return null;
+  return (
+    <span style={{display:"inline-block",padding:small?"2px 7px":"3px 10px",borderRadius:3,fontSize:small?10:11,fontWeight:700,color:comp.color,background:comp.lightBg,border:"1px solid "+comp.color+"22",marginRight:4,marginBottom:2}}>
+      {small ? comp.short : comp.label}
+    </span>
+  );
+}
+
+function AppHeader({title, sub}) {
+  return (
+    <div style={{background:N.navy,padding:"14px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+      <div style={{display:"flex",alignItems:"center",gap:12}}>
+        <div style={{background:N.orange,width:4,height:32,borderRadius:2}}/>
+        <div>
+          <p style={{color:"white",margin:0,fontSize:14,fontWeight:700,letterSpacing:"0.02em"}}>{title||"CFO SKILL ASSESSMENT"}</p>
+          <p style={{color:"rgba(255,255,255,0.5)",margin:0,fontSize:11}}>SaaS CFO Technical Evaluation — Roxi's Corner</p>
+        </div>
+      </div>
+      {sub && <p style={{color:"rgba(255,255,255,0.45)",margin:0,fontSize:11,fontWeight:500}}>{sub}</p>}
+    </div>
+  );
+}
+
+function ProgressBar({value, color}) {
+  return (
+    <div style={{width:"100%",height:6,background:N.bg,borderRadius:9999}}>
+      <div style={{height:6,borderRadius:9999,transition:"width 0.3s",width:value+"%",background:color||N.orange}}/>
+    </div>
+  );
+}
+
+function Spinner({label}) {
+  return (
+    <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:16,padding:"64px 0"}}>
+      <div style={{position:"relative",width:48,height:48}}>
+        <div style={{position:"absolute",inset:0,borderRadius:"50%",border:"4px solid "+N.bg}}/>
+        <div style={{position:"absolute",inset:0,borderRadius:"50%",border:"4px solid transparent",borderTopColor:N.navy,animation:"spin 1s linear infinite"}}/>
+      </div>
+      <p style={{color:N.slateL,fontSize:13,fontWeight:500}}>{label}</p>
+    </div>
+  );
+}
+
+function EditPhase({qPool,setQPool,caseStudies,setCaseStudies,scenario,onPreview,companyName,aiGenerated,onPublish,publishedAt}) {
+  const [tab,setTab] = useState("questions");
+  const [editQIdx,setEditQIdx] = useState(null);
+  const [qDraft,setQDraft] = useState(null);
+  const [editCIdx,setEditCIdx] = useState(null);
+  const [cDraft,setCDraft] = useState(null);
+
+  const startEditQ=idx=>{const q=qPool[idx];setQDraft({...q,options:[...q.options]});setEditQIdx(idx);};
+  const saveQ=()=>{setQPool(qPool.map((q,i)=>i===editQIdx?qDraft:q));setEditQIdx(null);setQDraft(null);};
+  const cancelQ=()=>{setEditQIdx(null);setQDraft(null);};
+  const startEditC=idx=>{const c=caseStudies[idx];setCDraft({...c,areas:[...(c.areas||[])],topics:[...(c.topics||[])],signals:[...(c.signals||[])],rubric:(c.rubric||[]).map(r=>({...r}))});setEditCIdx(idx);};
+  const saveC=()=>{setCaseStudies(caseStudies.map((c,i)=>i===editCIdx?cDraft:c));setEditCIdx(null);setCDraft(null);};
+  const cancelC=()=>{setEditCIdx(null);setCDraft(null);};
+
+  const inp={width:"100%",padding:"7px 10px",border:"1px solid "+N.border,borderRadius:4,fontSize:12,color:N.navy,boxSizing:"border-box",background:"white"};
+  const ta={...inp,resize:"vertical"};
+  const allCases=caseStudies||[];
+  const tabList=[{id:"questions",label:"MCQ Questions ("+Math.min(qPool.length,25)+")"},{id:"casestudies",label:"Case Studies ("+allCases.length+")"}];
+  if(scenario?.questions)tabList.push({id:"scenario",label:"Scenario"});
+
+  return (
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader title={companyName||"CFO Assessment"} sub="Company View - Review & Edit"/>
+      <div style={{borderBottom:"1px solid "+N.border,background:"white",position:"sticky",top:0,zIndex:10}}>
+        <div style={{maxWidth:"56rem",margin:"0 auto",padding:"0 24px",display:"flex",paddingTop:8}}>
+          {tabList.map(t=>(
+            <button key={t.id} onClick={()=>setTab(t.id)} style={{padding:"10px 16px",fontSize:12,fontWeight:600,background:"transparent",border:"none",cursor:"pointer",color:tab===t.id?N.navy:N.slateL,borderBottom:tab===t.id?"2px solid "+N.orange:"2px solid transparent"}}>{t.label}</button>
+          ))}
+        </div>
+      </div>
+      <div style={{maxWidth:"56rem",margin:"0 auto",padding:"20px 24px"}}>
+        <div style={{background:N.bg,border:"1px solid "+N.border,borderRadius:6,padding:"10px 16px",marginBottom:16,display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,flexWrap:"wrap"}}>
+          <div>
+            <p style={{color:N.slate,fontSize:12,margin:"0 0 2px"}}>{aiGenerated?"AI-generated":"Built-in question bank"} - tailored to your profile. Click Edit on any item to modify.</p>
+            {publishedAt&&<p style={{color:"#15803D",fontSize:11,margin:0}}>{"Published and ready for candidates - "+publishedAt}</p>}
+          </div>
+          <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+            {[["test","Candidate Test"],["sheet","Answer Sheet"],["cases","Evaluator Guide"],["key","Answer Key"]].map(([m,lbl])=>(
+              <button key={m} onClick={()=>onPreview(m)} style={{fontSize:11,fontWeight:600,padding:"6px 12px",borderRadius:4,border:"1px solid "+N.border,background:m==="test"?N.navy:"white",color:m==="test"?"white":N.navy,cursor:"pointer"}}>{lbl}</button>
+            ))}
+            <button onClick={onPublish} style={{fontSize:11,fontWeight:700,padding:"6px 14px",borderRadius:4,border:"none",background:N.orange,color:"white",cursor:"pointer"}}>Publish for Candidates</button>
+          </div>
+        </div>
+
+        {tab==="questions" && (
+          <div style={{display:"flex",flexDirection:"column",gap:8}}>
+            {qPool.slice(0,25).map((q,idx)=>{
+              const comp=COMPETENCIES[q.comp||q.competency];const isEd=editQIdx===idx;
+              return (
+                <div key={q.id||idx} style={{border:"1px solid "+N.border,borderRadius:8,overflow:"hidden",background:isEd?N.bg:"white"}}>
+                  <div style={{padding:"12px 16px",display:"flex",alignItems:"flex-start",gap:10}}>
+                    <span style={{fontSize:12,fontWeight:700,color:N.navy,flexShrink:0,marginTop:1}}>{"Q"+(idx+1)}</span>
+                    {comp&&<CompBadge compKey={q.comp||q.competency} small={true}/>}
+                    <p style={{flex:1,fontSize:13,color:N.navy,margin:0,lineHeight:1.4}}>{q.question}</p>
+                    <button onClick={()=>isEd?cancelQ():startEditQ(idx)} style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"4px 12px",borderRadius:4,border:"1px solid "+N.border,background:"white",color:N.navy,cursor:"pointer"}}>{isEd?"Cancel":"Edit"}</button>
+                  </div>
+                  {!isEd&&(
+                    <div style={{padding:"0 16px 12px 48px"}}>
+                      {q.options.map((opt,j)=>(
+                        <div key={j} style={{display:"flex",gap:8,padding:"3px 0"}}>
+                          <span style={{fontSize:12,fontWeight:700,color:j===q.correct?"#15803D":N.slateXL,flexShrink:0,width:16}}>{String.fromCharCode(65+j)}.</span>
+                          <span style={{fontSize:12,color:j===q.correct?"#15803D":N.slate,fontWeight:j===q.correct?600:400,background:j===q.correct?"#F0FAF4":"transparent",padding:j===q.correct?"1px 6px":"0",borderRadius:3}}>{opt}{j===q.correct?" (correct)":""}</span>
+                        </div>
+                      ))}
+                      <p style={{fontSize:11,color:N.slateL,marginTop:5,marginBottom:0,fontStyle:"italic"}}>{q.explanation}</p>
+                    </div>
+                  )}
+                  {isEd&&qDraft&&(
+                    <div style={{padding:"16px",borderTop:"1px solid "+N.border}}>
+                      <div style={{marginBottom:10}}>
+                        <label style={{fontSize:11,fontWeight:700,color:N.navy,display:"block",marginBottom:3}}>Question</label>
+                        <textarea value={qDraft.question} onChange={e=>setQDraft({...qDraft,question:e.target.value})} rows={3} style={{...ta}}/>
+                      </div>
+                      <div style={{marginBottom:10}}>
+                        <label style={{fontSize:11,fontWeight:700,color:N.navy,display:"block",marginBottom:3}}>Options - select radio button next to the correct answer</label>
+                        {qDraft.options.map((opt,j)=>(
+                          <div key={j} style={{display:"flex",gap:8,marginBottom:6,alignItems:"center"}}>
+                            <input type="radio" name={"correct_"+idx} checked={qDraft.correct===j} onChange={()=>setQDraft({...qDraft,correct:j})}/>
+                            <span style={{fontSize:11,fontWeight:700,color:N.slateL,width:18}}>{String.fromCharCode(65+j)}.</span>
+                            <input value={opt} onChange={e=>{const opts=[...qDraft.options];opts[j]=e.target.value;setQDraft({...qDraft,options:opts});}} style={{flex:1,padding:"5px 8px",border:"1px solid "+N.border,borderRadius:4,fontSize:12,color:qDraft.correct===j?"#15803D":N.navy,background:qDraft.correct===j?"#F0FAF4":"white"}}/>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{marginBottom:12}}>
+                        <label style={{fontSize:11,fontWeight:700,color:N.navy,display:"block",marginBottom:3}}>Explanation</label>
+                        <textarea value={qDraft.explanation} onChange={e=>setQDraft({...qDraft,explanation:e.target.value})} rows={2} style={{...ta,color:N.slate}}/>
+                      </div>
+                      <div style={{display:"flex",gap:8}}>
+                        <button onClick={saveQ} style={{padding:"8px 20px",background:N.navy,color:"white",border:"none",borderRadius:4,fontSize:12,fontWeight:700,cursor:"pointer"}}>Save Changes</button>
+                        <button onClick={cancelQ} style={{padding:"8px 16px",background:"white",color:N.slate,border:"1px solid "+N.border,borderRadius:4,fontSize:12,cursor:"pointer"}}>Cancel</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {tab==="casestudies"&&(
+          <div style={{display:"flex",flexDirection:"column",gap:8}}>
+            {allCases.map((cs,idx)=>{
+              const isEd=editCIdx===idx;const isW=cs.type==="written";
+              return (
+                <div key={idx} style={{border:"1px solid "+N.border,borderRadius:8,overflow:"hidden",background:isEd?N.bg:"white"}}>
+                  <div style={{padding:"12px 16px",display:"flex",alignItems:"center",gap:10}}>
+                    <span style={{flexShrink:0,fontSize:10,fontWeight:700,padding:"2px 7px",borderRadius:3,border:"1px solid "+N.border,color:N.slate}}>{isW?"Written":"Discussion"}</span>
+                    <CompBadge compKey={cs.competency} small={true}/>
+                    <p style={{flex:1,fontSize:13,fontWeight:700,color:N.navy,margin:0}}>{cs.title}</p>
+                    <button onClick={()=>isEd?cancelC():startEditC(idx)} style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"4px 12px",borderRadius:4,border:"1px solid "+N.border,background:"white",color:N.navy,cursor:"pointer"}}>{isEd?"Cancel":"Edit"}</button>
+                  </div>
+                  {!isEd&&<div style={{padding:"0 16px 12px"}}><p style={{fontSize:12,color:N.slateL,margin:"0 0 4px"}}>{cs.objective}</p><p style={{fontSize:12,color:N.slate,margin:0,lineHeight:1.5}}>{(cs.context||"").substring(0,200)+"..."}</p></div>}
+                  {isEd&&cDraft&&(
+                    <div style={{padding:"16px",borderTop:"1px solid "+N.border}}>
+                      {[["Title","title",false],["Objective","objective",true],["Context","context",true],isW?["Deliverable","deliverable",true]:["Opening Question","openingQuestion",true]].map(([lbl,key,isArea])=>(
+                        <div key={key} style={{marginBottom:10}}>
+                          <label style={{fontSize:11,fontWeight:700,color:N.navy,display:"block",marginBottom:3}}>{lbl}</label>
+                          {isArea?<textarea value={cDraft[key]||""} onChange={e=>setCDraft({...cDraft,[key]:e.target.value})} rows={lbl==="Context"?4:2} style={{...ta,color:N.slate}}/>:<input value={cDraft[key]||""} onChange={e=>setCDraft({...cDraft,[key]:e.target.value})} style={{...inp}}/>}
+                        </div>
+                      ))}
+                      <div style={{display:"flex",gap:8,marginTop:12}}>
+                        <button onClick={saveC} style={{padding:"8px 20px",background:N.navy,color:"white",border:"none",borderRadius:4,fontSize:12,fontWeight:700,cursor:"pointer"}}>Save Changes</button>
+                        <button onClick={cancelC} style={{padding:"8px 16px",background:"white",color:N.slate,border:"1px solid "+N.border,borderRadius:4,fontSize:12,cursor:"pointer"}}>Cancel</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── PRINT PREVIEW (simplified for HTML file) ─────────────────────────────────
+function PrintPreview({cfg,qPool,companyName,candidateName,scenario,mcqRes,sRes,caseStudies,mode,onClose}) {
+  const today=new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
+  const pct=(a,b)=>b===0?0:Math.round(a/b*100);
+  const exp=EXP[cfg.experience]||EXP.first;
+  const writtenCases=(caseStudies||[]).filter(c=>c.type==="written");
+  const discussionCases=(caseStudies||[]).filter(c=>c.type==="discussion");
+  const mcqCorrect=mcqRes.filter(r=>r.correct).length;
+  const sCorrect=sRes.filter(r=>r.correct).length;
+  const total=mcqCorrect+sCorrect,totalMax=25+sRes.length;
+  const op=pct(total,totalMax);
+  const level=op>=85?"Expert CFO":op>=70?"Senior CFO":op>=55?"Proficient CFO":"Developing CFO";
+  const compScore=ck=>{const qs=mcqRes.filter(r=>r.q.comp===ck);return{correct:qs.filter(r=>r.correct).length,total:qs.length,pct:pct(qs.filter(r=>r.correct).length,qs.length)};};
+  const DIFF_LBL=["","Entry","Developing","Proficient","Advanced","Expert"];
+
+  const renderQ=(q,label,userAns,showAnswer)=>(
+    <div style={{marginBottom:20,paddingBottom:16,borderBottom:"1px solid "+N.border}}>
+      {showAnswer&&<div style={{marginBottom:5,display:"flex",gap:8,alignItems:"center"}}><CompBadge compKey={q.comp||q.competency} small={true}/><span style={{fontSize:11,color:N.slateL}}>{"Diff: "+DIFF_LBL[q.difficulty]}</span></div>}
+      <p style={{margin:"0 0 10px",fontSize:13,fontWeight:600,color:N.navy,lineHeight:1.5}}><strong>{label}.</strong> {q.question}</p>
+      {q.options.map((opt,j)=>{
+        const isC=j===q.correct,isU=userAns===j;
+        let bg="white",bdr=N.border,col=N.slate;
+        if(showAnswer){if(isC){bg="#F0FAF4";bdr="#16A34A";col="#15803D";}else if(isU&&!isC){bg="#FEF2F2";bdr="#EF4444";col="#DC2626";}else{col=N.slateXL;}}
+        return(
+          <div key={j} style={{display:"flex",gap:8,marginBottom:4}}>
+            <span style={{fontSize:12,fontWeight:700,color:N.slateXL,flexShrink:0,width:18,marginTop:8}}>{String.fromCharCode(65+j)}.</span>
+            <div style={{flex:1,border:"1px solid "+bdr,borderRadius:4,padding:"7px 12px",fontSize:12,color:col,background:bg,lineHeight:1.4}}>{opt}{showAnswer&&isC&&<span style={{marginLeft:8,fontSize:11,fontWeight:700}}>(Correct)</span>}{showAnswer&&isU&&!isC&&<span style={{marginLeft:8,fontSize:11,fontWeight:700}}>(Candidate)</span>}</div>
+          </div>
+        );
+      })}
+      {showAnswer&&<div style={{marginTop:7,padding:"7px 12px",background:N.bg,borderRadius:4,fontSize:12,color:N.slate}}><strong>Explanation: </strong>{q.explanation}</div>}
+      {!showAnswer&&<p style={{margin:"8px 0 0",fontSize:12,color:N.slateXL}}>Answer: _____</p>}
+    </div>
+  );
+
+  return (
+    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",zIndex:1000,overflowY:"auto"}}>
+      <div className="no-print" style={{background:N.navy,padding:"12px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:10}}>
+        <div>
+          <p style={{color:"white",margin:0,fontSize:14,fontWeight:700}}>{mode==="test"?"Candidate Assessment":mode==="key"?"Answer Key & Results":mode==="sheet"?"Answer Sheet":"Case Studies & Evaluator Guide"}</p>
+          <p style={{color:"rgba(255,255,255,0.5)",margin:0,fontSize:11}}>{mode==="test"?"No answers included":mode==="key"?"Hiring manager only":mode==="sheet"?"Candidate bubble sheet":"Evaluator guide - hiring team only"}</p>
+        </div>
+        <div style={{display:"flex",gap:8}}>
+          <button onClick={()=>window.print()} style={{background:N.orange,color:"white",border:"none",borderRadius:4,padding:"8px 16px",fontSize:13,fontWeight:600,cursor:"pointer"}}>Print / Save as PDF</button>
+          <button onClick={onClose} style={{color:"white",background:"transparent",border:"1px solid rgba(255,255,255,0.3)",borderRadius:4,padding:"8px 16px",fontSize:13,cursor:"pointer"}}>Close</button>
+        </div>
+      </div>
+
+      <div id="print-area" style={{background:"white",maxWidth:760,margin:"24px auto",padding:"48px 40px"}}>
+        {/* Header */}
+        <div style={{borderBottom:"3px solid "+N.navy,paddingBottom:20,marginBottom:24,display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+          <div>
+            {companyName&&<p style={{margin:"0 0 4px",fontSize:11,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{companyName}</p>}
+            <h1 style={{margin:0,fontSize:20,fontWeight:800,color:N.navy}}>
+              {mode==="test"?"CFO Technical Skill Assessment":mode==="key"?"CFO Assessment - Answer Key & Results":mode==="sheet"?"CFO Assessment - Answer Sheet":"CFO Assessment - Case Studies & Evaluator Guide"}
+            </h1>
+            <p style={{margin:"6px 0 0",fontSize:12,color:N.slateL}}>{mode==="key"?"Confidential - Hiring Manager Only - ":mode==="cases"?"Hiring Team Use Only - ":""}{today}</p>
+          </div>
+          {(mode==="test"||mode==="sheet")&&(
+            <div style={{textAlign:"right"}}>
+              <p style={{margin:0,fontSize:11,color:N.slateL}}>Candidate Name</p>
+              <div style={{marginTop:4,width:200,borderBottom:"1px solid "+N.navy,height:22,display:"flex",alignItems:"flex-end",paddingBottom:2}}>
+                {candidateName&&<span style={{fontSize:13,fontWeight:600,color:N.navy}}>{candidateName}</span>}
+              </div>
+              <p style={{margin:"10px 0 0",fontSize:11,color:N.slateL}}>Date</p>
+              <div style={{marginTop:4,width:200,borderBottom:"1px solid "+N.navy,height:22}}/>
+            </div>
+          )}
+        </div>
+
+        {/* ANSWER SHEET */}
+        {mode==="sheet"&&(
+          <div>
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part A - Multiple Choice (Q1-Q25)</p>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8,marginBottom:24}}>
+              {Array.from({length:25},(_,i)=>(
+                <div key={i} style={{border:"1px solid "+N.border,borderRadius:6,padding:"8px 10px"}}>
+                  <p style={{margin:"0 0 6px",fontSize:12,fontWeight:700,color:N.navy}}>{i+1}.</p>
+                  <div style={{display:"flex",gap:5}}>
+                    {["A","B","C","D"].map(l=>(<div key={l} style={{width:24,height:24,borderRadius:"50%",border:"1.5px solid "+N.border,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:N.slateL}}>{l}</div>))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part B - Case Study (S1-S5)</p>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8,marginBottom:24}}>
+              {[1,2,3,4,5].map(num=>(
+                <div key={num} style={{border:"1px solid "+N.border,borderRadius:6,padding:"8px 10px"}}>
+                  <p style={{margin:"0 0 6px",fontSize:12,fontWeight:700,color:N.navy}}>{"S"+num}.</p>
+                  <div style={{display:"flex",gap:5}}>
+                    {["A","B","C","D"].map(l=>(<div key={l} style={{width:24,height:24,borderRadius:"50%",border:"1.5px solid "+N.border,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:N.slateL}}>{l}</div>))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CANDIDATE TEST */}
+        {mode==="test"&&(
+          <div>
+            <div style={{marginBottom:20,padding:"12px 16px",background:N.bg,border:"1px solid "+N.border,borderRadius:6}}>
+              <p style={{margin:"0 0 6px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Competency Framework</p>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4}}>
+                {Object.entries(COMPETENCIES).map(([k,v])=>(<div key={k} style={{padding:"4px 10px",background:v.lightBg,borderRadius:4,borderLeft:"3px solid "+v.color}}><p style={{margin:0,fontSize:11,fontWeight:700,color:v.color}}>{v.label}</p></div>))}
+              </div>
+            </div>
+            <div style={{marginBottom:16,padding:"10px 14px",borderLeft:"3px solid "+N.orange,background:"#FFFAF7"}}>
+              <p style={{margin:"0 0 4px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Assessment Overview</p>
+              <p style={{margin:0,fontSize:12,color:N.slate,lineHeight:1.6}}><strong>Part A</strong> - 25 multiple-choice questions (50 min). Record answers on the answer sheet.<br/><strong>Part B</strong> - Case study with 5 judgment questions (25 min).<br/><strong>Part C</strong> - {writtenCases.length} written proposals (submit as separate documents).<br/><strong>Part D</strong> - {discussionCases.length} live discussion topics.</p>
+            </div>
+            <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART A - MULTIPLE CHOICE</p></div>
+            {qPool.slice(0,25).map((q,i)=>renderQ(q,i+1,undefined,false))}
+            {scenario&&(
+              <div>
+                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART B - CASE STUDY</p></div>
+                <div style={{background:N.navy,borderRadius:6,padding:20,marginBottom:14}}><p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{(scenario.companyName||"Meridian Software").toUpperCase()} - CFO ONBOARDING SCENARIO</p><p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",lineHeight:1.6}}>{scenario.narrative}</p></div>
+                {scenario.questions.map((sq,i)=>renderQ(sq,"S"+(i+1),undefined,false))}
+              </div>
+            )}
+            {writtenCases.length>0&&(
+              <div>
+                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART C - WRITTEN PROPOSALS</p></div>
+                {writtenCases.map((cs,i)=>(
+                  <div key={i} style={{marginBottom:22,paddingBottom:18,borderBottom:"1px solid "+N.border}}>
+                    <p style={{margin:"0 0 5px",fontSize:13,fontWeight:800,color:N.navy}}>{"C"+(i+1)+". "+cs.title}</p>
+                    <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
+                    <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase",letterSpacing:"0.08em"}}>Context</p>
+                    <p style={{margin:"0 0 10px",fontSize:13,color:N.slate,lineHeight:1.6}}>{cs.context}</p>
+                    <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase",letterSpacing:"0.08em"}}>Areas to Address</p>
+                    <ul style={{margin:"0 0 10px",paddingLeft:20}}>{(cs.areas||[]).map((a,j)=><li key={j} style={{fontSize:13,color:N.slate,marginBottom:4}}>{a}</li>)}</ul>
+                    <div style={{background:N.bg,border:"1px solid "+N.border,borderRadius:4,padding:"8px 14px"}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Deliverable</p><p style={{margin:0,fontSize:12,color:N.slate}}>{cs.deliverable}</p></div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {discussionCases.length>0&&(
+              <div>
+                <div style={{marginBottom:14,paddingBottom:8,borderBottom:"2px solid "+N.navy,marginTop:8}}><p style={{margin:0,fontSize:13,fontWeight:800,color:N.navy}}>PART D - LIVE DISCUSSIONS</p></div>
+                {discussionCases.map((cs,i)=>(
+                  <div key={i} style={{marginBottom:18,paddingBottom:14,borderBottom:"1px solid "+N.border}}>
+                    <p style={{margin:"0 0 5px",fontSize:13,fontWeight:800,color:N.navy}}>{"D"+(i+1)+". "+cs.title}</p>
+                    <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
+                    <p style={{margin:"0 0 8px",fontSize:13,color:N.slate,lineHeight:1.5}}>{cs.context}</p>
+                    <ul style={{margin:0,paddingLeft:20}}>{(cs.topics||[]).map((t,j)=><li key={j} style={{fontSize:13,color:N.slate,marginBottom:4}}>{t}</li>)}</ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* EVALUATOR GUIDE */}
+        {mode==="cases"&&(
+          <div>
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part C - Written Proposal Evaluator Rubrics</p>
+            {writtenCases.map((cs,i)=>(
+              <div key={i} style={{marginBottom:28,paddingBottom:24,borderBottom:"1px solid "+N.border}}>
+                <p style={{margin:"0 0 5px",fontSize:14,fontWeight:800,color:N.navy}}>{"C"+(i+1)+". "+cs.title}</p>
+                <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
+                <p style={{margin:"0 0 12px",fontSize:12,color:N.slate,lineHeight:1.5}}>{cs.context}</p>
+                <table style={{width:"100%",borderCollapse:"collapse"}}>
+                  <thead><tr>{["Criterion","Strong","Weak"].map(h=><th key={h} style={{textAlign:"left",fontSize:11,color:N.slateL,padding:"6px 10px",borderBottom:"2px solid "+N.navy,width:h==="Criterion"?"25%":"37.5%"}}>{h}</th>)}</tr></thead>
+                  <tbody>{(cs.rubric||[]).map((r,j)=>(<tr key={j} style={{background:j%2===0?"white":N.bg}}><td style={{padding:"8px 10px",fontSize:12,fontWeight:600,color:N.navy,borderBottom:"1px solid "+N.border,verticalAlign:"top"}}>{r.criterion}</td><td style={{padding:"8px 10px",fontSize:12,color:"#15803D",borderBottom:"1px solid "+N.border,lineHeight:1.4,verticalAlign:"top"}}>{r.strong}</td><td style={{padding:"8px 10px",fontSize:12,color:"#DC2626",borderBottom:"1px solid "+N.border,lineHeight:1.4,verticalAlign:"top"}}>{r.weak}</td></tr>))}</tbody>
+                </table>
+              </div>
+            ))}
+            <p style={{margin:"0 0 12px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part D - Live Discussion Facilitator Guide</p>
+            {discussionCases.map((cs,i)=>(
+              <div key={i} style={{marginBottom:24,paddingBottom:20,borderBottom:"1px solid "+N.border}}>
+                <p style={{margin:"0 0 5px",fontSize:14,fontWeight:800,color:N.navy}}>{"D"+(i+1)+". "+cs.title}</p>
+                <div style={{marginBottom:8}}><CompBadge compKey={cs.competency} small={false}/></div>
+                <div style={{background:N.navy,borderRadius:4,padding:"10px 14px",marginBottom:10}}><p style={{margin:"0 0 2px",fontSize:10,fontWeight:700,color:N.orange,textTransform:"uppercase"}}>Opening Question</p><p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",fontStyle:"italic"}}>"{cs.openingQuestion}"</p></div>
+                <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>Discussion Topics</p>
+                <ul style={{margin:"0 0 10px",paddingLeft:20}}>{(cs.topics||[]).map((t,j)=><li key={j} style={{fontSize:12,color:N.slate,marginBottom:4}}>{t}</li>)}</ul>
+                <p style={{margin:"0 0 5px",fontSize:11,fontWeight:700,color:N.navy,textTransform:"uppercase"}}>What to Listen For</p>
+                <ul style={{margin:0,paddingLeft:20}}>{(cs.signals||[]).map((s,j)=><li key={j} style={{fontSize:12,color:N.slate,marginBottom:4,fontStyle:"italic"}}>{s}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ANSWER KEY */}
+        {mode==="key"&&(
+          <div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:20}}>
+              {[["Overall Score",op+"%",total+" of "+totalMax+" correct"],["Assessment Level",level,exp.label],["Case Study",pct(sCorrect,sRes.length)+"%",sCorrect+" of "+sRes.length]].map(([lbl,val,sub])=>(<div key={lbl} style={{background:N.navy,borderRadius:6,padding:16}}><p style={{margin:"0 0 4px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{lbl}</p><p style={{margin:0,fontSize:val.length>5?18:28,fontWeight:800,color:"white"}}>{val}</p>{sub&&<p style={{margin:"4px 0 0",fontSize:11,color:"rgba(255,255,255,0.5)"}}>{sub}</p>}</div>))}
+            </div>
+            <p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Competency Performance</p>
+            <table style={{width:"100%",borderCollapse:"collapse",marginBottom:20}}>
+              <thead><tr>{["Competency","Score","Pct."].map(h=><th key={h} style={{textAlign:h==="Competency"?"left":"center",fontSize:11,color:N.slateL,padding:"6px 0",borderBottom:"2px solid "+N.navy}}>{h}</th>)}</tr></thead>
+              <tbody>{Object.entries(COMPETENCIES).map(([k,v])=>{const cs=compScore(k);return(<tr key={k}><td style={{padding:"8px 0",borderBottom:"1px solid "+N.border}}><span style={{fontSize:13,fontWeight:600,color:v.color}}>{v.label}</span></td><td style={{padding:"8px 0",fontSize:13,textAlign:"center",borderBottom:"1px solid "+N.border}}>{cs.correct}/{cs.total}</td><td style={{padding:"8px 0",fontSize:13,fontWeight:700,textAlign:"center",color:cs.pct>=70?N.navy:N.orange,borderBottom:"1px solid "+N.border}}>{cs.pct}%</td></tr>);})}</tbody>
+            </table>
+            <p style={{margin:"0 0 8px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.navy,textTransform:"uppercase"}}>Part A - Multiple Choice</p>
+            {qPool.slice(0,25).map((q,i)=>{const r=mcqRes[i];return(<div key={q.id||i}>{r&&<div style={{display:"flex",gap:8,marginBottom:2,alignItems:"center"}}><span style={{fontSize:12,fontWeight:700,color:N.navy}}>{"#"+(i+1)}</span><span style={{fontSize:11,fontWeight:700,color:r.correct?"#15803D":"#DC2626",marginLeft:"auto"}}>{r.correct?"Correct":"Incorrect"}</span></div>}{renderQ(q,i+1,r?.userAns,true)}</div>);})}
+          </div>
+        )}
+
+        <div style={{marginTop:24,paddingTop:16,borderTop:"1px solid "+N.border,display:"flex",justifyContent:"space-between",fontSize:11,color:N.slateXL}}>
+          <span>CFO Technical Skill Assessment - Roxi's Corner | Kochimi.io</span>
+          <span>{today}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── MAIN APP ──────────────────────────────────────────────────────────────────
+function App() {
+  const [userMode, setUserMode] = useState(null);
+  const [phase, setPhase] = useState("welcome");
+  const [companyName, setCompanyName] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const [candidateName, setCandidateName] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const [cfg, setCfg] = useState({});
+  const [cfgStep, setCfgStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [loadMsg, setLoadMsg] = useState("");
+  const [aiGenerated, setAiGenerated] = useState(false);
+  const [preview, setPreview] = useState(null);
+  const [publishedAt, setPublishedAt] = useState(null);
+  const [qPool, setQPool] = useState([]);
+  const [caseStudies, setCaseStudies] = useState(null);
+  const [used, setUsed] = useState([]);
+  const [dc, setDc] = useState(Object.fromEntries(Object.keys(COMPETENCIES).map(k=>[k,0])));
+  const [curQ, setCurQ] = useState(null);
+  const [qi, setQi] = useState(0);
+  const [diff, setDiff] = useState(3);
+  const [sel, setSel] = useState(null);
+  const [mcqRes, setMcqRes] = useState([]);
+  const [scenario, setScenario] = useState(null);
+  const [sqi, setSqi] = useState(0);
+  const [sSel, setSSel] = useState(null);
+  const [sRes, setSRes] = useState([]);
+
+  // Use localStorage for persistence (no window.storage in standalone HTML)
+  useEffect(()=>{
+    try{const d=localStorage.getItem(STORAGE_KEY);if(d){const p=JSON.parse(d);if(p.companyName)setCompanyName(p.companyName);}}catch(e){}
+  },[]);
+
+  function pickNext(pool,usedIds,d,curDc){
+    const avail=pool.filter(q=>!usedIds.includes(q.id));
+    if(!avail.length)return null;
+    const minComp=Object.keys(COMPETENCIES).reduce((a,b)=>(curDc[a]||0)<=(curDc[b]||0)?a:b);
+    return avail.map(q=>({q,sc:-Math.abs(q.difficulty-d)*4+((q.comp||q.competency)===minComp?6:0)})).sort((a,b)=>b.sc-a.sc)[0].q;
+  }
+
+  async function startCompanySetup(fc){
+    setLoading(true);setLoadMsg("Generating your tailored assessment...");
+    const[{questions,aiGenerated:ai},cs]=await Promise.all([generateQuestionsWithFallback(fc),generateCaseStudies(fc)]);
+    setQPool(questions);setAiGenerated(ai);setCaseStudies(cs);
+    setPhase("edit");setLoading(false);
+  }
+
+  function publishTest(){
+    const data={cfg,qPool,caseStudies,companyName};
+    try{
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+      const ts=new Date().toLocaleString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"});
+      setPublishedAt(ts);
+      alert("Test published! Candidates can now begin their assessment.");
+    }catch(e){alert("Failed to publish. Please try again.");}
+  }
+
+  function loadCandidateTest(){
+    setLoading(true);setLoadMsg("Loading your assessment...");
+    try{
+      const r=localStorage.getItem(STORAGE_KEY);
+      if(!r){setLoading(false);setPhase("no_test");return;}
+      const data=JSON.parse(r);
+      const lCfg=data.cfg,lPool=data.qPool,lCases=data.caseStudies;
+      if(data.companyName)setCompanyName(data.companyName);
+      setCfg(lCfg);setQPool(lPool);setCaseStudies(lCases);
+      const exp=EXP[lCfg.experience]||EXP.first;
+      const initDc=Object.fromEntries(Object.keys(COMPETENCIES).map(k=>[k,0]));
+      const first=pickNext(lPool,[],exp.startDiff,initDc);
+      setCurQ(first);setUsed([first.id]);setDc({...initDc,[(first.comp||first.competency)]:1});
+      setPhase("assessment");
+    }catch(e){setPhase("no_test");}
+    setLoading(false);
+  }
+
+  async function finishMCQ(finalRes){
+    setLoading(true);setLoadMsg("Building personalised case study...");
+    const mapped=finalRes.map(r=>({comp:r.q.comp||r.q.competency,correct:r.correct}));
+    const scen=await generateScenario(cfg,mapped);
+    setScenario(scen);setPhase("scenario");setLoading(false);
+  }
+
+  function submitMcq(){
+    if(sel===null)return;
+    const correct=sel===curQ.correct;const ck=curQ.comp||curQ.competency;
+    const newRes=[...mcqRes,{q:curQ,userAns:sel,correct,comp:ck,d:curQ.difficulty}];
+    setMcqRes(newRes);
+    const newDiff=correct?Math.min(5,diff+1):Math.max(1,diff-1);setDiff(newDiff);
+    if(qi+1>=25){finishMCQ(newRes);return;}
+    const newDc={...dc,[ck]:(dc[ck]||0)+1};const newUsed=[...used];
+    const nq=pickNext(qPool,newUsed,newDiff,newDc);
+    if(nq){newUsed.push(nq.id);setUsed(newUsed);setDc(newDc);setCurQ(nq);}
+    setQi(qi+1);setSel(null);
+  }
+
+  function submitScenario(){
+    if(sSel===null)return;
+    const correct=sSel===scenario.questions[sqi].correct;
+    const newSRes=[...sRes,{correct,userAns:sSel}];setSRes(newSRes);
+    if(sqi+1>=scenario.questions.length){setPhase("results");return;}
+    setSqi(sqi+1);setSSel(null);
+  }
+
+  function reset(){
+    setUserMode(null);setPhase("welcome");setNameInput("");setCandidateName("");
+    setPasswordInput("");setPasswordError(false);setCfg({});setCfgStep(0);
+    setLoading(false);setAiGenerated(false);setPreview(null);setPublishedAt(null);
+    setQPool([]);setCaseStudies(null);setUsed([]);
+    setDc(Object.fromEntries(Object.keys(COMPETENCIES).map(k=>[k,0])));
+    setCurQ(null);setQi(0);setDiff(3);setSel(null);setMcqRes([]);
+    setScenario(null);setSqi(0);setSSel(null);setSRes([]);
+  }
+
+  const compScore=ck=>{const qs=mcqRes.filter(r=>r.comp===ck);return{correct:qs.filter(r=>r.correct).length,total:qs.length};};
+  const pct=(a,b)=>b===0?0:Math.round(a/b*100);
+
+  if(preview){return<PrintPreview cfg={cfg} qPool={qPool} companyName={companyName} candidateName={candidateName} scenario={scenario} mcqRes={mcqRes} sRes={sRes} caseStudies={caseStudies} mode={preview} onClose={()=>setPreview(null)}/>;}
+  if(loading){return<div style={{minHeight:"100vh",background:"white"}}><AppHeader title={companyName||"CFO SKILL ASSESSMENT"}/><div style={{maxWidth:"36rem",margin:"0 auto",padding:"64px 24px",textAlign:"center"}}><Spinner label={loadMsg}/><p style={{color:N.slateXL,fontSize:12,marginTop:8}}>This may take 20-30 seconds</p></div></div>;}
+
+  const btnStyle=(primary)=>({padding:"12px 32px",background:primary?N.navy:"white",color:primary?"white":N.navy,border:primary?"none":"1px solid "+N.border,borderRadius:6,fontSize:14,fontWeight:600,cursor:"pointer"});
+  const inputStyle={width:"100%",padding:"12px 14px",border:"1px solid "+N.border,borderRadius:6,fontSize:14,color:N.navy,outline:"none",marginBottom:20,boxSizing:"border-box"};
+
+  if(phase==="welcome"){return(
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader/>
+      <div style={{maxWidth:"48rem",margin:"0 auto",padding:"48px 24px"}}>
+        <div style={{marginBottom:32}}>
+          <div style={{width:40,height:4,background:N.orange,borderRadius:2,marginBottom:16}}/>
+          <h1 style={{color:N.navy,fontSize:28,fontWeight:800,marginBottom:8}}>CFO Technical Skill Assessment</h1>
+          <p style={{color:N.slate,fontSize:15,lineHeight:1.6,marginBottom:4}}>A competency-based, company-specific evaluation — adaptive MCQ, a CFO onboarding case study, written proposals, and live discussion guides.</p>
+          <p style={{color:N.orange,fontSize:13,fontWeight:600}}>Part of Roxi's Corner on Kochimi.io</p>
+        </div>
+        <p style={{color:N.slateL,fontSize:12,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:12}}>Select your role</p>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:32}}>
+          <button onClick={()=>{setUserMode("candidate");setPhase("candidate_name");}} style={{background:"white",border:"2px solid "+N.border,borderRadius:10,padding:24,textAlign:"left",cursor:"pointer"}} onMouseOver={e=>e.currentTarget.style.borderColor=N.orange} onMouseOut={e=>e.currentTarget.style.borderColor=N.border}>
+            <div style={{width:40,height:40,borderRadius:8,background:"#EEF3FA",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:12}}><div style={{width:20,height:20,borderRadius:"50%",border:"2px solid "+N.navy}}/></div>
+            <p style={{color:N.navy,fontSize:15,fontWeight:700,margin:"0 0 4px"}}>I am a Candidate</p>
+            <p style={{color:N.slateL,fontSize:12,margin:0,lineHeight:1.5}}>Take your assigned assessment. Enter your name and your test loads automatically.</p>
+          </button>
+          <button onClick={()=>{setUserMode("company");setPhase("password");}} style={{background:"white",border:"2px solid "+N.border,borderRadius:10,padding:24,textAlign:"left",cursor:"pointer"}} onMouseOver={e=>e.currentTarget.style.borderColor=N.orange} onMouseOut={e=>e.currentTarget.style.borderColor=N.border}>
+            <div style={{width:40,height:40,borderRadius:8,background:"#FDF3EC",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:12}}><div style={{width:20,height:14,border:"2px solid "+N.orange,borderRadius:2}}/></div>
+            <p style={{color:N.navy,fontSize:15,fontWeight:700,margin:"0 0 4px"}}>Company Setup</p>
+            <p style={{color:N.slateL,fontSize:12,margin:0,lineHeight:1.5}}>Configure, review, edit, and publish the assessment. Password required.</p>
+          </button>
+        </div>
+        <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+          <p style={{color:N.navy,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:12}}>Competency Framework</p>
+          <div style={{display:"flex",flexDirection:"column",gap:8}}>
+            {Object.entries(COMPETENCIES).map(([k,v])=>(<div key={k} style={{padding:"7px 12px",borderLeft:"3px solid "+v.color,background:v.lightBg,borderRadius:"0 4px 4px 0"}}><p style={{margin:0,fontSize:12,fontWeight:700,color:v.color}}>{v.label}</p></div>))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );}
+
+  if(phase==="candidate_name"){const canContinue=nameInput.trim().length>0;return(
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader/>
+      <div style={{maxWidth:"28rem",margin:"0 auto",padding:"80px 24px"}}>
+        <div style={{width:40,height:4,background:N.orange,borderRadius:2,marginBottom:16}}/>
+        <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:8}}>Welcome</h2>
+        <p style={{color:N.slate,fontSize:14,marginBottom:24,lineHeight:1.6}}>Please enter your full name before beginning the assessment.</p>
+        <p style={{color:N.navy,fontSize:14,fontWeight:600,marginBottom:4}}>Your Full Name <span style={{color:N.orange}}>*</span></p>
+        <p style={{color:N.slateL,fontSize:11,marginBottom:10}}>Required - appears on your answer sheet and score report.</p>
+        <input value={nameInput} onChange={e=>setNameInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&canContinue){setCandidateName(nameInput.trim());loadCandidateTest();}}} placeholder="e.g. Jane Smith" style={{...inputStyle}} autoFocus/>
+        <div style={{display:"flex",gap:12}}>
+          <button onClick={()=>{if(canContinue){setCandidateName(nameInput.trim());loadCandidateTest();}}} disabled={!canContinue} style={{...btnStyle(true),background:canContinue?N.navy:N.border,cursor:canContinue?"pointer":"not-allowed"}}>Begin Assessment</button>
+          <button onClick={()=>{setPhase("welcome");setUserMode(null);setNameInput("");}} style={btnStyle(false)}>Back</button>
+        </div>
+      </div>
+    </div>
+  );}
+
+  if(phase==="no_test"){return(
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader/>
+      <div style={{maxWidth:"28rem",margin:"0 auto",padding:"80px 24px",textAlign:"center"}}>
+        <div style={{width:48,height:48,borderRadius:12,background:"#FDF3EC",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 16px"}}><div style={{width:24,height:24,border:"2px solid "+N.orange,borderRadius:4}}/></div>
+        <h2 style={{color:N.navy,fontSize:20,fontWeight:800,marginBottom:12}}>No Assessment Assigned</h2>
+        <p style={{color:N.slate,fontSize:13,lineHeight:1.6,marginBottom:24}}>No assessment has been published yet. Please contact your hiring coordinator.</p>
+        <button onClick={()=>{setPhase("welcome");setUserMode(null);}} style={btnStyle(true)}>Back to Home</button>
+      </div>
+    </div>
+  );}
+
+  if(phase==="password"){return(
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader/>
+      <div style={{maxWidth:"28rem",margin:"0 auto",padding:"80px 24px"}}>
+        <div style={{width:40,height:4,background:N.orange,borderRadius:2,marginBottom:16}}/>
+        <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:8}}>Company Setup</h2>
+        <p style={{color:N.slate,fontSize:14,marginBottom:24}}>Enter the administrator password to access configuration tools.</p>
+        <p style={{color:N.navy,fontSize:14,fontWeight:600,marginBottom:8}}>Password</p>
+        <input type="password" value={passwordInput} onChange={e=>{setPasswordInput(e.target.value);setPasswordError(false);}} onKeyDown={e=>{if(e.key==="Enter"){if(passwordInput===COMPANY_PASSWORD){setPasswordError(false);setPhase("company_name");}else{setPasswordError(true);setPasswordInput("");};}}} placeholder="Enter password" style={{...inputStyle,borderColor:passwordError?"#EF4444":N.border,marginBottom:passwordError?6:20}} autoFocus/>
+        {passwordError&&<p style={{color:"#DC2626",fontSize:12,marginBottom:14}}>Incorrect password. Please try again.</p>}
+        <div style={{display:"flex",gap:12}}>
+          <button onClick={()=>{if(passwordInput===COMPANY_PASSWORD){setPasswordError(false);setPhase("company_name");}else{setPasswordError(true);setPasswordInput("");}}} style={btnStyle(true)}>Continue</button>
+          <button onClick={()=>{setPhase("welcome");setUserMode(null);setPasswordInput("");setPasswordError(false);}} style={btnStyle(false)}>Back</button>
+        </div>
+        <p style={{color:N.slateXL,fontSize:11,marginTop:20}}>Default password: CFO2024</p>
+      </div>
+    </div>
+  );}
+
+  if(phase==="company_name"){return(
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader/>
+      <div style={{maxWidth:"36rem",margin:"0 auto",padding:"64px 24px"}}>
+        <div style={{width:40,height:4,background:N.orange,borderRadius:2,marginBottom:16}}/>
+        <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:8}}>Company Name</h2>
+        <p style={{color:N.slate,fontSize:14,marginBottom:24}}>Enter your company name to personalise all documents.</p>
+        <p style={{color:N.navy,fontSize:14,fontWeight:600,marginBottom:4}}>Company Name <span style={{color:N.slateL,fontWeight:400,fontSize:12}}>(optional)</span></p>
+        <input value={nameInput} onChange={e=>setNameInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"){setCompanyName(nameInput.trim());setPhase("config");}}} placeholder="e.g. Xelix, Portfolio Company A" style={{...inputStyle,maxWidth:380}} autoFocus/>
+        <div style={{display:"flex",gap:12}}>
+          <button onClick={()=>{setCompanyName(nameInput.trim());setPhase("config");}} style={btnStyle(true)}>Continue to Configuration</button>
+          <button onClick={()=>{setPhase("password");setNameInput("");}} style={btnStyle(false)}>Back</button>
+        </div>
+      </div>
+    </div>
+  );}
+
+  if(phase==="config"){const step=CONFIG_STEPS[cfgStep];return(
+    <div style={{minHeight:"100vh",background:"white"}}>
+      <AppHeader title={companyName||"CFO SKILL ASSESSMENT"} sub={"Step "+(cfgStep+1)+" of "+CONFIG_STEPS.length}/>
+      <div style={{maxWidth:"40rem",margin:"0 auto",padding:"40px 24px"}}>
+        <div style={{marginBottom:24}}><ProgressBar value={((cfgStep+1)/CONFIG_STEPS.length)*100}/></div>
+        <p style={{color:N.slateXL,fontSize:11,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:8}}>Company Configuration - {cfgStep+1} of {CONFIG_STEPS.length}</p>
+        <h2 style={{color:N.navy,fontSize:22,fontWeight:800,marginBottom:4}}>{step.label}</h2>
+        <p style={{color:N.slate,fontSize:13,marginBottom:20}}>{step.desc}</p>
+        <div style={{display:"flex",flexDirection:"column",gap:8}}>
+          {step.opts.map(opt=>{
+            const active=cfg[step.id]===opt.v;
+            return(<button key={String(opt.v)} onClick={()=>{const nc={...cfg,[step.id]:opt.v};setCfg(nc);if(cfgStep+1<CONFIG_STEPS.length)setCfgStep(cfgStep+1);else startCompanySetup(nc);}} style={{width:"100%",textAlign:"left",padding:"14px 20px",borderRadius:6,border:"1px solid "+(active?N.orange:N.border),background:active?"#FFF7F2":"white",color:active?N.orange:N.navy,fontSize:13,fontWeight:500,cursor:"pointer",transition:"all 0.15s"}}>{opt.l}</button>);
+          })}
+        </div>
+        {cfgStep>0&&<button onClick={()=>setCfgStep(cfgStep-1)} style={{marginTop:16,fontSize:11,fontWeight:600,color:N.slateL,background:"transparent",border:"none",cursor:"pointer"}}>Back</button>}
+      </div>
+    </div>
+  );}
+
+  if(phase==="edit"){return<EditPhase qPool={qPool} setQPool={setQPool} caseStudies={caseStudies} setCaseStudies={setCaseStudies} scenario={scenario} onPreview={m=>setPreview(m)} companyName={companyName} aiGenerated={aiGenerated} onPublish={publishTest} publishedAt={publishedAt}/>;}
+
+  if(phase==="assessment"&&curQ){
+    const ck=curQ.comp||curQ.competency;const comp=COMPETENCIES[ck];
+    const headerTitle=candidateName?(companyName?companyName+" - "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
+    return(
+      <div style={{minHeight:"100vh",background:"white"}}>
+        <AppHeader title={headerTitle} sub={"Part A - Question "+(qi+1)+" of 25"}/>
+        <div style={{maxWidth:"48rem",margin:"0 auto",padding:"32px 24px"}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
+            {comp&&<span style={{display:"inline-block",padding:"2px 8px",borderRadius:3,fontSize:10,fontWeight:700,color:comp.color,background:comp.lightBg,border:"1px solid "+comp.color+"33"}}>{comp.short}</span>}
+            <div style={{display:"flex",gap:3}}>{Array.from({length:25},(_,i)=><div key={i} style={{width:8,height:8,borderRadius:2,background:i<qi?N.navy:i===qi?N.orange:N.border}}/>)}</div>
+          </div>
+          <ProgressBar value={((qi+1)/25)*100}/>
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:32,marginTop:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+            <p style={{color:N.navy,fontSize:15,fontWeight:600,marginBottom:24,lineHeight:1.5}}>{curQ.question}</p>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:24}}>
+              {curQ.options.map((opt,i)=>{const isUser=sel===i;return(
+                <button key={i} onClick={()=>setSel(i)} style={{width:"100%",textAlign:"left",padding:"12px 20px",borderRadius:6,border:"1px solid "+(isUser?N.orange:N.border),background:isUser?"#FFF7F2":"white",color:isUser?N.orange:N.navy,fontSize:13,cursor:"pointer",display:"flex",alignItems:"flex-start",gap:12,transition:"all 0.15s"}}>
+                  <span style={{fontWeight:700,fontSize:11,color:isUser?N.orange:N.slateXL,flexShrink:0,marginTop:2}}>{String.fromCharCode(65+i)}.</span>
+                  {opt}
+                </button>
+              );})}
+            </div>
+            <button onClick={submitMcq} disabled={sel===null} style={{width:"100%",padding:"12px",background:sel===null?N.border:N.navy,color:"white",border:"none",borderRadius:6,fontSize:13,fontWeight:600,cursor:sel===null?"not-allowed":"pointer"}}>
+              {qi+1<25?"Next Question":"Continue to Case Study"}
+            </button>
+          </div>
+          <div style={{marginTop:20,display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8}}>
+            {Object.entries(COMPETENCIES).map(([ck2,v])=>{const cs=compScore(ck2);const active=ck===ck2;return(
+              <div key={ck2} style={{borderRadius:6,border:"1px solid "+(active?v.color:N.border),background:active?v.lightBg:"white",padding:"8px",textAlign:"center"}}>
+                <p style={{margin:"0 0 2px",fontSize:9,fontWeight:700,color:active?v.color:N.slateXL}}>{v.short}</p>
+                <p style={{margin:0,fontSize:13,fontWeight:700,color:N.navy}}>{cs.total>0?cs.correct+"/"+cs.total:"—"}</p>
+              </div>
+            );})}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if(phase==="scenario"&&scenario){
+    const sq=scenario.questions[sqi];const sqComp=sq.comp||sq.competency;
+    const headerTitle=candidateName?(companyName?companyName+" - "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
+    return(
+      <div style={{minHeight:"100vh",background:"white"}}>
+        <AppHeader title={headerTitle} sub={"Part B - S"+(sqi+1)+" of "+scenario.questions.length}/>
+        <div style={{maxWidth:"48rem",margin:"0 auto",padding:"32px 24px"}}>
+          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
+            <span style={{fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",padding:"4px 10px",borderRadius:4,border:"1px solid "+N.border,color:N.navy,background:N.bg}}>Part B - Case Study</span>
+            <span style={{color:N.slateL,fontSize:11,fontWeight:500}}>{"S"+(sqi+1)+" of "+scenario.questions.length}</span>
+          </div>
+          <ProgressBar value={((sqi+1)/scenario.questions.length)*100} color={N.navy}/>
+          {sqi===0&&(
+            <div style={{marginTop:20,borderRadius:8,padding:24,background:N.navy}}>
+              <p style={{margin:"0 0 10px",fontSize:10,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase"}}>{(scenario.companyName||"MERIDIAN SOFTWARE").toUpperCase()} - CFO ONBOARDING SCENARIO</p>
+              <p style={{margin:0,fontSize:13,color:"rgba(255,255,255,0.87)",lineHeight:1.7}}>{scenario.narrative}</p>
+            </div>
+          )}
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:32,marginTop:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+            {sqComp&&COMPETENCIES[sqComp]&&<div style={{marginBottom:16}}><span style={{display:"inline-block",padding:"2px 8px",borderRadius:3,fontSize:10,fontWeight:700,color:COMPETENCIES[sqComp].color,background:COMPETENCIES[sqComp].lightBg,border:"1px solid "+COMPETENCIES[sqComp].color+"33"}}>{COMPETENCIES[sqComp].short}</span></div>}
+            <p style={{color:N.navy,fontSize:15,fontWeight:600,marginBottom:24,lineHeight:1.5}}>{sq.question}</p>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:24}}>
+              {sq.options.map((opt,i)=>{const isUser=sSel===i;return(
+                <button key={i} onClick={()=>setSSel(i)} style={{width:"100%",textAlign:"left",padding:"12px 20px",borderRadius:6,border:"1px solid "+(isUser?N.orange:N.border),background:isUser?"#FFF7F2":"white",color:isUser?N.orange:N.navy,fontSize:13,cursor:"pointer",display:"flex",alignItems:"flex-start",gap:12,transition:"all 0.15s"}}>
+                  <span style={{fontWeight:700,fontSize:11,color:isUser?N.orange:N.slateXL,flexShrink:0,marginTop:2}}>{String.fromCharCode(65+i)}.</span>
+                  {opt}
+                </button>
+              );})}
+            </div>
+            <button onClick={submitScenario} disabled={sSel===null} style={{width:"100%",padding:"12px",background:sSel===null?N.border:N.navy,color:"white",border:"none",borderRadius:6,fontSize:13,fontWeight:600,cursor:sSel===null?"not-allowed":"pointer"}}>
+              {sqi+1<scenario.questions.length?"Next Question":"View Results"}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if(phase==="results"){
+    const mcqCorrect=mcqRes.filter(r=>r.correct).length;
+    const sCorrect=sRes.filter(r=>r.correct).length;
+    const total=mcqCorrect+sCorrect,totalMax=25+sRes.length;
+    const op=pct(total,totalMax);
+    const avgDiff=mcqRes.length?(mcqRes.reduce((s,r)=>s+r.d,0)/mcqRes.length).toFixed(1):0;
+    const level=op>=85?"Expert CFO":op>=70?"Senior CFO":op>=55?"Proficient CFO":"Developing CFO";
+    const exp=EXP[cfg.experience]||EXP.first;
+    const headerTitle=candidateName?(companyName?companyName+" - "+candidateName:candidateName):(companyName||"CFO SKILL ASSESSMENT");
+    return(
+      <div style={{minHeight:"100vh",background:"white"}}>
+        <AppHeader title={headerTitle} sub="Assessment Complete"/>
+        <div style={{maxWidth:"48rem",margin:"0 auto",padding:"32px 24px"}}>
+          <div style={{borderRadius:8,padding:24,marginBottom:20,display:"flex",alignItems:"flex-start",justifyContent:"space-between",gap:24,background:N.navy}}>
+            <div><p style={{fontSize:11,fontWeight:700,letterSpacing:"0.1em",color:N.orange,textTransform:"uppercase",margin:"0 0 12px"}}>OVERALL RESULT</p><p style={{fontSize:48,fontWeight:800,color:"white",margin:"0 0 4px"}}>{op}%</p><p style={{fontSize:13,color:"rgba(255,255,255,0.45)",margin:0}}>{total} of {totalMax} correct</p></div>
+            <div style={{textAlign:"right"}}>
+              <div style={{display:"inline-block",borderRadius:4,padding:"8px 16px",marginBottom:8,background:N.orange}}><p style={{color:"white",fontWeight:700,fontSize:13,margin:0}}>{level}</p></div>
+              <p style={{fontSize:11,color:"rgba(255,255,255,0.45)",margin:"4px 0 0"}}>Avg. difficulty: {DIFF_LABEL[Math.round(Number(avgDiff))]}</p>
+              <p style={{fontSize:11,color:"rgba(255,255,255,0.45)",margin:"2px 0 0"}}>{exp.label} - {cfg.arr}</p>
+            </div>
+          </div>
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:24,marginBottom:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+            <p style={{color:N.navy,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:16}}>Competency Performance</p>
+            {Object.entries(COMPETENCIES).map(([ck,v])=>{const cs=compScore(ck);const p2=pct(cs.correct,cs.total);return(
+              <div key={ck} style={{marginBottom:12}}>
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:v.color,fontSize:12,fontWeight:700}}>{v.label}</span><span style={{color:N.slate,fontSize:12}}>{cs.correct}/{cs.total} - {p2}%</span></div>
+                <div style={{width:"100%",height:8,background:N.bg,borderRadius:9999}}><div style={{height:8,borderRadius:9999,width:p2+"%",background:p2>=70?v.color:N.orange}}/></div>
+              </div>
+            );})}
+          </div>
+          <div style={{background:"white",border:"1px solid "+N.border,borderRadius:8,padding:24,marginBottom:20,boxShadow:"0 1px 2px rgba(0,0,0,0.05)"}}>
+            <p style={{color:N.navy,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:4}}>Documents</p>
+            <p style={{color:N.slateL,fontSize:12,marginBottom:16}}>Preview each document and use Print / Save as PDF.</p>
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              {[["test","Candidate Test","Parts A, B, C & D - no answers"],["sheet","Answer Sheet","Bubble grid for Parts A & B"],["cases","Case Studies & Evaluator Guide","Competency rubrics - hiring team only"],["key","Answer Key & Results","Full scoring - hiring manager only"]].map(([m,lbl,desc])=>(
+                <button key={m} onClick={()=>setPreview(m)} style={{padding:"12px 20px",background:m==="test"?N.navy:"white",color:m==="test"?"white":N.navy,border:m==="test"?"none":"1px solid "+N.border,borderRadius:6,fontSize:13,fontWeight:600,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                  <span>{lbl}</span>
+                  <span style={{fontSize:11,color:m==="test"?"rgba(255,255,255,0.6)":N.slateL}}>{desc}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+          <button onClick={reset} style={{padding:"10px 24px",background:"white",color:N.navy,border:"1px solid "+N.border,borderRadius:6,fontSize:13,fontWeight:600,cursor:"pointer"}}>Start Over</button>
+        </div>
+      </div>
+    );
+  }
+
+  return <div style={{minHeight:"100vh",background:"white",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{width:32,height:32,borderRadius:"50%",border:"4px solid transparent",borderTopColor:N.navy,animation:"spin 1s linear infinite"}}/></div>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>);
+</script>
+</body>
+</html>
